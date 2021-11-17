@@ -1,5 +1,10 @@
+const AWS = require("aws-sdk");
+const db = new AWS.DynamoDB.DocumentClient({ region: "us-east-2" });
 const axios = require("axios").default;
+
 exports.handler = (event, context, callback) => {
+  // import fetch from "node-fetch";
+
   // API Documentation (Requests to this API are limited to 300 requests per minute): https://raider.io/api#/mythic_plus/getApiV1MythicplusAffixes
   // Example of API request: https://raider.io/api/mythic-plus/rankings/runs?region=world&season=season-sl-1&dungeon=all&strict=false&affixes=tyrannical-inspiring-necrotic-prideful&&page=0&limit=0&minMythicLevel=0&maxMythicLevel=0&eventId=0&faction=&realm=&period=0&recent=false
   // How this script works: https://www.reddit.com/r/wow/comments/o5nocw/comment/h2ov91n/?utm_source=share&utm_medium=web2x&context=3
@@ -74,12 +79,23 @@ exports.handler = (event, context, callback) => {
   };
 
   const getDate = new Date();
-  const readableDate = getDate.toISOString().slice(0, 10).replace(/-/g, "/");
+  // const readableDate = getDate.toISOString().slice(0, 10).replace(/-/g, "/");
+  const readableDate = getDate.toISOString().replace(/-/g, "/");
 
-  const printData = async () => {
+  const saveData = async () => {
     const data = await organizeData();
-    console.log(readableDate, ":", data);
+    const params = {
+      Item: {
+        date: readableDate,
+        data: data,
+      },
+      TableName: "wow",
+    };
+    const returnData = db.put(params, (err, data) =>
+      err ? (err, null) : callback(null, JSON.stringify(data))
+    );
+    console.log(data);
+    return returnData;
   };
-
-  printData();
+  saveData();
 };

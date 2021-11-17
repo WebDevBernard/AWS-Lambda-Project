@@ -1,18 +1,24 @@
 {
   "name": "aws-lambda-project",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Purpose of this app is to automate logging in data used in a graph.",
+  "main": "script.js",
   "type": "module",
   "dependencies": {
-    "axios": "^0.24.0",
-    "node-fetch": "^3.1.0",
-    "require": "^2.4.20"
+    "axios": "^0.24.0"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WebDevBernard/AWS-Lambda-Project.git"
+  },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WebDevBernard/AWS-Lambda-Project/issues"
+  },
+  "homepage": "https://github.com/WebDevBernard/AWS-Lambda-Project#readme"
 }
