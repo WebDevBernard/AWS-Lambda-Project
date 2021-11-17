@@ -1,4 +1,6 @@
-import fetch from "node-fetch";
+import axios from "axios";
+// const axios = require("axios").default;
+// exports.handler = (event, context, callback) => {
 // API Documentation (Requests to this API are limited to 300 requests per minute): https://raider.io/api#/mythic_plus/getApiV1MythicplusAffixes
 // Example of API request: https://raider.io/api/mythic-plus/rankings/runs?region=world&season=season-sl-1&dungeon=all&strict=false&affixes=tyrannical-inspiring-necrotic-prideful&&page=0&limit=0&minMythicLevel=0&maxMythicLevel=0&eventId=0&faction=&realm=&period=0&recent=false
 // How this script works: https://www.reddit.com/r/wow/comments/o5nocw/comment/h2ov91n/?utm_source=share&utm_medium=web2x&context=3
@@ -6,7 +8,7 @@ import fetch from "node-fetch";
 
 // change season with this variable
 const season = "2";
-// change schedule with this array
+// change affixes with this array
 const schedule = [
   "Fortified-Bursting-Storming",
   "Tyrannical-Raging-Volcanic-Tormented",
@@ -41,21 +43,21 @@ const week12 = `https://raider.io/api/mythic-plus/rankings/runs?region=${region}
 const fetchData = async () => {
   try {
     const response = await Promise.all([
-      fetch(week1),
-      fetch(week2),
-      fetch(week3),
-      fetch(week4),
-      fetch(week5),
-      fetch(week6),
-      fetch(week7),
-      fetch(week8),
-      fetch(week9),
-      fetch(week10),
-      fetch(week11),
-      fetch(week12),
+      axios.get(week1),
+      axios.get(week2),
+      axios.get(week3),
+      axios.get(week4),
+      axios.get(week5),
+      axios.get(week6),
+      axios.get(week7),
+      axios.get(week8),
+      axios.get(week9),
+      axios.get(week10),
+      axios.get(week11),
+      axios.get(week12),
     ]);
-    const jsonData = response.map((res) => res.json());
-    const promiseData = await Promise.all(jsonData);
+
+    const promiseData = await Promise.all(response);
     return promiseData;
   } catch (err) {
     console.log("Could Not Return Request:", err);
@@ -67,7 +69,7 @@ const organizeData = async () => {
   let obj = {};
   for (let i = 0; i < data.length; i++) {
     // There are 20 rankings per page, lastPage = number of pages. Therefore 20 * lastPage = total number of characters
-    obj[`Week${i + 1}`] = data[i].rankings.ui.lastPage * 20;
+    obj[`Week${i + 1}`] = data[i].data.rankings.ui.lastPage * 20;
   }
   return obj;
 };
@@ -81,3 +83,4 @@ const printData = async () => {
 };
 
 printData();
+// };
