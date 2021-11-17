@@ -1,8 +1,6 @@
 ## About
 
-Purpose of this app is to automate logging in data used in a graph.
+Purpose of this app is to automate logging in some data from an external API
 
-- Using AWS Lambda and Cloudwatch to call on a function once every week.
-- Function fetches data from an external Api.
-- That data is logged into a database.
-- Data is used to plot a graph.
+- Automation uses AWS Lambda, Cloudwatch and DynamoDB
+- Front end uses GraphQL to query DynamoDB
