@@ -4,7 +4,7 @@ export default function fetchTodoList() {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      "x-api-key": "hZ2WlgolzLaT9uULgiPl5lOeBkn0ATu7lN3U7dTj",
+      "x-api-key": "",
     },
   })
     .then((response) => response.json())
