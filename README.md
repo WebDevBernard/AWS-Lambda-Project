@@ -7,7 +7,7 @@ An app that tracks week-to-week player engagement in World of Warcraft (WOW) Myt
 ### Important
 
 - The data right now is not accurate! I did not start the database until cycle 2 week 8 (week 20 since start of 9.1 Season 2). For this app to work correclty. The data needs to be logged at the start of the season.
-- I learned about this API through this Reddit post: [https://www.reddit.com/r/wow/comments/o5nocw/comment/h2ov91n/?utm_source=share&utm_medium=web2x&context=3](https://www.reddit.com/r/wow/comments/o5nocw/comment/h2ov91n/?utm_source=share&utm_medium=web2x&context=3)
+- I learned about the RaiderIO API through this Reddit post: [https://www.reddit.com/r/wow/comments/o5nocw/comment/h2ov91n/?utm_source=share&utm_medium=web2x&context=3](https://www.reddit.com/r/wow/comments/o5nocw/comment/h2ov91n/?utm_source=share&utm_medium=web2x&context=3)
 
 ### If you've never played WOW, this is what it does:
 
@@ -37,6 +37,31 @@ An app that tracks week-to-week player engagement in World of Warcraft (WOW) Myt
 - Zip the entirety of ./LambdaLayers/DemoLayer and upload it as a zip to your Lambda Layer
 - In IAM, attach a policy to enable your Lambda function full access to DynamoDB
 - Schedule a CloudWatch event to invoke the function.
+- Example of returned JSON data:
+
+```
+{
+ "date": "2021/11/18T00:39:29",
+ "season": "2",
+ "days": 135,
+ "cycle": 2,
+ "weeks": {
+  "1": 589720,
+  "2": 1562120,
+  "3": 1677500,
+  "4": 1318340,
+  "5": 1225220,
+  "6": 1258240,
+  "7": 1162180,
+  "8": 1395480,
+  "9": 794500,
+  "10": 671400,
+  "11": 549420,
+  "12": 574420
+ }
+}
+
+```
 
 ### Other Features that still need to be implemented:
 
