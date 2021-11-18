@@ -5,6 +5,8 @@
   "main": "script.js",
   "type": "module",
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.41.0",
+    "aws-sdk": "^2.1031.0",
     "axios": "^0.24.0"
   },
   "devDependencies": {},

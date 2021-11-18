@@ -93,10 +93,10 @@ exports.handler = (event, context, callback) => {
     const cycle = await findCurrentCycle();
     const params = {
       Item: {
-        date: readableDate,
+        date: `${readableDate}PST`,
         season: parseInt(season),
-        cycle: cycle,
-        weeks: data,
+        week: cycle,
+        affix: data,
       },
       TableName: "wow",
     };
