@@ -43,10 +43,14 @@ exports.handler = (event, context, callback) => {
   const week12 = `https://raider.io/api/mythic-plus/rankings/runs?region="world"&season=season-sl-${season}&dungeon=all&strict=false&affixes=${schedule[11]}&&page=0&limit=0&minMythicLevel=0&maxMythicLevel=0&eventId=0&faction=&realm=&period=0&recent=false`;
 
   // This function determines which cyle
+
   const getStartDate = new Date(startDate);
   const getCurrentDate = new Date();
+  const utcDate = new Date(getCurrentDate.toUTCString());
+  utcDate.setHours(utcDate.getHours() - 8);
+  const formatPstDate = new Date(utcDate);
   const formatDate = 1000 * 60 * 60 * 24;
-  const diff = Math.floor((getCurrentDate - getStartDate) / formatDate);
+  const diff = Math.floor((formatPstDate - getStartDate) / formatDate);
 
   const findCurrentCycle = async () => {
     let numberOfCycles = 1;
@@ -99,8 +103,7 @@ exports.handler = (event, context, callback) => {
   };
 
   // date key
-  const getDate = new Date();
-  const readableDate = getDate.toISOString().slice(0, 19).replace(/-/g, "/");
+  const readableDate = formatPstDate.toISOString().slice(0, 19);
 
   const writeData = async () => {
     const data = await assignKeyToData();
