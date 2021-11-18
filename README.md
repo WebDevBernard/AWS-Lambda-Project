@@ -4,7 +4,7 @@
 
 - This app is partially automated using AWS Lambda and CloudWatch events. It only needs to be updated at the start of each season. The data comes from Raider.io API, but a database is required to make this data useful.
 
-- [This Reddit post explains what information is extracted.](https://www.reddit.com/r/wow/comments/o5nocw/comment/h2ov91n/?utm_source=share&utm_medium=web2x&context=3)
+- [This Reddit post explains what information is being extracted.](https://www.reddit.com/r/wow/comments/o5nocw/comment/h2ov91n/?utm_source=share&utm_medium=web2x&context=3)
 
 ### How does it work?
 

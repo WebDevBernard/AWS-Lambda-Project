@@ -3,7 +3,7 @@ require("dotenv").config();
 
 function App() {
   const [loadData, setLoadData] = useState({
-    schedule: [{ date: "", season: "", days:"", cycle }],
+    schedule: [{ item: "" }],
   });
   fetch(process.env.REACT_APP_API_URL, {
     method: "GET",
@@ -26,7 +26,7 @@ function App() {
     <>
       <div>
         {loadData.schedule.map((item) => {
-          return <li>{item.weeks[1]}</li>;
+          return <li>{item[0].weeks}</li>;
         })}
       </div>
     </>

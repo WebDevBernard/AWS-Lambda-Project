@@ -26,7 +26,7 @@ exports.handler = (event, context, callback) => {
 
   //  REQUIRED change the starting date
   const startDate = "July 6, 2021";
-  //  OPTIONAL change the date
+  //  OPTIONAL change the day of the week this function is called
   const apiCallDate = 6; // 8=mon, 7=tues, 6=wed, 5=thurs, 4=fri 12:00pst
   // <========= END OF REQUIRED CHANGES =========>
 
