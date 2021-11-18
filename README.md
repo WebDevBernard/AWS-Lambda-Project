@@ -60,7 +60,6 @@ An app that tracks week-to-week player engagement in World of Warcraft (WOW) Myt
   "12": 574420
  }
 }
-
 ```
 
 ### Other Features that still need to be implemented:
