@@ -27,7 +27,7 @@ exports.handler = (event, context, callback) => {
   //  REQUIRED change the starting date
   const startDate = "July 6, 2021";
   //  OPTIONAL change the day of the week this function is called
-  const apiCallDate = 6; // 8=mon, 7=tues, 6=wed, 5=thurs, 4=fri 12:00pst
+  const apiCallDate = 4; // 8=mon, 7=tues, 6=wed, 5=thurs, 4=fri 12:00pst
   // <========= END OF REQUIRED CHANGES =========>
 
   // change this only if you need to modify a hardcoded parameter
@@ -52,7 +52,7 @@ exports.handler = (event, context, callback) => {
   const formatPstDate = new Date(utcDate);
   const formatDate = 1000 * 60 * 60 * 24;
   const diff = Math.floor((formatPstDate - getStartDate) / formatDate);
-  const findCurrentCycle = () => (diff + apiCallDate) / 7;
+  const findCurrentCycle = () => Math.round((diff + apiCallDate) / 7);
 
   const fetchData = async () => {
     try {

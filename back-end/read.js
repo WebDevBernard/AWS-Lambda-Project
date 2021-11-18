@@ -1,11 +1,11 @@
-var AWS = require("aws-sdk");
-const db = new DynamoDBClient({ region: "us-east-2" });
+const AWS = require("aws-sdk");
+const db = new AWS.DynamoDB.DocumentClient({ region: "us-east-2" });
 
-const params = {
-  TableName: "wow",
+exports.handler = (event, context, callback) => {
+  const params = {
+    TableName: "wow",
+  };
+  db.scan(params, (err, data) =>
+    err ? callback(err, null) : callback(null, data.Items)
+  );
 };
-db.query(params, (err, data) =>
-  err ? callback(err, null) : callback(null, data.Items)
-);
-
-fetchOneByKey();
