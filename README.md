@@ -26,12 +26,13 @@ An app that tracks week-to-week player engagement in World of Warcraft (WOW) Myt
 
 - Create a database in DynamoDB and name the table to "wow", and key to "date" (string).
 - Copy the entire write.js function into AWS Lambda index.js file.
-- Make sure in write.js, update these variables:
+- Make sure in write.js to update these variables accordingly:
 
-- `const season`<br/>
-- `const schedule`<br/>
-- `const startDate`<br/>
+`const season`<br/>
+`const schedule`<br/>
+`const startDate`<br/>
 
+- Zip the entirety of ./LambdaLayers/DemoLayer and upload it as a zip to your Lambda Layer
 - In IAM, attach a policy to enable your Lambda function full access to DynamoDB
 - Schedule a CloudWatch event to invoke the function.
 
