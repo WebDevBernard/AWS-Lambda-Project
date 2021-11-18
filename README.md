@@ -3,11 +3,13 @@
 An app that tracks week-to-week player engagement in World of Warcraft (WOW) Mythic +.
 
 - This app is automated using AWS Lambda and CloudWatch events. It only needs to be updated at the start of each season.
-- This data right now is not accurate! I did not start the database until cycle 2 week 8 (week 20 since start of 9.1 Season 2)
-- I will update it at the start of the next season to show the correct player data.
+
+### Important
+
+- The data right now is not accurate! I did not start the database until cycle 2 week 8 (week 20 since start of 9.1 Season 2). For this app to work correclty. The data needs to be logged at the start of the season.
 - I learned about this API through this Reddit post: [https://www.reddit.com/r/wow/comments/o5nocw/comment/h2ov91n/?utm_source=share&utm_medium=web2x&context=3](https://www.reddit.com/r/wow/comments/o5nocw/comment/h2ov91n/?utm_source=share&utm_medium=web2x&context=3)
 
-### What does it do?
+### If you've never played WOW, this is what it does:
 
 - In WOW, one popular gameplay mode is the 5 man dungeon. Without going into too much detail, every week there is a different rotation of "affixes" - difficulty modifiers (e.g. bossses have +30% extra health, or mobs have +30% extra damage, and many others).
 - Affixes are on a 12 week rotation.
