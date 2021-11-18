@@ -11,7 +11,7 @@ import axios from "axios";
 const season = "2";
 // change affixes with this array
 const schedule = [
-  "Fortified-Bursting-Storming",
+  "Fortified-Bursting-Storming-Tormented",
   "Tyrannical-Raging-Volcanic-Tormented",
   "Fortified-Inspiring-Grievous-Tormented",
   "Tyrannical-Spiteful-Necrotic-Tormented",
@@ -57,29 +57,27 @@ const fetchData = async () => {
       axios.get(week11),
       axios.get(week12),
     ]);
-
-    const promiseData = await Promise.all(response);
-    return promiseData;
+    return response;
   } catch (err) {
-    console.log("Could Not Return Request:", err);
+    console.log("Axios Error:", err);
   }
 };
 
-const organizeData = async () => {
+const assignKeyToData = async () => {
   const data = await fetchData();
   let obj = {};
   for (let i = 0; i < data.length; i++) {
-    // There are 20 rankings per page, lastPage = number of pages. Therefore 20 * lastPage = total number of characters
-    obj[`Week${i + 1}`] = data[i].data.rankings.ui.lastPage * 20;
+    obj[i + 1] = data[i].data.rankings.ui.lastPage * 20;
   }
   return obj;
 };
 
+// date key
 const getDate = new Date();
-const readableDate = getDate.toISOString().slice(0, 10).replace(/-/g, "/");
+const readableDate = getDate.toISOString().slice(0, 19).replace(/-/g, "/");
 
 const printData = async () => {
-  const data = await organizeData();
+  const data = await assignKeyToData();
   console.log(readableDate, ":", data);
 };
 
