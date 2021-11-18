@@ -51,26 +51,9 @@ exports.handler = (event, context, callback) => {
   const formatPstDate = new Date(utcDate);
   const formatDate = 1000 * 60 * 60 * 24;
   const diff = Math.floor((formatPstDate - getStartDate) / formatDate);
+  // api is called every wednesday
+  const findCurrentCycle = () => (diff - 1) / 7;
 
-  const findCurrentCycle = async () => {
-    let numberOfCycles = 1;
-    if (diff >= 420) {
-      return (numberOfCycles = 6);
-    }
-    if (diff >= 336) {
-      return (numberOfCycles = 5);
-    }
-    if (diff >= 252) {
-      return (numberOfCycles = 4);
-    }
-    if (diff >= 168) {
-      return (numberOfCycles = 3);
-    }
-    if (diff >= 84) {
-      return (numberOfCycles = 2);
-    }
-    return numberOfCycles;
-  };
   const fetchData = async () => {
     try {
       const response = await Promise.all([
