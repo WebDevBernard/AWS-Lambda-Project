@@ -26,6 +26,8 @@ exports.handler = (event, context, callback) => {
 
   //  REQUIRED change the starting date
   const startDate = "July 6, 2021";
+  //  OPTIONAL change the date
+  const apiCallDate = 6; // 8=mon, 7=tues, 6=wed, 5=thurs, 4=fri 12:00pst
   // <========= END OF REQUIRED CHANGES =========>
 
   // change this only if you need to modify a hardcoded parameter
@@ -42,8 +44,7 @@ exports.handler = (event, context, callback) => {
   const week11 = `https://raider.io/api/mythic-plus/rankings/runs?region="world"&season=season-sl-${season}&dungeon=all&strict=false&affixes=${schedule[10]}&&page=0&limit=0&minMythicLevel=0&maxMythicLevel=0&eventId=0&faction=&realm=&period=0&recent=false`;
   const week12 = `https://raider.io/api/mythic-plus/rankings/runs?region="world"&season=season-sl-${season}&dungeon=all&strict=false&affixes=${schedule[11]}&&page=0&limit=0&minMythicLevel=0&maxMythicLevel=0&eventId=0&faction=&realm=&period=0&recent=false`;
 
-  // This function determines which cyle
-
+  // This function determines which cycle
   const getStartDate = new Date(startDate);
   const getCurrentDate = new Date();
   const utcDate = new Date(getCurrentDate.toUTCString());
@@ -51,8 +52,7 @@ exports.handler = (event, context, callback) => {
   const formatPstDate = new Date(utcDate);
   const formatDate = 1000 * 60 * 60 * 24;
   const diff = Math.floor((formatPstDate - getStartDate) / formatDate);
-  // api is called every wednesday
-  const findCurrentCycle = () => (diff - 1) / 7;
+  const findCurrentCycle = () => (diff + apiCallDate) / 7;
 
   const fetchData = async () => {
     try {
@@ -94,10 +94,9 @@ exports.handler = (event, context, callback) => {
     const params = {
       Item: {
         date: readableDate,
-        season: season,
+        season: parseInt(season),
         cycle: cycle,
         weeks: data,
-        days: diff,
       },
       TableName: "wow",
     };
