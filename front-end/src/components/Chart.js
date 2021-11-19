@@ -6,13 +6,12 @@ export default function Chart({ loadData }) {
 
   const startDate = 19;
   //  <========= Required Change Ends Here: =========>
-
+  // finds the current season
+  const filterSeason = loadData.filter((item) => {
+    return item.season === season;
+  });
   // finds the current week and affix
   const filterAffix = (currentWeek, currentRotation) => {
-    // finds the current season
-    const filterSeason = loadData.filter((item) => {
-      return item.season === season;
-    });
     filterSeason
       .filter((item) => {
         return item.week === currentWeek;
