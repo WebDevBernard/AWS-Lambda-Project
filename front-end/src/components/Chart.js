@@ -4,7 +4,7 @@ export default function Chart({ loadData }) {
   //  <========= Required Change Starts Here: =========>
   const season = 2;
 
-  const startDate = 19;
+  const startWeek = 20;
   //  <========= Required Change Ends Here: =========>
   // finds the current season
   const filterSeason = loadData.filter((item) => {
@@ -79,13 +79,13 @@ export default function Chart({ loadData }) {
   const labelLength = () => {
     let arr = [];
     for (let i = 0; i < formatSchedule().length; i++) {
-      arr.push(`Week ${startDate + i + 1}`);
+      arr.push(`Week ${startWeek + i}`);
     }
     return arr;
   };
 
-  const affixObject = filterSeason[0].affixes;
   const putAffixInArray = () => {
+    const affixObject = filterSeason[0].affixes;
     let arr = [];
     for (let i = 0; i < scheduleCalculate().length; i++)
       for (let j = 0; j < affixObject.length; j++) {
@@ -97,7 +97,7 @@ export default function Chart({ loadData }) {
   const renderAffixList = () => {
     let arr = [];
     for (let i = 0; i < formatSchedule().length; i++) {
-      arr.push(`Week ${startDate + i + 1} ${putAffixInArray()[startDate + i]}`);
+      arr.push(`Week ${startWeek + i} ${putAffixInArray()[startWeek + i - 1]}`);
     }
     return arr;
   };

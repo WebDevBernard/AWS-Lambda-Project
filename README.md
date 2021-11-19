@@ -60,4 +60,4 @@
 
 ## Extra
 
-- At the start of the season remember to update these Lambda function constants: `season` `schedule` `startDate` and these front end constants in Chart.js: `season` `startDate`
+- At the start of the season remember to update these Lambda function constants: `season` `schedule` `startDate` and these front end constants in Chart.js: `season` `startWeek`
