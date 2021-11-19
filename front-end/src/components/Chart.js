@@ -1,23 +1,18 @@
 import { Line } from "react-chartjs-2";
 import classes from "./Chart.module.css";
 export default function Chart({ loadData }) {
-  //  <========= Required Change Season Here: =========>
+  //  <========= Required Change Starts Here: =========>
   const season = 2;
-  // finds the current season
-  const filterSeason = loadData.filter((item) => {
-    return item.season === season;
-  });
-  // finds the current cycle
-  const minCycle = (week) =>
-    filterSeason.filter((item) => {
-      return item.week <= week;
-    });
-  const maxCycle = (week) =>
-    filterSeason.filter((item) => {
-      return item.week >= week;
-    });
+
+  const startDate = 19;
+  //  <========= Required Change Ends Here: =========>
+
   // finds the current week and affix
-  const filterAffix = (currentWeek, currentRotation) =>
+  const filterAffix = (currentWeek, currentRotation) => {
+    // finds the current season
+    const filterSeason = loadData.filter((item) => {
+      return item.season === season;
+    });
     filterSeason
       .filter((item) => {
         return item.week === currentWeek;
@@ -25,8 +20,18 @@ export default function Chart({ loadData }) {
       .map((item) => {
         return item.rotation[currentRotation];
       });
+  };
   // calculates the weekly total # of players
   const scheduleCalculate = () => {
+    // finds the current cycle
+    const minCycle = (week) =>
+      filterSeason.filter((item) => {
+        return item.week <= week;
+      });
+    const maxCycle = (week) =>
+      filterSeason.filter((item) => {
+        return item.week >= week;
+      });
     let arr = [];
     if (minCycle(12)) {
       for (let j = 1; j <= 12; j++) {
@@ -74,7 +79,7 @@ export default function Chart({ loadData }) {
   const labelLength = () => {
     let arr = [];
     for (let i = 0; i < formatSchedule().length; i++) {
-      arr.push(`Week ${19 + i + 1}`);
+      arr.push(`Week ${startDate + i + 1}`);
     }
     return arr;
   };
