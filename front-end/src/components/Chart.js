@@ -11,7 +11,6 @@ export default function Chart({ loadData }) {
     return item.season === season;
   });
 
-  filterSeason.affix;
   // finds the current cycle
   const minCycle = (week) =>
     filterSeason.filter((item) => {
@@ -30,6 +29,7 @@ export default function Chart({ loadData }) {
       .map((item) => {
         return item.rotation[currentRotation];
       });
+
   // calculates the weekly total # of players
   const scheduleCalculate = () => {
     let arr = [];
@@ -84,6 +84,24 @@ export default function Chart({ loadData }) {
     return arr;
   };
 
+  const affixObject = filterSeason[0].affixes;
+  const putAffixInArray = () => {
+    let arr = [];
+    for (let i = 0; i < scheduleCalculate().length; i++)
+      for (let j = 0; j < affixObject.length; j++) {
+        arr.push(affixObject[j]);
+      }
+    return arr;
+  };
+
+  const renderAffixList = () => {
+    let arr = [];
+    for (let i = 0; i < formatSchedule().length; i++) {
+      arr.push(`Week ${startDate + i + 1} ${putAffixInArray()[startDate + i]}`);
+    }
+    return arr;
+  };
+  console.log(renderAffixList());
   const data = {
     labels: labelLength(),
     datasets: [
@@ -112,9 +130,18 @@ export default function Chart({ loadData }) {
     },
   };
   const legend = {};
+  const generateKey = (pre) => {
+    return `${Math.random()}_${new Date().getTime()}`;
+  };
+
   return (
     <>
       <Line className={classes.chart} options={options} data={data} />
+      <ul>
+        {renderAffixList().map((list) => (
+          <li key={generateKey(list)}>{list}</li>
+        ))}
+      </ul>
     </>
   );
 }
