@@ -41,9 +41,14 @@ function App() {
                 {loadData[key].week}
               </p>
               <ul>
-                {Object.keys(loadData[key].affix).map((affixKey) => (
-                  <li key={generateKey(loadData[key].affix[affixKey])}>
-                    {affixKey}:{loadData[key].affix[affixKey]}
+                {loadData[key].affixes.map((affixDetail) => (
+                  <li key={generateKey(affixDetail)}>{affixDetail}</li>
+                ))}
+              </ul>
+              <ul>
+                {Object.keys(loadData[key].rotation).map((affixKey) => (
+                  <li key={generateKey(loadData[key].rotation[affixKey])}>
+                    {affixKey}:{loadData[key].rotation[affixKey]}
                   </li>
                 ))}
               </ul>
