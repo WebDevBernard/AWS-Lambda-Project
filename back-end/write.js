@@ -96,7 +96,8 @@ exports.handler = (event, context, callback) => {
         date: `${readableDate}PST`,
         season: parseInt(season),
         week: cycle,
-        affix: data,
+        rotation: data,
+        affixes: schedule,
       },
       TableName: "wow",
     };

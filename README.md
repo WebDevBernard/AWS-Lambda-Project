@@ -21,23 +21,39 @@
 ### Example of database file
 
 ```
-{
- "date": "2021-11-18T15:11:54PST",
- "week": 20,
- "season": 2,
- "affix": {
-  "1": 589720,
-  "2": 1562120,
-  "3": 1677500,
-  "4": 1318340,
-  "5": 1225220,
-  "6": 1258240,
-  "7": 1162200,
-  "8": 1395720,
-  "9": 843960,
-  "10": 671400,
-  "11": 549420,
-  "12": 574420
- }
-}
+[
+    {
+        "week": 20,
+        "date": "2021-11-18T16:37:27PST",
+        "rotation": {
+            "1": 589720,
+            "2": 1562120,
+            "3": 1677500,
+            "4": 1318340,
+            "5": 1225220,
+            "6": 1258240,
+            "7": 1162200,
+            "8": 1395720,
+            "9": 847320,
+            "10": 671400,
+            "11": 549420,
+            "12": 574420
+        },
+        "season": 2,
+        "affixes": [
+            "Fortified-Bursting-Storming-Tormented",
+            "Tyrannical-Raging-Volcanic-Tormented",
+            "Fortified-Inspiring-Grievous-Tormented",
+            "Tyrannical-Spiteful-Necrotic-Tormented",
+            "Fortified-Bolstering-Quaking-Tormented",
+            "Tyrannical-Sanguine-Storming-Tormented",
+            "Fortified-Raging-Explosive-Tormented",
+            "Tyrannical-Bursting-Volcanic-Tormented",
+            "Fortified-Spiteful-Grievous-Tormented",
+            "Tyrannical-Inspiring-Quaking-Tormented",
+            "Fortified-Sanguine-Necrotic-Tormented",
+            "Tyrannical-Bolstering-Explosive-Tormented"
+        ]
+    }
+]
 ```
