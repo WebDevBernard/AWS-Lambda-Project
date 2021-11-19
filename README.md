@@ -2,11 +2,11 @@
 
 ### [View Live Demo](https://mythicdungeons.vercel.app/)
 
-- Please Note, this data is taken from week 20 onwards, therefore is not accurate.
+- Please note, this data was taken from week 20 onwards, therefore is not accurate.
 
 ## About
 
-- An app that models player engagement data in World of Warcraft Mythic + Dungeons.
+- An app that models player engagement data in World of Warcraft Mythic+ Dungeons.
 
 - This app is partially automated using AWS Lambda and CloudWatch events. It only needs to be updated at the start of each season. The data comes from Raider.io API, but a database is required to make this data useful.
 

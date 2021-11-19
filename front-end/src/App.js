@@ -4,7 +4,7 @@ require("dotenv").config();
 
 function App() {
   const [loadData, setLoadData] = useState();
-  const [isLoading, setIsLoading] = useState();
+  // const [isLoading, setIsLoading] = useState();
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -19,7 +19,7 @@ function App() {
       } catch (err) {
         console.log(err);
       }
-      setIsLoading(false);
+      // setIsLoading(false);
     };
     fetchData();
   }, []);

@@ -1,11 +1,8 @@
-import { Line, Bar } from "react-chartjs-2";
-
+import { Line } from "react-chartjs-2";
+import classes from "./Chart.module.css";
 export default function Chart({ loadData }) {
   // Required Change Season Here:
   const season = 2;
-  const generateKey = (pre) => {
-    return `${pre}_${new Date().getTime()}`;
-  };
 
   // finds the current season, then the week and then current affix rotation
   const uglyFilter = (currentWeek, currentRotation) =>
@@ -141,7 +138,7 @@ export default function Chart({ loadData }) {
     uglyFilter(16, 4) -
     uglyFilter(4, 4);
 
-  const graphArray = new Array(
+  const graphArray = [
     week1,
     week2,
     week3,
@@ -193,36 +190,49 @@ export default function Chart({ loadData }) {
     week49,
     week50,
     week51,
-    week52
-  );
+    week52,
+  ];
 
   const formatedArray = graphArray.filter((item) => item > 0);
+  const labelLength = () => {
+    let arr = [];
+    for (let i = 0; i < formatedArray.length; i++) {
+      arr.push(`Week ${19 + i + 1}`);
+    }
+    return arr;
+  };
   console.log(formatedArray);
   const data = {
-    labels: [19, 20, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    labels: labelLength(),
     datasets: [
       {
-        label: "First dataset",
         data: formatedArray,
         fill: true,
-        backgroundColor: "rgba(75,192,192,0.2)",
-        borderColor: "rgba(75,192,192,1)",
+        borderColor: "deeppink",
       },
     ],
-    options: {
-      plugins: {
-        legend: {
-          display: true,
-          labels: {
-            color: "rgb(255, 99, 132)",
-          },
+  };
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "top",
+      },
+      title: {
+        display: true,
+        text: `World of Warcraft Shadowlands Mythic+ Season ${season}`,
+        tooltip: {
+          enabled: false,
+          position: "nearest",
+          // external: externalTooltipHandler,
         },
       },
     },
   };
+  const legend = {};
   return (
     <>
-      <Line data={data} />
+      <Line className={classes.chart} options={options} data={data} />
     </>
   );
 }
