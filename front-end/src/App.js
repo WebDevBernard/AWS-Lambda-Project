@@ -1,3 +1,4 @@
+import Chart from "./components/Chart";
 import { useState, useEffect } from "react";
 require("dotenv").config();
 
@@ -26,36 +27,10 @@ function App() {
   if (!loadData) {
     return <div>Loading...</div>;
   }
-  const generateKey = (pre) => {
-    return `${pre}_${new Date().getTime()}`;
-  };
+
   return (
     <>
-      <div>
-        {Object.keys(loadData).map((key, i) => {
-          return (
-            <div key={loadData[key].date} id={loadData[key].date}>
-              <p>
-                Date : {loadData[key].date}, Season:{loadData[key].season}
-                Week:
-                {loadData[key].week}
-              </p>
-              <ul>
-                {loadData[key].affixes.map((affixDetail) => (
-                  <li key={generateKey(affixDetail)}>{affixDetail}</li>
-                ))}
-              </ul>
-              <ul>
-                {Object.keys(loadData[key].rotation).map((affixKey) => (
-                  <li key={generateKey(loadData[key].rotation[affixKey])}>
-                    {affixKey}:{loadData[key].rotation[affixKey]}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          );
-        })}
-      </div>
+      <Chart loadData={loadData} />
     </>
   );
 }
