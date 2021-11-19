@@ -10,8 +10,17 @@ export default function Chart({ loadData }) {
   const filterSeason = loadData.filter((item) => {
     return item.season === season;
   });
+  // finds the current cycle
+  const minCycle = (week) =>
+    filterSeason.filter((item) => {
+      return item.week <= week;
+    });
+  const maxCycle = (week) =>
+    filterSeason.filter((item) => {
+      return item.week >= week;
+    });
   // finds the current week and affix
-  const filterAffix = (currentWeek, currentRotation) => {
+  const filterAffix = (currentWeek, currentRotation) =>
     filterSeason
       .filter((item) => {
         return item.week === currentWeek;
@@ -19,18 +28,8 @@ export default function Chart({ loadData }) {
       .map((item) => {
         return item.rotation[currentRotation];
       });
-  };
   // calculates the weekly total # of players
   const scheduleCalculate = () => {
-    // finds the current cycle
-    const minCycle = (week) =>
-      filterSeason.filter((item) => {
-        return item.week <= week;
-      });
-    const maxCycle = (week) =>
-      filterSeason.filter((item) => {
-        return item.week >= week;
-      });
     let arr = [];
     if (minCycle(12)) {
       for (let j = 1; j <= 12; j++) {
