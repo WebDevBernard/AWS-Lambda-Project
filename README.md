@@ -2,7 +2,7 @@
 
 ### [View Live Demo](https://mythicdungeons.vercel.app/)
 
-- This data is taken from week 20 onwards, therefore is not accurate at the moment.
+- Please Note, this data is taken from week 20 onwards, therefore is not accurate.
 
 ## About
 
@@ -15,7 +15,7 @@
 ### How does it work?
 
 - CloudWatch schedules AWS Lambda to make a weekly fetch request to Raider.io API
-- AWS Lambda writes that data to DynamoDB.
+- AWS Lambda function writes that data to DynamoDB.
 - Front end retrieves data from a Lambda read function connected to API Gateway
 
 ### Example of database file
