@@ -10,6 +10,8 @@ export default function Chart({ loadData }) {
   const filterSeason = loadData.filter((item) => {
     return item.season === season;
   });
+
+  filterSeason.affix;
   // finds the current cycle
   const minCycle = (week) =>
     filterSeason.filter((item) => {
