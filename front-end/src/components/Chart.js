@@ -4,7 +4,7 @@ import classes from "./Chart.module.css";
 import "chartjs-plugin-datalabels";
 import { Chart as Chartjs } from "chart.js";
 import ChartDataLabels from "chartjs-plugin-datalabels";
-import { Hidden } from "@mui/material";
+
 Chartjs.register(ChartDataLabels);
 export default function Chart({ loadData, season, startWeek, expansionName }) {
   // finds the current expansion and season
@@ -142,8 +142,6 @@ export default function Chart({ loadData, season, startWeek, expansionName }) {
       datalabels: {
         display: true,
         anchor: "end",
-        align: "right",
-
         formatter: function (value, context) {
           return value.toLocaleString().replaceAll(" ", ", ");
         },
