@@ -1,32 +1,49 @@
-import {
-  Table,
-  TableBody,
-  TableHead,
-  TableCell,
-  TableRow,
-} from "@mui/material";
+import { Table, TableBody, TableHead, TableRow, styled } from "@mui/material";
+import TableCell, { tableCellClasses } from "@mui/material/TableCell";
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 14,
+  },
+}));
+
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+  "&:nth-of-type(odd)": {
+    backgroundColor: theme.palette.action.hover,
+  },
+  // hide last border
+  "&:last-child td, &:last-child th": {
+    border: 0,
+  },
+}));
+
 export default function List({ renderAffixList }) {
   const generateKey = () => {
     return `${Math.random()}_${new Date().getTime()}`;
   };
   return (
-    <Table sx={{ minWidth: 650 }} aria-label="simple table">
+    <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
       <TableHead>
         <TableRow>
-          <TableCell>Week</TableCell>
-          <TableCell>Affixes</TableCell>
+          <StyledTableCell>Week</StyledTableCell>
+          <StyledTableCell>Affixes</StyledTableCell>
         </TableRow>
       </TableHead>
 
       <TableBody>
         {renderAffixList().map((list) => (
-          <TableRow
+          <StyledTableRow
             key={generateKey(list)}
-            // sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+            sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
           >
-            <TableCell>{list.split("-")[0]}</TableCell>
-            <TableCell>{list.split("-").slice(1, 5).join(", ")}</TableCell>
-          </TableRow>
+            <StyledTableCell>{list.split("-")[0]}</StyledTableCell>
+            <StyledTableCell>
+              {list.split("-").slice(1, 5).join(", ")}
+            </StyledTableCell>
+          </StyledTableRow>
         ))}
       </TableBody>
     </Table>

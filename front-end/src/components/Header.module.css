@@ -1,0 +1,23 @@
+.header {
+  border-bottom: 1px solid rgba(55, 65, 81, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  top: 0;
+  z-index: 5;
+  height: 3rem;
+  padding: 0 3%;
+}
+
+.title {
+  display: flex;
+  justify-content: space-around;
+}
+.title a {
+  color: black;
+  font-family: "Roboto";
+  font-weight: lighter;
+  font-size: 20px;
+  text-align: right;
+  text-decoration: none;
+}

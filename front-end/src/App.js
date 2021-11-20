@@ -1,5 +1,6 @@
 import Chart from "./components/Chart";
 import Loading from "./components/Loading";
+import Header from "./components/Header";
 import { useState, useEffect } from "react";
 require("dotenv").config();
 //  <========= Required Change Starts Here: =========>
@@ -32,6 +33,7 @@ function App() {
 
   return (
     <>
+      <Header expansionName={expansionName} season={season} />
       {!loadData ? (
         <Loading />
       ) : (

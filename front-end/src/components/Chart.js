@@ -1,7 +1,12 @@
 import { Line } from "react-chartjs-2";
 import List from "./List";
 import classes from "./Chart.module.css";
-export default function Chart({ loadData, season, startWeek, expansionName }) {
+import "chartjs-plugin-datalabels";
+import { Chart as Chartjs } from "chart.js";
+import ChartDataLabels from "chartjs-plugin-datalabels";
+import { Hidden } from "@mui/material";
+Chartjs.register(ChartDataLabels);
+export default function Chart({ loadData, season, startWeek }) {
   // finds the current season
   const filterSeason = loadData.filter((item) => {
     return item.season === season;
@@ -104,19 +109,57 @@ export default function Chart({ loadData, season, startWeek, expansionName }) {
       {
         data: formatSchedule(),
         fill: true,
-        borderColor: "deeppink",
+        borderColor: "black",
       },
     ],
   };
   const options = {
+    scales: {
+      x: {
+        ticks: {
+          font: {
+            size: 16,
+            weight: "bold",
+          },
+        },
+      },
+      y: {
+        display: false,
+      },
+    },
+
     responsive: true,
     plugins: {
       legend: {
-        position: "hidden",
+        display: false,
+      },
+      datalabels: {
+        display: true,
+        anchor: "end",
+        align: "right",
+
+        formatter: function (value, context) {
+          return value.toLocaleString().replaceAll(" ", ", ");
+        },
+        color: "black",
+        align: "end",
+        labels: {
+          title: {
+            font: {
+              weight: "bold",
+              size: 16,
+            },
+          },
+        },
       },
       title: {
+        font: {
+          color: "black",
+          weight: "bold",
+          size: 16,
+        },
         display: true,
-        text: `${expansionName} Mythic+ Season ${season} Player Count`,
+        // text: "",
         tooltip: {
           enabled: false,
           position: "nearest",
@@ -125,12 +168,10 @@ export default function Chart({ loadData, season, startWeek, expansionName }) {
       },
     },
   };
-  const legend = {};
-
   return (
     <div className={classes.body}>
       <div className={classes.chart}>
-        <Line options={options} data={data} />
+        <Line style={{ height: "300px" }} options={options} data={data} />
       </div>
 
       <div className={classes.list}>

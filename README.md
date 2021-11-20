@@ -61,5 +61,6 @@
 ## Extra
 
 - At the start of each season, update these constants:
-- AWS Lambda - write.js function: `season` `schedule` `startDate`
-- Front-end - App.js: `season` `startWeek` `expansionName`
+  - AWS Lambda - write.js function: `season` `schedule` `startDate`
+  - Front-end - App.js: `season` `startWeek` `expansionName`
+- Code will break if there is more than 1 dataset per week.
