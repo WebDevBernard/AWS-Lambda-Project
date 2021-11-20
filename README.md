@@ -1,6 +1,6 @@
 ## Demo
 
-### [View Live Demo](https://mythicdungeons.vercel.app/)
+### [View Live Demo](https://mythicplus.vercel.app/)
 
 - Please note, this data was taken from week 20 onward. Currenlty using fake data for testing.
 
