@@ -6,7 +6,7 @@ exports.handler = (event, context, callback) => {
   //
 
   // <========= START OF REQUIRED CHANGES =========>
-  // REQUIRED change the expansion this variable
+  // REQUIRED change the expansion with this variable
   const expansion = "SL";
   // REQUIRED change season with this variable
   const season = "2";
