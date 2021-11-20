@@ -1,3 +1,7 @@
 export default function Loading() {
-  return <div>Loading...</div>;
+  return (
+    <div style={{ marginLeft: "32px", marginTop: "16px" }}>
+      Please Wait, Loading...
+    </div>
+  );
 }
