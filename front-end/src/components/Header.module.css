@@ -21,3 +21,8 @@
   text-align: right;
   text-decoration: none;
 }
+@media only screen and (max-width: 1024px) {
+  .header p {
+    display: none;
+  }
+}
