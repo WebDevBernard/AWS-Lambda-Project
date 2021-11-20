@@ -2,17 +2,17 @@ import { Table, TableBody, TableHead, TableRow, styled } from "@mui/material";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
     color: theme.palette.common.white,
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 14,
+    color: "#d2d1d6",
   },
 }));
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
   "&:nth-of-type(odd)": {
-    backgroundColor: theme.palette.action.hover,
+    backgroundColor: "rgba(49, 50, 82, 1)",
   },
   // hide last border
   "&:last-child td, &:last-child th": {
@@ -30,7 +30,9 @@ export default function List({ renderAffixList }) {
       size="small"
       aria-label="a dense table"
     >
-      <TableHead>
+      <TableHead
+        style={{ background: "linear-gradient(to right, #9963B8, #4D16E1)" }}
+      >
         <TableRow>
           <StyledTableCell style={{ fontFamily: "Roboto Mono" }}>
             Week

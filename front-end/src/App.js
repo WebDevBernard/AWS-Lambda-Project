@@ -18,8 +18,8 @@ const today = new Date();
 const expansionName = "sl";
 
 const season = 2;
-
-const startWeek = 19;
+// Must be greater than 1
+const startWeek = 17;
 
 const headerMessage = `Next update ${setDay(today, 5)
   .toISOString()

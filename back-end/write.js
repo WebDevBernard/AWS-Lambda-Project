@@ -30,7 +30,7 @@ exports.handler = (event, context, callback) => {
   const startDate = "July 6, 2021";
   //  OPTIONAL change the day of the week this function is called
   const apiCallDate = 4; // 8=mon, 7=tues, 6=wed, 5=thurs, 4=fri 12:00pst
-  //  OPTIONAL change if page count changes on Raider.io
+  //  OPTIONAL change if page count changes on Raider.io changes
   const pageCount = 20;
   // <========= END OF REQUIRED CHANGES =========>
 

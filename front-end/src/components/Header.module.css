@@ -1,5 +1,6 @@
 .header {
-  border-bottom: 1px solid rgba(55, 65, 81, 0.95);
+  color: #d2d1d6;
+  background-color: #1f1b34;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -11,10 +12,14 @@
 
 .title {
   display: flex;
-  justify-content: space-around;
+  align-items: center;
+}
+.header img {
+  height: 24px;
+  margin-right: 24px;
 }
 .title a {
-  color: black;
+  color: #d2d1d6;
   font-family: "Roboto Mono";
   font-weight: lighter;
   font-size: 16px;

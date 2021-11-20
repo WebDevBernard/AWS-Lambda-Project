@@ -1,28 +1,9 @@
 .body {
   display: flex;
   overflow-x: hidden;
+  justify-content: center;
 }
 .chart {
-  width: 65%;
-}
-.list {
-  width: 35%;
-}
-
-@media only screen and (max-width: 1024px) {
-  .chart {
-    width: 100%;
-  }
-  .body {
-    flex-direction: column;
-  }
-  .list {
-    margin-left: 32px;
-  }
-}
-
-@media only screen and (max-width: 468px) {
-  .list {
-    display: none;
-  }
+  flex: 1;
+  margin-right: 16px;
 }

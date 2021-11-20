@@ -6,7 +6,7 @@ import { Chart as Chartjs } from "chart.js";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 
 Chartjs.register(ChartDataLabels);
-export default function Chart({ loadData, season, startWeek, expansionName }) {
+export default function Chart({ loadData, season, expansionName, startWeek }) {
   // finds the current expansion and season
   const filterSeason = loadData
     .filter((item) => {
@@ -69,7 +69,7 @@ export default function Chart({ loadData, season, startWeek, expansionName }) {
     }
     return arr;
   };
-  console.log(scheduleCalculate());
+
   // removes all NaN, and negative numbers in array
   const formatSchedule = () => {
     let arr = [];
@@ -92,8 +92,9 @@ export default function Chart({ loadData, season, startWeek, expansionName }) {
   // repeats affix for each cycle depending on the schedule length
   const putAffixInArray = () => {
     const affixObject = filterSeason[0].affixes;
+    const formatedLength = scheduleCalculate().length / 12;
     let arr = [];
-    for (let i = 0; i < scheduleCalculate().length; i++)
+    for (let i = 0; i < formatedLength; i++)
       for (let j = 0; j < affixObject.length; j++) {
         arr.push(affixObject[j]);
       }
@@ -103,29 +104,45 @@ export default function Chart({ loadData, season, startWeek, expansionName }) {
   const renderAffixList = () => {
     let arr = [];
     for (let i = 0; i < formatSchedule().length; i++) {
-      arr.push(`${startWeek + i}-${putAffixInArray()[startWeek + i - 1]}`);
+      arr.push(`${startWeek + i}-${putAffixInArray()[startWeek - 1 + i]}`);
     }
     return arr;
   };
+  const ctx = document.getElementById("canvas").getContext("2d");
+  const gradient = ctx.createLinearGradient(0, 0, 0, 693);
+  gradient.addColorStop(0, "rgba(36, 81, 183, 0.45)");
+  gradient.addColorStop(0.5, "rgba(36, 81, 183, 0.25)");
+  gradient.addColorStop(1, "rgba(36, 81, 183, 0.05)");
 
+  const tooltipText = putAffixInArray().map((list) => [
+    `${list.split("-").slice(0, 5).join(", ")}`,
+  ]);
+  const chartColor = "#d2d1d6";
   const data = {
     labels: labelLength(),
     datasets: [
       {
         data: formatSchedule(),
         fill: true,
-        borderColor: "black",
+        tension: 0.4,
+        backgroundColor: gradient,
       },
     ],
   };
   const options = {
+    layout: {
+      padding: {
+        right: 40,
+        left: 50,
+      },
+    },
+
     scales: {
       x: {
         ticks: {
+          color: chartColor,
           font: {
-            family: "Roboto Mono",
             size: 14,
-            weight: "bold",
           },
         },
       },
@@ -136,6 +153,23 @@ export default function Chart({ loadData, season, startWeek, expansionName }) {
 
     responsive: true,
     plugins: {
+      tooltip: {
+        legend: {
+          display: false,
+        },
+        backgroundColor: "rgba(49, 50, 82, 1)",
+        callbacks: {
+          label: function (tooltipItem) {
+            return tooltipItem.yLabel;
+          },
+          title: function (tooltipItem) {
+            return tooltipItem[0].label;
+          },
+          afterLabel: function (tooltipItem) {
+            return tooltipText[tooltipItem.label.split(" ")[1] - 1];
+          },
+        },
+      },
       legend: {
         display: false,
       },
@@ -145,23 +179,21 @@ export default function Chart({ loadData, season, startWeek, expansionName }) {
         formatter: function (value, context) {
           return value.toLocaleString().replaceAll(" ", ", ");
         },
-        color: "black",
+        color: chartColor,
+
         align: "end",
         labels: {
           title: {
             font: {
-              family: "Roboto Mono",
-              weight: "bold",
-              size: 12,
+              size: 14,
             },
           },
         },
       },
       title: {
+        color: chartColor,
         font: {
-          family: "Roboto Mono",
-          color: "black",
-          weight: "bold",
+          weight: "light",
         },
         display: true,
         text: "This chart is not accurate. It is missing data from weeks 1 to 19.",
