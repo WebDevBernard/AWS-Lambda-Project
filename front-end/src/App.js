@@ -6,7 +6,7 @@ require("dotenv").config();
 //  <========= Required Change Starts Here: =========>
 const season = 2;
 
-const startWeek = 20;
+const startWeek = 1;
 
 const expansionName = "SL";
 //  <========= Required Change Ends Here: =========>

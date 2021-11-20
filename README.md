@@ -2,7 +2,7 @@
 
 ### [View Live Demo](https://mythicdungeons.vercel.app/)
 
-- Please note, this data was taken from week 20 onwards, therefore is not accurate.
+- Please note, this data was taken from week 20 onward. Currenlty using fake data for testing.
 
 ## About
 
@@ -63,4 +63,3 @@
 - At the start of each season, update these constants:
   - AWS Lambda - write.js function: `season` `schedule` `startDate`
   - Front-end - App.js: `season` `startWeek` `expansionName`
-- Code will break if there is more than 1 dataset per week.

@@ -41,30 +41,31 @@ export default function Chart({ loadData, season, startWeek }) {
     }
     if (maxCycle(12) && minCycle(24)) {
       for (let k = 13; k <= 24; k++) {
-        arr.push(filterAffix(k, k - 12) - filterAffix(k - 12, k - 12));
+        arr.push(filterAffix(k - 12, k - 12) - filterAffix(k, k - 12));
       }
     }
     if (maxCycle(24) && minCycle(36)) {
       for (let l = 25; l <= 36; l++) {
         arr.push(
-          filterAffix(l, l - 24) -
-            filterAffix(l - 12, l - 12) -
-            filterAffix(l - 24, l - 24)
+          filterAffix(l - 12, l - 12) -
+            filterAffix(l - 24, l - 24) -
+            filterAffix(l, l - 24)
         );
       }
     }
     if (maxCycle(36) && minCycle(48)) {
       for (let m = 37; m <= 48; m++) {
         arr.push(
-          filterAffix(m, m - 36) -
-            filterAffix(m - 12, m - 12) -
+          filterAffix(m - 12, m - 12) -
             filterAffix(m - 24, m - 24) -
-            filterAffix(m - 36, m - 36)
+            filterAffix(m - 36, m - 36) -
+            filterAffix(m, m - 36)
         );
       }
     }
     return arr;
   };
+  console.log(scheduleCalculate());
   // removes all NaN, and negative numbers in array
   const formatSchedule = () => {
     let arr = [];
