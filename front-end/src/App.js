@@ -12,15 +12,15 @@ function setDay(date, dayOfWeek) {
   );
   return resultDate;
 }
-
+const today = new Date();
 //  <========= Required Change Starts Here: =========>
+// Must be initials lowercase
+const expansionName = "sl";
+
 const season = 2;
 
 const startWeek = 19;
-// Must be initials capitals
-const expansionName = "SL";
 
-const today = new Date();
 const headerMessage = `Next update ${setDay(today, 5)
   .toISOString()
   .slice(0, 10)} 12:00PM PST`;

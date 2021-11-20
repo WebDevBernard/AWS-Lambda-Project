@@ -9,7 +9,7 @@ export default function Header({ season, expansionName, headerMessage }) {
           target="_blank"
           rel="noreferrer"
         >
-          {expansionName} M+ S{season} Player Count
+          {expansionName.toUpperCase()} M+ S{season} Player Count
         </a>
       </h1>
       <p>{headerMessage}</p>

@@ -62,5 +62,5 @@
 ## Extra
 
 - At the start of each season, update these constants:
-  - AWS Lambda - write.js function: `season` `schedule` `startDate`
+  - AWS Lambda - write.js function: `expansion` `season` `schedule` `startDate`
   - Front-end - App.js: `season` `startWeek` `expansionName`
