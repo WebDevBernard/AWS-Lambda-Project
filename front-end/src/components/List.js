@@ -25,11 +25,19 @@ export default function List({ renderAffixList }) {
     return `${Math.random()}_${new Date().getTime()}`;
   };
   return (
-    <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+    <Table
+      sx={{ maxWidth: 500, minWidth: 350, marginTop: 2 }}
+      size="small"
+      aria-label="a dense table"
+    >
       <TableHead>
         <TableRow>
-          <StyledTableCell>Week</StyledTableCell>
-          <StyledTableCell>Affixes</StyledTableCell>
+          <StyledTableCell style={{ fontFamily: "Roboto Mono" }}>
+            Week
+          </StyledTableCell>
+          <StyledTableCell style={{ fontFamily: "Roboto Mono" }}>
+            Affixes
+          </StyledTableCell>
         </TableRow>
       </TableHead>
 
@@ -39,8 +47,10 @@ export default function List({ renderAffixList }) {
             key={generateKey(list)}
             sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
           >
-            <StyledTableCell>{list.split("-")[0]}</StyledTableCell>
-            <StyledTableCell>
+            <StyledTableCell style={{ fontFamily: "Roboto Mono" }}>
+              {list.split("-")[0]}
+            </StyledTableCell>
+            <StyledTableCell style={{ fontFamily: "Roboto Mono" }}>
               {list.split("-").slice(1, 5).join(", ")}
             </StyledTableCell>
           </StyledTableRow>

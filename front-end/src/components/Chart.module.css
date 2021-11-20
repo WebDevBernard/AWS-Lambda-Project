@@ -3,10 +3,10 @@
   overflow-x: hidden;
 }
 .chart {
-  width: 70%;
+  width: 65%;
 }
 .list {
-  width: 30%;
+  width: 35%;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -15,5 +15,8 @@
   }
   .body {
     flex-direction: column;
+  }
+  .list {
+    margin-left: 32px;
   }
 }

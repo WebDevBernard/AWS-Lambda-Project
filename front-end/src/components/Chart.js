@@ -118,7 +118,8 @@ export default function Chart({ loadData, season, startWeek }) {
       x: {
         ticks: {
           font: {
-            size: 16,
+            family: "Roboto Mono",
+            size: 14,
             weight: "bold",
           },
         },
@@ -146,8 +147,9 @@ export default function Chart({ loadData, season, startWeek }) {
         labels: {
           title: {
             font: {
+              family: "Roboto Mono",
               weight: "bold",
-              size: 16,
+              size: 12,
             },
           },
         },
@@ -156,7 +158,6 @@ export default function Chart({ loadData, season, startWeek }) {
         font: {
           color: "black",
           weight: "bold",
-          size: 16,
         },
         display: true,
         // text: "",

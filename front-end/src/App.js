@@ -8,7 +8,7 @@ const season = 2;
 
 const startWeek = 20;
 
-const expansionName = "Shadowlands";
+const expansionName = "SL";
 //  <========= Required Change Ends Here: =========>
 function App() {
   const [loadData, setLoadData] = useState();

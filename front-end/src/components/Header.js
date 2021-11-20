@@ -5,11 +5,11 @@ export default function Header({ season, expansionName }) {
     <div id="top" className={classes.header}>
       <h1 className={classes.title}>
         <a
-          href="https://github.com/WebDevBernard/Twitter-React"
+          href="https://github.com/WebDevBernard/Raider.io-API-Data"
           target="_blank"
           rel="noreferrer"
         >
-          `${expansionName} Mythic+ Season ${season} Player Count`
+          {expansionName} M+ S{season} Player Count
         </a>
       </h1>
     </div>
