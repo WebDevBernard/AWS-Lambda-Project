@@ -3,6 +3,16 @@ import Loading from "./components/Loading";
 import Header from "./components/Header";
 import { useState, useEffect } from "react";
 require("dotenv").config();
+
+// https://codereview.stackexchange.com/questions/33527/find-next-occurring-friday-or-any-dayofweek
+function setDay(date, dayOfWeek) {
+  const resultDate = new Date(date.getTime());
+  resultDate.setDate(
+    date.getDate() + ((7 + dayOfWeek - date.getDay() - 1) % 7) + 1
+  );
+  return resultDate;
+}
+
 //  <========= Required Change Starts Here: =========>
 const season = 2;
 
@@ -10,7 +20,10 @@ const startWeek = 19;
 // Must be initials capitals
 const expansionName = "SL";
 
-const headerMessage = "Please note this data is not up to date";
+const today = new Date();
+const headerMessage = `Next update ${setDay(today, 5)
+  .toISOString()
+  .slice(0, 10)} 12:00PM PST`;
 //  <========= Required Change Ends Here: =========>
 function App() {
   const [loadData, setLoadData] = useState();
