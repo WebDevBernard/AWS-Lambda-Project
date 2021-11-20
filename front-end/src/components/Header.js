@@ -1,6 +1,6 @@
 import classes from "./Header.module.css";
 
-export default function Header({ season, expansionName }) {
+export default function Header({ season, expansionName, headerMessage }) {
   return (
     <div id="top" className={classes.header}>
       <h1 className={classes.title}>
@@ -12,6 +12,7 @@ export default function Header({ season, expansionName }) {
           {expansionName} M+ S{season} Player Count
         </a>
       </h1>
+      <p>{headerMessage}</p>
     </div>
   );
 }

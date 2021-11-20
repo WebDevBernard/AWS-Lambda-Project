@@ -9,6 +9,8 @@ const season = 2;
 const startWeek = 19;
 // Must be initials capitals
 const expansionName = "SL";
+
+const headerMeassge = "Please note this data is not up to date";
 //  <========= Required Change Ends Here: =========>
 function App() {
   const [loadData, setLoadData] = useState();
@@ -33,7 +35,11 @@ function App() {
 
   return (
     <>
-      <Header expansionName={expansionName} season={season} />
+      <Header
+        expansionName={expansionName}
+        season={season}
+        headerMeassge={headerMeassge}
+      />
       {!loadData ? (
         <Loading />
       ) : (
