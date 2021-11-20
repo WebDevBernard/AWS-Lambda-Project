@@ -6,7 +6,7 @@ require("dotenv").config();
 
 // https://codereview.stackexchange.com/questions/33527/find-next-occurring-friday-or-any-dayofweek
 function setDay(date, dayOfWeek) {
-  const resultDate = new Date(date.getTime());
+  const resultDate = new Date(date.getTime() - 8 * 3600 * 1000);
   resultDate.setDate(
     date.getDate() + ((7 + dayOfWeek - date.getDay() - 1) % 7) + 1
   );

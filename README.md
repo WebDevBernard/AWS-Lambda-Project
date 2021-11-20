@@ -2,7 +2,7 @@
 
 ### [View Live Demo](https://mythicplus.vercel.app/)
 
-- Please note, this data was taken from week 20 onward, therefore is not accurate.
+- Please note, this data was taken from week 20 onward and is not accurate.
 
 ## About
 
