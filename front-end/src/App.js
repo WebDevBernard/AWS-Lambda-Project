@@ -7,7 +7,7 @@ require("dotenv").config();
 const season = 2;
 
 const startWeek = 19;
-
+// Must be initials capitals
 const expansionName = "SL";
 //  <========= Required Change Ends Here: =========>
 function App() {

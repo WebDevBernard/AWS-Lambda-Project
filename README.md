@@ -24,7 +24,7 @@
 [
     {
         "week": 20,
-        "date": "2021-11-18T16:37:27PST",
+        "date": "2021-11-19T18:35:04PST",
         "rotation": {
             "1": 589720,
             "2": 1562120,
@@ -33,13 +33,14 @@
             "5": 1225220,
             "6": 1258240,
             "7": 1162200,
-            "8": 1395720,
-            "9": 847320,
+            "8": 1395800,
+            "9": 912900,
             "10": 671400,
             "11": 549420,
             "12": 574420
         },
         "season": 2,
+        "expansion": "SL",
         "affixes": [
             "Fortified-Bursting-Storming-Tormented",
             "Tyrannical-Raging-Volcanic-Tormented",

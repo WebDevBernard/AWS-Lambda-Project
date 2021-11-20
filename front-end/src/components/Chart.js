@@ -6,11 +6,15 @@ import { Chart as Chartjs } from "chart.js";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 import { Hidden } from "@mui/material";
 Chartjs.register(ChartDataLabels);
-export default function Chart({ loadData, season, startWeek }) {
-  // finds the current season
-  const filterSeason = loadData.filter((item) => {
-    return item.season === season;
-  });
+export default function Chart({ loadData, season, startWeek, expansionName }) {
+  // finds the current expansion and season
+  const filterSeason = loadData
+    .filter((item) => {
+      return item.expansion === expansionName;
+    })
+    .filter((item) => {
+      return item.season === season;
+    });
 
   // finds the current cycle
   const minCycle = (week) =>

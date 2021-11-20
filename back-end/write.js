@@ -6,6 +6,8 @@ exports.handler = (event, context, callback) => {
   //
 
   // <========= START OF REQUIRED CHANGES =========>
+  // REQUIRED change the expansion this variable
+  const expansion = "SL";
   // REQUIRED change season with this variable
   const season = "2";
   // REQUIRED  change affixes with this array
@@ -100,6 +102,7 @@ exports.handler = (event, context, callback) => {
         week: cycle,
         rotation: data,
         affixes: schedule,
+        expansion: expansion,
       },
       TableName: "wow",
     };
