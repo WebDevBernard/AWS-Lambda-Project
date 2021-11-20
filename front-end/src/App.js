@@ -1,10 +1,17 @@
 import Chart from "./components/Chart";
+import Loading from "./components/Loading";
 import { useState, useEffect } from "react";
 require("dotenv").config();
+//  <========= Required Change Starts Here: =========>
+const season = 2;
 
+const startWeek = 20;
+
+const expansionName = "Shadowlands";
+//  <========= Required Change Ends Here: =========>
 function App() {
   const [loadData, setLoadData] = useState();
-  // const [isLoading, setIsLoading] = useState();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -19,18 +26,22 @@ function App() {
       } catch (err) {
         console.log(err);
       }
-      // setIsLoading(false);
     };
     fetchData();
   }, []);
 
-  if (!loadData) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <>
-      <Chart loadData={loadData} />
+      {!loadData ? (
+        <Loading />
+      ) : (
+        <Chart
+          loadData={loadData}
+          startWeek={startWeek}
+          expansionName={expansionName}
+          season={season}
+        />
+      )}
     </>
   );
 }

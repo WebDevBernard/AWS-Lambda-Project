@@ -28,6 +28,8 @@ exports.handler = (event, context, callback) => {
   const startDate = "July 6, 2021";
   //  OPTIONAL change the day of the week this function is called
   const apiCallDate = 4; // 8=mon, 7=tues, 6=wed, 5=thurs, 4=fri 12:00pst
+  //  OPTIONAL change if page count changes on Raider.io
+  const pageCount = 20;
   // <========= END OF REQUIRED CHANGES =========>
 
   // change this only if you need to modify a hardcoded parameter
@@ -80,7 +82,7 @@ exports.handler = (event, context, callback) => {
     const data = await fetchData();
     let obj = {};
     for (let i = 0; i < data.length; i++) {
-      obj[i + 1] = data[i].data.rankings.ui.lastPage * 20;
+      obj[i + 1] = data[i].data.rankings.ui.lastPage * pageCount;
     }
     return obj;
   };

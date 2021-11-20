@@ -1,11 +1,7 @@
 import { Line } from "react-chartjs-2";
+import List from "./List";
 import classes from "./Chart.module.css";
-export default function Chart({ loadData }) {
-  //  <========= Required Change Starts Here: =========>
-  const season = 2;
-
-  const startWeek = 20;
-  //  <========= Required Change Ends Here: =========>
+export default function Chart({ loadData, season, startWeek, expansionName }) {
   // finds the current season
   const filterSeason = loadData.filter((item) => {
     return item.season === season;
@@ -83,7 +79,7 @@ export default function Chart({ loadData }) {
     }
     return arr;
   };
-
+  // repeats affix for each cycle depending on the schedule length
   const putAffixInArray = () => {
     const affixObject = filterSeason[0].affixes;
     let arr = [];
@@ -97,11 +93,11 @@ export default function Chart({ loadData }) {
   const renderAffixList = () => {
     let arr = [];
     for (let i = 0; i < formatSchedule().length; i++) {
-      arr.push(`Week ${startWeek + i} ${putAffixInArray()[startWeek + i - 1]}`);
+      arr.push(`${startWeek + i}-${putAffixInArray()[startWeek + i - 1]}`);
     }
     return arr;
   };
-  console.log(renderAffixList());
+
   const data = {
     labels: labelLength(),
     datasets: [
@@ -116,11 +112,11 @@ export default function Chart({ loadData }) {
     responsive: true,
     plugins: {
       legend: {
-        position: "top",
+        position: "hidden",
       },
       title: {
         display: true,
-        text: `World of Warcraft Shadowlands Mythic+ Season ${season}`,
+        text: `${expansionName} Mythic+ Season ${season} Player Count`,
         tooltip: {
           enabled: false,
           position: "nearest",
@@ -130,18 +126,16 @@ export default function Chart({ loadData }) {
     },
   };
   const legend = {};
-  const generateKey = (pre) => {
-    return `${Math.random()}_${new Date().getTime()}`;
-  };
 
   return (
-    <>
-      <Line className={classes.chart} options={options} data={data} />
-      <ul>
-        {renderAffixList().map((list) => (
-          <li key={generateKey(list)}>{list}</li>
-        ))}
-      </ul>
-    </>
+    <div className={classes.body}>
+      <div className={classes.chart}>
+        <Line options={options} data={data} />
+      </div>
+
+      <div className={classes.list}>
+        <List renderAffixList={() => renderAffixList()} />
+      </div>
+    </div>
   );
 }

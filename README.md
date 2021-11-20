@@ -15,10 +15,10 @@
 ### How does it work?
 
 - CloudWatch schedules AWS Lambda to make a weekly fetch request to Raider.io API
-- AWS Lambda function writes that data to DynamoDB.
-- Front end retrieves data from a Lambda read function connected to API Gateway
+- AWS Lambda function repackages the Raider.io data with additional data to DynamoDB.
+- Front end retrieves data from a Lambda read function connected to an API Gateway
 
-### Example of database file
+### Example of repackaged database file:
 
 ```
 [
@@ -60,4 +60,6 @@
 
 ## Extra
 
-- At the start of the season remember to update these Lambda function constants: `season` `schedule` `startDate` and these front end constants in Chart.js: `season` `startWeek`
+- At the start of each season, update these constants:
+- AWS Lambda - write.js function: `season` `schedule` `startDate`
+- Front-end - App.js: `season` `startWeek` `expansionName`

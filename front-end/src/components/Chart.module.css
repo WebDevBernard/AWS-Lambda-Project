@@ -1,4 +1,19 @@
+.body {
+  display: flex;
+  overflow-x: hidden;
+}
 .chart {
-  background-color: #201d39;
-  font-family: "Mulish", sans-serif;
+  width: 70%;
+}
+.list {
+  width: 30%;
+}
+
+@media only screen and (max-width: 1024px) {
+  .chart {
+    width: 100%;
+  }
+  .body {
+    flex-direction: column;
+  }
 }
