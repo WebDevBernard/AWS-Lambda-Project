@@ -2,8 +2,6 @@
 
 ### [View Live Demo](https://mythicplus.vercel.app/)
 
-- Please note, this data was taken from week 20 onward and is not accurate.
-
 ## About
 
 - An app that models player engagement data in World of Warcraft Mythic+ Dungeons.
@@ -15,7 +13,7 @@
 ### How does it work?
 
 - CloudWatch schedules AWS Lambda to make a weekly fetch request to Raider.io API
-- AWS Lambda function repackages the Raider.io data with additional data to DynamoDB.
+- An AWS Lambda function repackages the Raider.io data with additional data to DynamoDB.
 - Front end retrieves data from a Lambda read function connected to an API Gateway
 
 ### Example of repackaged database file:

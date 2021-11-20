@@ -159,11 +159,12 @@ export default function Chart({ loadData, season, startWeek, expansionName }) {
       },
       title: {
         font: {
+          family: "Roboto Mono",
           color: "black",
           weight: "bold",
         },
         display: true,
-        // text: "",
+        text: "This chart is not accurate. It is missing data from weeks 1 to 19.",
         tooltip: {
           enabled: false,
           position: "nearest",

@@ -26,7 +26,7 @@ export default function List({ renderAffixList }) {
   };
   return (
     <Table
-      sx={{ maxWidth: 500, minWidth: 350, marginTop: 2 }}
+      sx={{ width: 500, marginTop: 2 }}
       size="small"
       aria-label="a dense table"
     >
