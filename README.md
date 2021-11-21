@@ -4,7 +4,7 @@
 
 ## About
 
-- An app that models player engagement data in World of Warcraft Mythic+ Dungeons.
+- An app that calculates player count in World of Warcraft Mythic+ Dungeons.
 
 - This app is partially automated using AWS Lambda and CloudWatch events. It only needs to be updated at the start of each season. The data comes from Raider.io API, but a database is required to make this data useful.
 
@@ -38,7 +38,7 @@
             "12": 574420
         },
         "season": 2,
-        "expansion": "SL",
+        "expansion": "sl",
         "affixes": [
             "Fortified-Bursting-Storming-Tormented",
             "Tyrannical-Raging-Volcanic-Tormented",
