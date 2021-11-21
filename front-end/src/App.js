@@ -1,12 +1,13 @@
 import Chart from "./components/Chart";
 import Loading from "./components/Loading";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import { useState, useEffect } from "react";
 require("dotenv").config();
 
 // https://codereview.stackexchange.com/questions/33527/find-next-occurring-friday-or-any-dayofweek
 function setDay(date, dayOfWeek) {
-  const resultDate = new Date(date.getTime() - 12 * 3600 * 1000);
+  const resultDate = new Date(date.getTime() - 8 * 3600 * 1000);
   resultDate.setDate(
     date.getDate() + ((7 + dayOfWeek - date.getDay() - 1) % 7) + 1
   );
@@ -63,6 +64,7 @@ function App() {
           season={season}
         />
       )}
+      <Footer />
     </>
   );
 }
