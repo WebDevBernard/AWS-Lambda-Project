@@ -151,7 +151,7 @@ export default function Chart({ loadData, season, expansionName, startWeek }) {
       },
     },
 
-    responsive: true,
+    responsive: false,
     plugins: {
       tooltip: {
         legend: {
