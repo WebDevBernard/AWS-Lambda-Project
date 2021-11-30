@@ -17,16 +17,18 @@ const today = new Date();
 //  <========= Required Change Starts Here: =========>
 // Must be initials lowercase
 const expansionName = "sl";
-
+// Change Season
 const season = 2;
 // Must be greater than 1
 const startWeek = 19;
 // Change in case page count changes in raider.io
 const pageCount = 20;
+//  <========= Required Change Ends Here: =========>
+// Updates header message
 const headerMessage = `Next update ${setDay(today, 5)
   .toISOString()
   .slice(0, 10)} 12:00PM PST`;
-//  <========= Required Change Ends Here: =========>
+
 function App() {
   const [loadData, setLoadData] = useState();
 
