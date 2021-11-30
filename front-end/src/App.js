@@ -7,7 +7,7 @@ require("dotenv").config();
 
 // https://codereview.stackexchange.com/questions/33527/find-next-occurring-friday-or-any-dayofweek
 function setDay(date, dayOfWeek) {
-  const resultDate = new Date(date.getTime() - 8 * 3600 * 1000);
+  const resultDate = new Date(date.getTime() - 8 * 1000 * 60 * 60 * 24);
   resultDate.setDate(
     date.getDate() + ((7 + dayOfWeek - date.getDay() - 1) % 7) + 1
   );
@@ -23,6 +23,9 @@ const season = 2;
 const startWeek = 19;
 // Change in case page count changes in raider.io
 const pageCount = 20;
+// remove title message ****
+const titleMessage =
+  "This chart is not accurate. It is missing data from weeks 1 to 19.";
 //  <========= Required Change Ends Here: =========>
 // Updates header message
 const headerMessage = `Next update ${setDay(today, 5)
@@ -61,6 +64,7 @@ function App() {
         <Loading />
       ) : (
         <Chart
+          titleMessage={titleMessage}
           pageCount={pageCount}
           loadData={loadData}
           startWeek={startWeek}

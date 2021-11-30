@@ -12,6 +12,7 @@ export default function Chart({
   expansionName,
   startWeek,
   pageCount,
+  titleMessage,
 }) {
   // finds the current expansion and season
   const filterSeason = loadData
@@ -223,7 +224,7 @@ export default function Chart({
           weight: "light",
         },
         display: true,
-        text: "This chart is not accurate. It is missing data from weeks 1 to 19.",
+        text: titleMessage,
         tooltip: {
           enabled: false,
           position: "nearest",
