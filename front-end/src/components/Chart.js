@@ -6,7 +6,13 @@ import { Chart as Chartjs } from "chart.js";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 
 Chartjs.register(ChartDataLabels);
-export default function Chart({ loadData, season, expansionName, startWeek }) {
+export default function Chart({
+  loadData,
+  season,
+  expansionName,
+  startWeek,
+  pageCount,
+}) {
   // finds the current expansion and season
   const filterSeason = loadData
     .filter((item) => {
@@ -67,13 +73,34 @@ export default function Chart({ loadData, season, expansionName, startWeek }) {
         );
       }
     }
+    if (maxCycle(48) && minCycle(60)) {
+      for (let m = 49; m <= 60; m++) {
+        arr.push(
+          filterAffix(m, m - 48) -
+            filterAffix(m - 12, m - 12) -
+            filterAffix(m - 24, m - 24) -
+            filterAffix(m - 36, m - 36) -
+            filterAffix(m - 48, m - 48)
+        );
+      }
+    }
+    return arr;
+  };
+  // multiply numbers by pageCount
+
+  const formatPageCount = () => {
+    let arr = [];
+    const schedule = scheduleCalculate();
+    for (const page of schedule) {
+      arr.push(page * pageCount);
+    }
     return arr;
   };
 
   // removes all NaN, and negative numbers in array
   const formatSchedule = () => {
     let arr = [];
-    const schedule = scheduleCalculate();
+    const schedule = formatPageCount();
     for (let i = 0; i < schedule.length; i++) {
       if (schedule[i] > 0) {
         arr.push(schedule[i]);
@@ -92,7 +119,7 @@ export default function Chart({ loadData, season, expansionName, startWeek }) {
   // repeats affix for each cycle depending on the schedule length
   const putAffixInArray = () => {
     const affixObject = filterSeason[0].affixes;
-    const formatedLength = scheduleCalculate().length / 12;
+    const formatedLength = formatPageCount().length / 12;
     let arr = [];
     for (let i = 0; i < formatedLength; i++)
       for (let j = 0; j < affixObject.length; j++) {

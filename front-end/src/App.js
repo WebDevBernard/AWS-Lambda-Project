@@ -20,8 +20,9 @@ const expansionName = "sl";
 
 const season = 2;
 // Must be greater than 1
-const startWeek = 17;
-
+const startWeek = 19;
+// Change in case page count changes in raider.io
+const pageCount = 20;
 const headerMessage = `Next update ${setDay(today, 5)
   .toISOString()
   .slice(0, 10)} 12:00PM PST`;
@@ -58,6 +59,7 @@ function App() {
         <Loading />
       ) : (
         <Chart
+          pageCount={pageCount}
           loadData={loadData}
           startWeek={startWeek}
           expansionName={expansionName}
