@@ -30,21 +30,19 @@ exports.handler = (event, context, callback) => {
   const startDate = "July 6, 2021";
   //  OPTIONAL change the day of the week this function is called
   const apiCallDate = 4; // 8=mon, 7=tues, 6=wed, 5=thurs, 4=fri 12:00pst
-  //  OPTIONAL change if page count changes on Raider.io changes
-  const pageCount = 20;
   // <========= END OF REQUIRED CHANGES =========>
 
   // change this only if you need to modify a hardcoded parameter
 
-  // const week = () => {
-  //   let arr = [];
-  //   for (let i = 0; i <= 11; i++) {
-  //     arr.push(
-  //       `https://raider.io/api/mythic-plus/rankings/runs?region="world"&season=season-${expansion}-${season}&dungeon=all&strict=false&affixes=${schedule[i]}&&page=0&limit=0&minMythicLevel=0&maxMythicLevel=0&eventId=0&faction=&realm=&period=0&recent=false`
-  //     );
-  //   }
-  //   return arr;
-  // };
+  const week = () => {
+    let arr = [];
+    for (let i = 0; i <= 11; i++) {
+      arr.push(
+        `https://raider.io/api/mythic-plus/rankings/runs?region="world"&season=season-${expansion}-${season}&dungeon=all&strict=false&affixes=${schedule[i]}&&page=0&limit=0&minMythicLevel=0&maxMythicLevel=0&eventId=0&faction=&realm=&period=0&recent=false`
+      );
+    }
+    return arr;
+  };
   const week1 = `https://raider.io/api/mythic-plus/rankings/runs?region="world"&season=season-${expansion}-${season}&dungeon=all&strict=false&affixes=${schedule[0]}&&page=0&limit=0&minMythicLevel=0&maxMythicLevel=0&eventId=0&faction=&realm=&period=0&recent=false`;
   const week2 = `https://raider.io/api/mythic-plus/rankings/runs?region="world"&season=season-${expansion}-${season}&dungeon=all&strict=false&affixes=${schedule[1]}&&page=0&limit=0&minMythicLevel=0&maxMythicLevel=0&eventId=0&faction=&realm=&period=0&recent=false`;
   const week3 = `https://raider.io/api/mythic-plus/rankings/runs?region="world"&season=season-${expansion}-${season}&dungeon=all&strict=false&affixes=${schedule[2]}&&page=0&limit=0&minMythicLevel=0&maxMythicLevel=0&eventId=0&faction=&realm=&period=0&recent=false`;
@@ -94,7 +92,7 @@ exports.handler = (event, context, callback) => {
     const data = await fetchData();
     let obj = {};
     for (let i = 0; i < data.length; i++) {
-      obj[i + 1] = data[i].data.rankings.ui.lastPage * pageCount;
+      obj[i + 1] = data[i].data.rankings.ui.lastPage;
     }
     return obj;
   };
