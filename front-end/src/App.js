@@ -2,7 +2,7 @@ import Chart from "./components/Chart";
 import Loading from "./components/Loading";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 require("dotenv").config();
 
 // https://codereview.stackexchange.com/questions/33527/find-next-occurring-friday-or-any-dayofweek
@@ -34,23 +34,24 @@ const headerMessage = `Next update ${setDay(today, 5)
 function App() {
   const [loadData, setLoadData] = useState();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(process.env.REACT_APP_API_URL, {
-          headers: {
-            "Content-Type": "application/json",
-            "x-api-key": process.env.REACT_APP_API_KEY,
-          },
-        });
-        const responseData = await response.json();
-        setLoadData(responseData);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    fetchData();
+  const fetchData = useCallback(async () => {
+    try {
+      const response = await fetch(process.env.REACT_APP_API_URL, {
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key": process.env.REACT_APP_API_KEY,
+        },
+      });
+      const responseData = await response.json();
+      setLoadData(responseData);
+    } catch (err) {
+      console.log(err);
+    }
   }, []);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   return (
     <>
