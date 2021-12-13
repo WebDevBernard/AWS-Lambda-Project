@@ -1,20 +1,24 @@
 import classes from "./Header.module.css";
-
 export default function Header({ season, expansionName, headerMessage }) {
   return (
     <div id="top" className={classes.header}>
       <h1 className={classes.title}>
-        <a
-          target="_blank"
-          rel="noreferrer"
-          href="https://icons8.com/icon/OkWsH5jFVMve/sun"
-        >
-          <img src="https://img.icons8.com/cotton/64/000000/sun--v3.png" />
-        </a>
-        <a href="https://www.bernardyang.com/" target="_blank" rel="noreferrer">
+        <img src="https://img.icons8.com/cotton/64/000000/sun--v3.png" />
+        <a>
           {expansionName.toUpperCase()} M+ S{season} Player Count
         </a>
       </h1>
+      <a
+        href="https://github.com/WebDevBernard/MythicPlus-PlayerCount"
+        target="_blank"
+        rel="noreferrer"
+        style={{ textDecoration: "none" }}
+      >
+        <button className={classes.button}>
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
+          Github Link
+        </button>
+      </a>
       <p>{headerMessage}</p>
     </div>
   );
