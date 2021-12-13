@@ -59,6 +59,5 @@
 
 - At the start of each season, update these constants:
   - AWS Lambda - write.js function: `expansion` `season` `schedule` `startDate`
-  - Front-end - App.js: `season` `startWeek` `expansionName` check Raider.io for `pageCount` changes
-  - Schedule the app on the Friday after the first reset of the season
+  - Front-end - App.js: `season` `startWeek` `expansionName` check `pageCount` changes
   - Delete text title and padding
