@@ -74,13 +74,13 @@ export default function Chart({
       }
     }
     if (maxCycle(48) && minCycle(60)) {
-      for (let m = 49; m <= 60; m++) {
+      for (let n = 49; n <= 60; n++) {
         arr.push(
-          filterAffix(m, m - 48) -
-            filterAffix(m - 12, m - 12) -
-            filterAffix(m - 24, m - 24) -
-            filterAffix(m - 36, m - 36) -
-            filterAffix(m - 48, m - 48)
+          filterAffix(n, n - 48) -
+            filterAffix(n - 12, n - 12) -
+            filterAffix(n - 24, n - 24) -
+            filterAffix(n - 36, n - 36) -
+            filterAffix(n - 48, n - 48)
         );
       }
     }
