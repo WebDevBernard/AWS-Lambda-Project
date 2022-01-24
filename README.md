@@ -2,10 +2,6 @@
 
 ### [View Live Demo](https://mythicplus.vercel.app/)
 
-## Preview
-
-!["M+"](https://github.com/WebDevBernard/Portfolio/blob/main/docs/raiderio.png?raw=true)
-
 ## About
 
 - An app that calculates player count in World of Warcraft Mythic+ Dungeons.
@@ -19,6 +15,10 @@
 - EventBridge schedules AWS Lambda to make a weekly fetch request to Raider.io API
 - An AWS Lambda function repackages the Raider.io data with additional data to DynamoDB.
 - Front end retrieves data from a Lambda read function connected to an API Gateway
+
+## Preview
+
+!["M+"](https://github.com/WebDevBernard/Portfolio/blob/main/docs/raiderio.png?raw=true)
 
 ### Example of repackaged JSON file:
 
