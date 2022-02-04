@@ -6,7 +6,7 @@
 
 - An app that prints player count in World of Warcraft Mythic+ dungeons using automation with AWS.
 
-- The data can be used to analyze player preferences, specifically, which set of affixes (weeks) players tend to like/dislike playing.
+- The data can be used to analyze player preferences, specifically, which set of \*affixes (weeks) players tend to like/dislike playing.
 
 - \*Affixes are a combination of difficulty modifiers that change once a week and cycle over 12 weeks. Affixes keep the game interesting, but some affixes are harder than others and fewer players tend to play during those weeks.
 
