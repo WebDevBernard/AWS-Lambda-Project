@@ -4,17 +4,34 @@
 
 ## About
 
-- An app that calculates player count in World of Warcraft Mythic+ Dungeons.
+- An app that prints player count in World of Warcraft Mythic+ dungeons using automation with AWS.
 
-- This app is partially automated using AWS Lambda and EventBridge events. It only needs to be updated at the start of each season. The data comes from Raider.io API, but a database is required to make this data useful.
+- The data can be used to analyze player preferences, specifically, which set of affixes (weeks) players tend to like/dislike playing.
 
-- [This Reddit post explains what information is being extracted.](https://www.reddit.com/r/wow/comments/o5nocw/comment/h2ov91n/?utm_source=share&utm_medium=web2x&context=3)
+- Affixes are a combination of difficulty modifiers that change once a week and cycle over 12 weeks. Affixes keep the game interesting, but some affixes are harder than others and fewer players tend to play during those weeks.
 
-### How does it work?
+### What exactly does it do?
 
-- EventBridge schedules AWS Lambda to make a weekly fetch request to Raider.io API
-- An AWS Lambda function repackages the Raider.io data with additional data to DynamoDB.
-- Front end retrieves data from a Lambda read function connected to an API Gateway
+- [This Reddit post explains how this works.](https://www.reddit.com/r/wow/comments/o5nocw/comment/h2ov91n/?utm_source=share&utm_medium=web2x&context=3)
+
+- Summary from Reddit post: Calling Raider.io API returns a page count. Page count represents the number of pages in Raider.io's rankings for characters who have completed a Mythic+ dungeon. Each page contains 20 characters, hence page count multiply by 20 equals the total number of characters that have completed a set of affixes.
+
+- Example: To find out how many players played during week 13, you would have to know how many players played during week 1 (the only other time these set of affixes occured).
+
+- Important to understand: Because of limitations with the Raider.io API, you cannot call the API to get a total count for a specific week, only the total count for a specific set of affixes.
+
+### How does this app work?
+
+- It calls Raider.io once a week and gets a total player count for a set of affixes.
+- The call is automated using AWS Lambda and Eventbridge event.
+- That data is repackaged with additional information for the front-end to work with.
+- The front-end determines the current week and finds the corresponding rotation to calculate how many players have played that week.
+
+## Tech Stack
+
+- Front-end built with React and Chart.js
+- Back-end built with AWS Lambda, DynamoDB, API Gateway
+- Table styled with Material UI
 
 ## Preview
 
@@ -61,7 +78,7 @@
 
 ## Instructions for next update:
 
-- At the start of each season, update these constants:
+- At the start of next season, update these constants:
   - AWS Lambda - write.js function: `expansion` `season` `schedule` `startDate`
   - Front-end - App.js: `season` `startWeek` `expansionName` check `pageCount` changes
   - Delete text title and padding
