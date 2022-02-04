@@ -4,7 +4,7 @@
 
 ## About
 
-- An app that prints player count in World of Warcraft Mythic+ dungeons using automation with AWS.
+- An app that displays player count in World of Warcraft Mythic+ dungeons using automation with AWS.
 
 - The data can be used to analyze player preferences, specifically, which set of \*affixes (weeks) players tend to like/dislike playing.
 
