@@ -1,4 +1,10 @@
-import { Table, TableBody, TableHead, TableRow, styled } from "@mui/material";
+import {
+  Table as MuiTable,
+  TableBody,
+  TableHead,
+  TableRow,
+  styled,
+} from "@mui/material";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -20,12 +26,12 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-export default function List({ renderAffixList }) {
+export default function Table({ renderAffixList }) {
   const generateKey = () => {
     return `${Math.random()}_${new Date().getTime()}`;
   };
   return (
-    <Table
+    <MuiTable
       sx={{ width: 500, marginTop: 2 }}
       size="small"
       aria-label="a dense table"
@@ -58,6 +64,6 @@ export default function List({ renderAffixList }) {
           </StyledTableRow>
         ))}
       </TableBody>
-    </Table>
+    </MuiTable>
   );
 }
