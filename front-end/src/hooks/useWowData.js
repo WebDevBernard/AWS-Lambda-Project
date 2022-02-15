@@ -5,13 +5,12 @@ import { useEffect, useState } from "react";
 Example of JSON Object:
 
 {
-    "date": "2022-02-15T06:49:07PST",
-    "week": 33,
-    "count": {
-        "Tyrannical-Inspiring-Quaking-Tormented": 1196440
-        },
-    "season": 2,
-    "expansion": "sl"
+ "date": "2022-02-15T13:55:52PST",
+ "week": 12,
+ "season": 2,
+ "affix": "Tyrannical-Bolstering-Explosive-Tormented",
+ "expansion": "sl",
+ "total": 860060
 }
 
  **/
@@ -42,7 +41,16 @@ export default function useWowData(expansionName, season) {
           .filter((item) => {
             return item.season === season;
           });
-        console.log(filterExpansionSeason);
+
+        // create a new array with total key updated with all weeks containing the same affix (eg. week 25 - week 13 - week 1)
+        const totalToActualTotal = () => {
+          const currentWeek = filterExpansionSeason;
+          const findMinMax = (min, max) => {
+            return currentWeek >= min && currentWeek <= max;
+          };
+          console.log(currentWeek);
+        };
+        totalToActualTotal();
         setData(filterExpansionSeason);
         setLoading(false);
       } catch (error) {

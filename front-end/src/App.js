@@ -10,8 +10,6 @@ import useWowData from "./hooks/useWowData";
 const expansionName = "sl";
 // Change Season
 const season = 2;
-// remove title message ****
-
 //  <========= Required Change Ends Here: =========>
 
 function App() {

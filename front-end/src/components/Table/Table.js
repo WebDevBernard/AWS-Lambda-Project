@@ -26,7 +26,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-export default function Table({ renderAffixList }) {
+export default function Table({ data }) {
   const generateKey = () => {
     return `${Math.random()}_${new Date().getTime()}`;
   };
@@ -50,19 +50,23 @@ export default function Table({ renderAffixList }) {
       </TableHead>
 
       <TableBody>
-        {renderAffixList().map((list) => (
-          <StyledTableRow
-            key={generateKey(list)}
-            sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-          >
-            <StyledTableCell style={{ fontFamily: "Roboto Mono" }}>
-              {list.split("-")[0]}
-            </StyledTableCell>
-            <StyledTableCell style={{ fontFamily: "Roboto Mono" }}>
-              {list.split("-").slice(1, 5).join(", ")}
-            </StyledTableCell>
-          </StyledTableRow>
-        ))}
+        {data
+          .sort((a, b) => {
+            return a.week - b.week;
+          })
+          .map((item) => (
+            <StyledTableRow
+              key={generateKey(item)}
+              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+            >
+              <StyledTableCell style={{ fontFamily: "Roboto Mono" }}>
+                {item.week}
+              </StyledTableCell>
+              <StyledTableCell style={{ fontFamily: "Roboto Mono" }}>
+                {item.affix.split("-").slice(0, 3).join(", ")}
+              </StyledTableCell>
+            </StyledTableRow>
+          ))}
       </TableBody>
     </MuiTable>
   );

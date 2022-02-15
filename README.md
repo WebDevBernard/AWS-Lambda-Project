@@ -41,13 +41,13 @@
 
 ```
 {
-    "date": "2022-02-15T06:49:07PST",
-    "week": 33,
-    "count": {
-        "Tyrannical-Inspiring-Quaking-Tormented": 1196440
-        },
-    "season": 2,
-    "expansion": "sl"
+ "date": "2022-02-15T13:55:52PST",
+ "week": 12,
+ "season": 2,
+ "affix": "Tyrannical-Bolstering-Explosive-Tormented",
+ "expansion": "sl",
+ "total": 860060
+
 }
 ```
 
@@ -55,5 +55,5 @@
 
 - At the start of next season, update these constants:
   - AWS Lambda - write.js function: `expansion` `season` `schedule` `startDate`
-  - Front-end - App.js: `season` `startWeek` `expansionName` check `pageCount` changes
+  - Front-end - App.js: `season` `expansionName`
   - Delete text title and padding

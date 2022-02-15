@@ -13,15 +13,21 @@ export default function Chart({ chartData }) {
   gradient.addColorStop(0.5, "rgba(36, 81, 183, 0.25)");
   gradient.addColorStop(1, "rgba(36, 81, 183, 0.05)");
 
-  const tooltipText = chartData.map((list) => [
-    `${list.split("-").slice(0, 5).join(", ")}`,
-  ]);
+  const mappedWeek = chartData.map((item) => {
+    return item.week;
+  });
+  const mappedData = chartData.map((item) => {
+    return item.total;
+  });
+  const tooltipText = chartData.map(
+    (item) => `${item.affix.split("-").slice(0, 3).join(", ")}`
+  );
   const chartColor = "#d2d1d6";
   const data = {
-    labels: chartData,
+    labels: mappedWeek,
     datasets: [
       {
-        data: chartData,
+        data: mappedData,
         fill: true,
         tension: 0.4,
         backgroundColor: gradient,
@@ -95,7 +101,7 @@ export default function Chart({ chartData }) {
           weight: "light",
         },
         display: true,
-        text: "This chart is not accurate. It is missing data from weeks 1 to 19.",
+        text: "",
         padding: 24,
         tooltip: {
           enabled: false,
