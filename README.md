@@ -22,7 +22,7 @@
 
 ### How does this app work?
 
-- It calls Raider.io once a week and gets a total player count for a set of affixes.
+- It calls Raider.io API once a week and gets a total player count for a set of affixes.
 - The call is automated using AWS Lambda and Eventbridge event.
 - That data is repackaged with additional information for the front-end to work with.
 - The front-end determines the current week and finds the corresponding rotation to calculate how many players have played that week.
@@ -40,40 +40,15 @@
 ### Example of repackaged JSON file:
 
 ```
-    {
-        "week": 22,
-        "date": "2021-11-30T01:19:41PST",
-        "rotation": {
-            "1": 29486,
-            "2": 78106,
-            "3": 83875,
-            "4": 65917,
-            "5": 61261,
-            "6": 62912,
-            "7": 58111,
-            "8": 69797,
-            "9": 60006,
-            "10": 56528,
-            "11": 27471,
-            "12": 28721
+{
+    "date": "2022-02-15T06:49:07PST",
+    "week": 33,
+    "count": {
+        "Tyrannical-Inspiring-Quaking-Tormented": 1196440
         },
-        "expansion": "sl",
-        "season": 2,
-        "affixes": [
-            "Fortified-Bursting-Storming-Tormented",
-            "Tyrannical-Raging-Volcanic-Tormented",
-            "Fortified-Inspiring-Grievous-Tormented",
-            "Tyrannical-Spiteful-Necrotic-Tormented",
-            "Fortified-Bolstering-Quaking-Tormented",
-            "Tyrannical-Sanguine-Storming-Tormented",
-            "Fortified-Raging-Explosive-Tormented",
-            "Tyrannical-Bursting-Volcanic-Tormented",
-            "Fortified-Spiteful-Grievous-Tormented",
-            "Tyrannical-Inspiring-Quaking-Tormented",
-            "Fortified-Sanguine-Necrotic-Tormented",
-            "Tyrannical-Bolstering-Explosive-Tormented"
-        ]
-    }
+    "season": 2,
+    "expansion": "sl"
+}
 ```
 
 ## Instructions for next update:

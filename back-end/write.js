@@ -30,33 +30,11 @@ exports.handler = (event, context, callback) => {
   const startDate = "July 6, 2021";
   //  OPTIONAL change the day of the week this function is called
   const apiCallDate = 4; // 8=mon, 7=tues, 6=wed, 5=thurs, 4=fri 12:00pst
+
+  const pageCount = 20;
   // <========= END OF REQUIRED CHANGES =========>
 
-  // change this only if you need to modify a hardcoded parameter
-
-  const week = () => {
-    let arr = [];
-    for (let i = 0; i <= 11; i++) {
-      arr.push(
-        `https://raider.io/api/mythic-plus/rankings/runs?region="world"&season=season-${expansion}-${season}&dungeon=all&strict=false&affixes=${schedule[i]}&&page=0&limit=0&minMythicLevel=0&maxMythicLevel=0&eventId=0&faction=&realm=&period=0&recent=false`
-      );
-    }
-    return arr;
-  };
-  const week1 = `https://raider.io/api/mythic-plus/rankings/runs?region="world"&season=season-${expansion}-${season}&dungeon=all&strict=false&affixes=${schedule[0]}&&page=0&limit=0&minMythicLevel=0&maxMythicLevel=0&eventId=0&faction=&realm=&period=0&recent=false`;
-  const week2 = `https://raider.io/api/mythic-plus/rankings/runs?region="world"&season=season-${expansion}-${season}&dungeon=all&strict=false&affixes=${schedule[1]}&&page=0&limit=0&minMythicLevel=0&maxMythicLevel=0&eventId=0&faction=&realm=&period=0&recent=false`;
-  const week3 = `https://raider.io/api/mythic-plus/rankings/runs?region="world"&season=season-${expansion}-${season}&dungeon=all&strict=false&affixes=${schedule[2]}&&page=0&limit=0&minMythicLevel=0&maxMythicLevel=0&eventId=0&faction=&realm=&period=0&recent=false`;
-  const week4 = `https://raider.io/api/mythic-plus/rankings/runs?region="world"&season=season-${expansion}-${season}&dungeon=all&strict=false&affixes=${schedule[3]}&&page=0&limit=0&minMythicLevel=0&maxMythicLevel=0&eventId=0&faction=&realm=&period=0&recent=false`;
-  const week5 = `https://raider.io/api/mythic-plus/rankings/runs?region="world"&season=season-${expansion}-${season}&dungeon=all&strict=false&affixes=${schedule[4]}&&page=0&limit=0&minMythicLevel=0&maxMythicLevel=0&eventId=0&faction=&realm=&period=0&recent=false`;
-  const week6 = `https://raider.io/api/mythic-plus/rankings/runs?region="world"&season=season-${expansion}-${season}&dungeon=all&strict=false&affixes=${schedule[5]}&&page=0&limit=0&minMythicLevel=0&maxMythicLevel=0&eventId=0&faction=&realm=&period=0&recent=false`;
-  const week7 = `https://raider.io/api/mythic-plus/rankings/runs?region="world"&season=season-${expansion}-${season}&dungeon=all&strict=false&affixes=${schedule[6]}&&page=0&limit=0&minMythicLevel=0&maxMythicLevel=0&eventId=0&faction=&realm=&period=0&recent=false`;
-  const week8 = `https://raider.io/api/mythic-plus/rankings/runs?region="world"&season=season-${expansion}-${season}&dungeon=all&strict=false&affixes=${schedule[7]}&&page=0&limit=0&minMythicLevel=0&maxMythicLevel=0&eventId=0&faction=&realm=&period=0&recent=false`;
-  const week9 = `https://raider.io/api/mythic-plus/rankings/runs?region="world"&season=season-${expansion}-${season}&dungeon=all&strict=false&affixes=${schedule[8]}&&page=0&limit=0&minMythicLevel=0&maxMythicLevel=0&eventId=0&faction=&realm=&period=0&recent=false`;
-  const week10 = `https://raider.io/api/mythic-plus/rankings/runs?region="world"&season=season-${expansion}-${season}&dungeon=all&strict=false&affixes=${schedule[9]}&&page=0&limit=0&minMythicLevel=0&maxMythicLevel=0&eventId=0&faction=&realm=&period=0&recent=false`;
-  const week11 = `https://raider.io/api/mythic-plus/rankings/runs?region="world"&season=season-${expansion}-${season}&dungeon=all&strict=false&affixes=${schedule[10]}&&page=0&limit=0&minMythicLevel=0&maxMythicLevel=0&eventId=0&faction=&realm=&period=0&recent=false`;
-  const week12 = `https://raider.io/api/mythic-plus/rankings/runs?region="world"&season=season-${expansion}-${season}&dungeon=all&strict=false&affixes=${schedule[11]}&&page=0&limit=0&minMythicLevel=0&maxMythicLevel=0&eventId=0&faction=&realm=&period=0&recent=false`;
-
-  // This function determines which cycle
+  // Matches startDate with current week
   const getStartDate = new Date(startDate);
   const getCurrentDate = new Date();
   const utcDate = new Date(getCurrentDate.toUTCString());
@@ -64,27 +42,46 @@ exports.handler = (event, context, callback) => {
   const formatPstDate = new Date(utcDate);
   const formatDate = 1000 * 60 * 60 * 24;
   const diff = Math.floor((formatPstDate - getStartDate) / formatDate);
-  const findCurrentCycle = () => Math.round((diff + apiCallDate) / 7);
+  const findCurrentWeek = () => Math.round((diff + apiCallDate) / 7);
+  const currentWeek = findCurrentWeek();
+
+  // find schedule that corresponds to the current week
+  const findIndex = () => {
+    const matchWeekWithRotation = (start, end) => {
+      return (currentWeek - start) * (currentWeek - end) <= 0;
+    };
+    let index = 0;
+    for (const element of schedule) {
+      if (matchWeekWithRotation(1, 12)) {
+        index = currentWeek;
+      }
+      if (matchWeekWithRotation(13, 24)) {
+        index = currentWeek - 12;
+      }
+      if (matchWeekWithRotation(25, 36)) {
+        index = currentWeek - 24;
+      }
+      if (matchWeekWithRotation(37, 48)) {
+        index = currentWeek - 36;
+      }
+      if (matchWeekWithRotation(49, 60)) {
+        index = currentWeek - 48;
+      }
+
+      return index;
+    }
+  };
+
+  const foundIndex = findIndex();
+
+  const url = `https://raider.io/api/mythic-plus/rankings/runs?region="world"&season=season-${expansion}-${season}&dungeon=all&strict=false&affixes=${schedule[foundIndex]}&&page=0&limit=0&minMythicLevel=0&maxMythicLevel=0&eventId=0&faction=&realm=&period=0&recent=false`;
 
   const fetchData = async () => {
     try {
-      const response = await Promise.all([
-        axios.get(week1),
-        axios.get(week2),
-        axios.get(week3),
-        axios.get(week4),
-        axios.get(week5),
-        axios.get(week6),
-        axios.get(week7),
-        axios.get(week8),
-        axios.get(week9),
-        axios.get(week10),
-        axios.get(week11),
-        axios.get(week12),
-      ]);
+      const response = await Promise.all([axios.get(url)]);
       return response;
-    } catch (err) {
-      console.log("Axios Error:", err);
+    } catch (error) {
+      console.log(error.response);
     }
   };
 
@@ -92,7 +89,7 @@ exports.handler = (event, context, callback) => {
     const data = await fetchData();
     let obj = {};
     for (let i = 0; i < data.length; i++) {
-      obj[i + 1] = data[i].data.rankings.ui.lastPage;
+      obj[schedule[foundIndex]] = data[i].data.rankings.ui.lastPage * pageCount;
     }
     return obj;
   };
@@ -102,14 +99,12 @@ exports.handler = (event, context, callback) => {
 
   const writeData = async () => {
     const data = await assignKeyToData();
-    const cycle = await findCurrentCycle();
     const params = {
       Item: {
         date: `${readableDate}PST`,
         season: parseInt(season),
-        week: cycle,
-        rotation: data,
-        affixes: schedule,
+        week: currentWeek,
+        count: data,
         expansion: expansion,
       },
       TableName: "wow",
