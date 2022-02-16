@@ -17,9 +17,9 @@ export default function Header({ season, expansionName }) {
           src="https://img.icons8.com/cotton/64/000000/sun--v3.png"
           alt="sun icon"
         />
-        <a>
+        <p>
           {expansionName.toUpperCase()} M+ S{season} Player Count
-        </a>
+        </p>
       </h1>
       <p>
         Next update {setDay(today, 5).toISOString().slice(0, 10)} 12:00PM PST

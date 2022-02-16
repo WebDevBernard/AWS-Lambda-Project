@@ -6,6 +6,8 @@
 
 - An app that displays player count in World of Warcraft Mythic+ dungeons using automation with AWS.
 
+- If you want to understand how it's made. All my logic is in /backend/write.js and /frontend/src/hooks/useWowData.js.
+
 - The data can be used to analyze player preferences, specifically, which set of \*affixes (weeks) players tend to like/dislike playing.
 
 - \*Affixes are a combination of difficulty modifiers that change once a week and cycle over 12 weeks. Affixes keep the game interesting, but some affixes are harder than others and fewer players tend to play during those weeks.
@@ -15,10 +17,6 @@
 - [This Reddit post explains how it works.](https://www.reddit.com/r/wow/comments/o5nocw/comment/h2ov91n/?utm_source=share&utm_medium=web2x&context=3)
 
 - Summary from Reddit post: Calling Raider.io API returns a page count. Page count represents the number of pages in Raider.io's rankings for characters who have completed a Mythic+ dungeon. Each page contains 20 characters, hence page count multiply by 20 equals the total number of characters that have completed a set of affixes.
-
-- Example: To find out how many players played during week 13, you would have to know how many players played during week 1 (the only other time these set of affixes occured).
-
-- Important to understand: Because of limitations with the Raider.io API, you cannot call the API to get a total count for a specific week, only the total count for a specific set of affixes.
 
 ### How does this app work?
 

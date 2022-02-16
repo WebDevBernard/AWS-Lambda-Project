@@ -22,6 +22,7 @@ export default function Chart({ chartData }) {
   const tooltipText = chartData.map(
     (item) => `${item.affix.split("-").slice(0, 3).join(", ")}`
   );
+
   const chartColor = "#d2d1d6";
   const data = {
     labels: mappedWeek,
@@ -67,11 +68,8 @@ export default function Chart({ chartData }) {
           label: function (tooltipItem) {
             return tooltipItem.yLabel;
           },
-          title: function (tooltipItem) {
-            return tooltipItem[0].label;
-          },
           afterLabel: function (tooltipItem) {
-            return tooltipText[tooltipItem.label.split(" ")[1] - 1];
+            return tooltipText[tooltipItem.dataIndex];
           },
         },
       },

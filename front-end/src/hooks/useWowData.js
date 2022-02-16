@@ -53,7 +53,7 @@ export default function useWowData(expansionName, season) {
         const singleArray = filterExpansionSeason.map((element) => {
           return [filterAffix(element.affix)];
         });
-        // helper function to conver the current week to current cycle
+        // helper function to convert the current week to current cycle
         const weekToCycle = (currentWeek) => Math.floor(currentWeek / 12);
         // replace total with the affixes that correspond to an array
         const arrayWithTotalArrays = filterExpansionSeason.map((obj, i) => {
@@ -61,7 +61,7 @@ export default function useWowData(expansionName, season) {
             ...obj,
             total: singleArray[i][0]
               .slice(0, weekToCycle(obj.week) + 1)
-              .reduce((prev, current) => current - prev, 0),
+              .reduce((previous, current) => current - previous, 0),
           };
         });
 
