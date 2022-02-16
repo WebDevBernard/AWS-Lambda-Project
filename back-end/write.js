@@ -28,7 +28,8 @@ exports.handler = (event, context, callback) => {
   const startDate = "February 15, 2022";
   //  REQUIRED change the starting date
   // <========= END OF REQUIRED CHANGES =========>
-  // <========= OPTIONAL CHANGES =========>
+
+  // <========= START OF OPTIONAL CHANGES =========>
   //  OPTIONAL change the day of the week this function is called
   const apiCallDate = 4; // 8=mon, 7=tues, 6=wed, 5=thurs, 4=fri 12:00pst
 
@@ -49,12 +50,10 @@ exports.handler = (event, context, callback) => {
   const currentWeek = findCurrentWeek();
 
   // finds the affix that corresponds to the current week
-  const weekToCycle = Math.floor(currentWeek / schedule.length);
-  // on the 12th week of every cycle, ternary check ensures that week 12 returns 12, not 0 (eg. 12 - 1 * 12)
   const foundWeek =
-    currentWeek % schedule.length === 0
-      ? currentWeek
-      : currentWeek - weekToCycle * schedule.length;
+    currentWeek % 12 === 0
+      ? 12
+      : currentWeek - Math.floor(currentWeek / 12) * 12;
   // changes week to match 0 index array
   const foundIndex = foundWeek - 1;
 

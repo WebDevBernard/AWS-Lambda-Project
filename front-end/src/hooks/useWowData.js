@@ -43,32 +43,26 @@ export default function useWowData(expansionName, season) {
           })
           .sort((a, b) => a.week - b.week);
 
-        // creates a new array with every total for a set of affixes
-        const filterAffix = (affix) =>
-          filterExpansionSeason
-            .filter((obj) => obj.affix.includes(affix))
-            .map((obj) => obj.total);
+        // helper function to find week in findSchedule
+        const filterWeekByIndex = (week) => {
+          return filterExpansionSeason.findIndex((obj) => obj.week === week);
+        };
 
-        // push all the new arrays into a single array
-        const singleArray = filterExpansionSeason.map((element) => {
-          return [filterAffix(element.affix)];
-        });
-        // helper function to convert the current week to current cycle
-        const foundCycle = (currentWeek) =>
-          currentWeek % 12 === 0
-            ? Math.floor(currentWeek / 12) - 1
-            : Math.floor(currentWeek / 12);
-        // replace total with the affixes that correspond to an array
-        const arrayWithTotalArrays = filterExpansionSeason.map((obj, i) => {
-          return {
-            ...obj,
-            total: singleArray[i][0]
-              .slice(0, foundCycle(obj.week) + 1)
-              .reduce((previous, current) => current - previous, 0),
-          };
+        // map new key value onto a new array
+        const findSchedule = filterExpansionSeason.map((obj) => {
+          if (obj.week >= 13) {
+            return {
+              ...obj,
+              total:
+                filterExpansionSeason[filterWeekByIndex(obj.week)].total -
+                filterExpansionSeason[filterWeekByIndex(obj.week - 12)].total,
+            };
+          } else {
+            return { ...obj };
+          }
         });
 
-        setData(arrayWithTotalArrays);
+        setData(findSchedule);
         setLoading(false);
       } catch (error) {
         setError(error.message);
