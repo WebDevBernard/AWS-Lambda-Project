@@ -21,7 +21,7 @@ export default function Header({ season, expansionName }) {
           {expansionName.toUpperCase()} M+ S{season} Player Count
         </p>
       </h1>
-      <p>
+      <p className={classes.date}>
         Next update {setDay(today, 5).toISOString().slice(0, 10)} 12:00PM PST
       </p>
     </div>
