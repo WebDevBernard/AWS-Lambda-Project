@@ -50,23 +50,19 @@ export default function Table({ data }) {
       </TableHead>
 
       <TableBody>
-        {data
-          .sort((a, b) => {
-            return a.week - b.week;
-          })
-          .map((item) => (
-            <StyledTableRow
-              key={generateKey(item)}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
-              <StyledTableCell style={{ fontFamily: "Roboto Mono" }}>
-                {item.week}
-              </StyledTableCell>
-              <StyledTableCell style={{ fontFamily: "Roboto Mono" }}>
-                {item.affix.split("-").slice(0, 3).join(", ")}
-              </StyledTableCell>
-            </StyledTableRow>
-          ))}
+        {data.map((item) => (
+          <StyledTableRow
+            key={generateKey(item)}
+            sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+          >
+            <StyledTableCell style={{ fontFamily: "Roboto Mono" }}>
+              {item.week}
+            </StyledTableCell>
+            <StyledTableCell style={{ fontFamily: "Roboto Mono" }}>
+              {item.affix.split("-").slice(0, 3).join(", ")}
+            </StyledTableCell>
+          </StyledTableRow>
+        ))}
       </TableBody>
     </MuiTable>
   );

@@ -15,8 +15,6 @@ const season = 2;
 function App() {
   const { data, loading, error } = useWowData(expansionName, season);
 
-  console.log(data);
-
   return (
     <>
       <Header expansionName={expansionName} season={season} />

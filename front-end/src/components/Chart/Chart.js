@@ -14,7 +14,7 @@ export default function Chart({ chartData }) {
   gradient.addColorStop(1, "rgba(36, 81, 183, 0.05)");
 
   const mappedWeek = chartData.map((item) => {
-    return item.week;
+    return `Week ${item.week}`;
   });
   const mappedData = chartData.map((item) => {
     return item.total;

@@ -33,25 +33,39 @@ export default function useWowData(expansionName, season) {
         }
         const responseData = await response.json();
 
-        // filter array for the current expansion then current season
+        // filter array for the current expansion then current season and finally sort by the week
         const filterExpansionSeason = responseData
           .filter((item) => {
             return item.expansion === expansionName;
           })
           .filter((item) => {
             return item.season === season;
-          });
+          })
+          .sort((a, b) => a.week - b.week);
 
-        // create a new array with total key updated with all weeks containing the same affix (eg. week 25 - week 13 - week 1)
-        const totalToActualTotal = () => {
-          const currentWeek = filterExpansionSeason;
-          const findMinMax = (min, max) => {
-            return currentWeek >= min && currentWeek <= max;
+        // creates a new array with every total for a set of affixes
+        const filterAffix = (affix) =>
+          filterExpansionSeason
+            .filter((obj) => obj.affix.includes(affix))
+            .map((obj) => obj.total);
+
+        // push all the new arrays into a single array
+        const singleArray = filterExpansionSeason.map((element) => {
+          return [filterAffix(element.affix)];
+        });
+        // helper function to conver the current week to current cycle
+        const weekToCycle = (currentWeek) => Math.floor(currentWeek / 12);
+        // replace total with the affixes that correspond to an array
+        const arrayWithTotalArrays = filterExpansionSeason.map((obj, i) => {
+          return {
+            ...obj,
+            total: singleArray[i][0]
+              .slice(0, weekToCycle(obj.week) + 1)
+              .reduce((prev, current) => current - prev, 0),
           };
-          console.log(currentWeek);
-        };
-        totalToActualTotal();
-        setData(filterExpansionSeason);
+        });
+
+        setData(arrayWithTotalArrays);
         setLoading(false);
       } catch (error) {
         setError(error.message);
