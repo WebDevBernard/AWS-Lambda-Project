@@ -6,11 +6,9 @@
 
 - An app that displays player count in World of Warcraft Mythic+ dungeons using automation with AWS.
 
-- If you want to understand how it's made. All my logic is in /backend/write.js and /frontend/src/hooks/useWowData.js.
+- To understand my code logic. Read /backend/write.js and /frontend/src/hooks/useWowData.js.
 
-- The data can be used to analyze player preferences, specifically, which set of \*affixes (weeks) players tend to like/dislike playing.
-
-- \*Affixes are a combination of difficulty modifiers that change once a week and cycle over 12 weeks. Affixes keep the game interesting, but some affixes are harder than others and fewer players tend to play during those weeks.
+- The data can be used to analyze player preferences, specifically, which set of affixes (weeks) players tend to like/dislike playing.
 
 ### What exactly does it do?
 
@@ -45,7 +43,6 @@
  "affix": "Tyrannical-Bolstering-Explosive-Tormented",
  "expansion": "sl",
  "total": 860060
-
 }
 ```
 
@@ -53,5 +50,4 @@
 
 - At the start of next season, update these constants:
   - AWS Lambda - write.js function: `expansion` `season` `schedule` `startDate`
-  - Front-end - App.js: `season` `expansionName`
-  - Delete text title and padding
+  - Front-end - App.js: `season`

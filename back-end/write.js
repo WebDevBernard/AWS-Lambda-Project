@@ -50,7 +50,7 @@ exports.handler = (event, context, callback) => {
 
   // finds the affix that corresponds to the current week
   const weekToCycle = Math.floor(currentWeek / schedule.length);
-  // on the 12th week of every cycle, if checks that week 12 returns 12, not 0 (eg. 12 - 1 * 12)
+  // on the 12th week of every cycle, ternary check ensures that week 12 returns 12, not 0 (eg. 12 - 1 * 12)
   const foundWeek =
     currentWeek % schedule.length === 0
       ? currentWeek
