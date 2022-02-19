@@ -9,29 +9,17 @@ exports.handler = (event, context, callback) => {
   // REQUIRED change the expansion with this variable
   const expansion = "sl";
   // REQUIRED change season with this variable
-  const season = "2";
+  const season = "3";
   // REQUIRED  change affixes with this array
-  const schedule = [
-    "Fortified-Bursting-Storming-Tormented",
-    "Tyrannical-Raging-Volcanic-Tormented",
-    "Fortified-Inspiring-Grievous-Tormented",
-    "Tyrannical-Spiteful-Necrotic-Tormented",
-    "Fortified-Bolstering-Quaking-Tormented",
-    "Tyrannical-Sanguine-Storming-Tormented",
-    "Fortified-Raging-Explosive-Tormented",
-    "Tyrannical-Bursting-Volcanic-Tormented",
-    "Fortified-Spiteful-Grievous-Tormented",
-    "Tyrannical-Inspiring-Quaking-Tormented",
-    "Fortified-Sanguine-Necrotic-Tormented",
-    "Tyrannical-Bolstering-Explosive-Tormented",
-  ];
-  const startDate = "February 15, 2022";
+  const schedule = [];
+  const startDate = "February 22, 2022";
   //  REQUIRED change the starting date
   // <========= END OF REQUIRED CHANGES =========>
 
   // <========= START OF OPTIONAL CHANGES =========>
   //  OPTIONAL change the day of the week this function is called
-  const apiCallDate = 4; // 8=mon, 7=tues, 6=wed, 5=thurs, 4=fri 12:00pst
+  //  Calls previous weeks affix
+  const apiCallDate = -3; // 1=mon, 0=tues, -1=wed, -2=thurs, -3=fri 12:00pst
 
   const pageCount = 20;
   // <========= END OF OPTIONAL CHANGES =========>
@@ -57,7 +45,7 @@ exports.handler = (event, context, callback) => {
   // changes week to match 0 index array
   const foundIndex = foundWeek - 1;
 
-  const url = `https://raider.io/api/mythic-plus/rankings/runs?region="world"&season=season-${expansion}-${season}&dungeon=all&strict=false&affixes=${schedule[foundIndex]}&page=0&limit=0&minMythicLevel=0&maxMythicLevel=0&eventId=0&faction=&realm=&period=0&recent=false`;
+  const url = `https://raider.io/api/mythic-plus/rankings/runs?region=world&season=season-${expansion}-${season}&dungeon=all&strict=false&affixes=${schedule[foundIndex]}&page=0&limit=0&minMythicLevel=0&maxMythicLevel=0&eventId=0&faction=&realm=&period=0&recent=false`;
 
   // async fetch data and multiply by pageCount
   const fetchData = async () => {

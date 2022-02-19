@@ -14,7 +14,7 @@ export default function Header({ season, expansionName }) {
     <div id="top" className={classes.header}>
       <h1 className={classes.title}>
         <img
-          src="https://img.icons8.com/cotton/64/000000/sun--v3.png"
+          src="https://img.icons8.com/color/48/000000/world-of-warcraft.png"
           alt="sun icon"
         />
         <p>

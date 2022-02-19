@@ -7,9 +7,9 @@ export default function Footer() {
         <a
           target="_blank"
           rel="noreferrer"
-          href="https://icons8.com/icon/OkWsH5jFVMve/sun"
+          href="https://icons8.com/icon/SmZQEPEk3iZP/world-of-warcraft"
         >
-          Sun icon by Icons8
+          World of Warcraft icon by Icons8
         </a>
       </div>
       <br />
