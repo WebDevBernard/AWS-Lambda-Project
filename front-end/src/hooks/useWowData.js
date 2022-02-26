@@ -5,10 +5,10 @@ import { useEffect, useState } from "react";
 Example of JSON Object:
 
 {
- "date": "2022-02-15T13:55:52PST",
+ "date": "2022-03-11T13:55:52PST",
  "week": 12,
- "season": 2,
- "affix": "Tyrannical-Bolstering-Explosive-Tormented",
+ "season": 3,
+ "affix": "Tyrannical, Bolstering, Explosive, Encrypted",
  "expansion": "sl",
  "total": 860060
 }

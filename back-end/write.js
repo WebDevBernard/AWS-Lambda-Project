@@ -11,8 +11,8 @@ exports.handler = (event, context, callback) => {
   // REQUIRED change season with this variable
   const season = "3";
   // REQUIRED  change affixes with this array
-  const schedule = [];
-  const startDate = "February 22, 2022";
+  const schedule = ["Tyrannical, Bolstering, Explosive, Encrypted"];
+  const startDate = "March 1, 2022";
   //  REQUIRED change the starting date
   // <========= END OF REQUIRED CHANGES =========>
 
