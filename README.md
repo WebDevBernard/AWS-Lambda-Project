@@ -14,6 +14,8 @@
 
 - \*More about how this app works: Calling Raider.io API returns a page count. Page count represents the number of pages in Raider.io's rankings for characters who have completed a Mythic+ dungeon. Each page contains 20 characters, hence page count multiply by 20 equals the total number of characters that have completed a set of affixes.
 
+- \*My business logic for backend is in /back-end/write.js and front-end is in /front-end/src/hooks/useWoWData.ts
+
 ## Tech Stack
 
 - Front-end built with React and Chart.js
