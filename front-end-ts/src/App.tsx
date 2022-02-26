@@ -9,7 +9,7 @@ import useWowData from "./hooks/useWowData";
 // Must be initials lowercase
 const expansionName = "sl";
 // Change Season
-const season = 2;
+const season = 3;
 //  <========= Required Change Ends Here: =========>
 
 function App() {
