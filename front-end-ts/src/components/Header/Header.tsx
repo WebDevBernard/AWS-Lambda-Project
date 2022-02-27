@@ -18,7 +18,7 @@ export default function Header(
       <h1 className={classes.title}>
         <img
           src="https://img.icons8.com/color/48/000000/world-of-warcraft.png"
-          alt="sun icon"
+          alt="warcraft icon"
         />
         <p>
           {expansionName.toUpperCase()} M+ S{season} Player Count
