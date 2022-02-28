@@ -14,7 +14,7 @@
 
 - \*Read about how I wrote my AWS Lambda function in /back-end/write.js and front-end custom hook in /front-end/src/hooks/useWoWData.ts
 
-- \*More about how this app actually works: Calling Raider.io API returns a page count. Page count represents the number of pages in Raider.io's rankings for characters who have completed a Mythic+ dungeon. Each page contains 20 characters, hence page count multiply by 20 equals the total number of characters that have completed a set of affixes.
+- \*More about how this app actually works: It calls [Raider.io API](https://raider.io/api) for a given set of affixes and returns a page count key / value pair. Page count represents the number of pages in Raider.io's rankings for characters who have completed a Mythic+ dungeon. Each page contains 20 characters, hence page count multiply by 20 equals the total number of characters that have completed a set of affixes.
 
 ## Tech Stack
 
