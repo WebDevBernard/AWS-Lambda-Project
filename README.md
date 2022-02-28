@@ -4,7 +4,7 @@
 
 ## About
 
-- An app that displays a graph of player count in World of Warcraft Mythic+ dungeons. Uses AWS Lambda/Eventbridge to automate calling a different API path depending on a given week.
+- A graph of player count in World of Warcraft Mythic+ dungeons. Uses AWS Lambda/Eventbridge to automate calling a different API path depending on a given week.
 
 - I made this app because I love playing World of Warcraft. When I saw this graph on [r/wow](https://www.reddit.com/r/wow/comments/o5nocw/comment/h2ov91n/?utm_source=share&utm_medium=web2x&context=3), it inspired me to make something like this. Part of the challenge with making this app was that every week I had to call a different API path (total of 12). For example, week 1 would be something like [1, 2, 3, 4], week 2 would be [4, 3, 2, 1], and then a combination of these numbers over 12 weeks. It repeats after week 12, so week 13 would be the same as week 1 (eg. [1, 2, 3, 4]) and so on. So I needed to figure out a way to increment a "week" key, and use that to select the correct path to call. On top of that, I wanted it to be entirely automated using AWS Lambda.
 
