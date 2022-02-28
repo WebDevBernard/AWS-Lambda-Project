@@ -28,7 +28,7 @@
 
 ## Preview
 
-!["M+"](https://github.com/WebDevBernard/Portfolio/blob/main/docs/raiderio.png?raw=true)
+!["M+"](https://github.com/WebDevBernard/Portfolio/blob/main/public/docs/raiderio.png)
 
 ### Example of repackaged JSON file:
 
