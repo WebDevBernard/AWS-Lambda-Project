@@ -1,3 +1,5 @@
+import { IProps } from "../../store/interface";
+import { FC } from "react";
 import { Line } from "react-chartjs-2";
 import Table from "../Table/Table";
 import classes from "./Chart.module.css";
@@ -6,8 +8,10 @@ import { Chart as Chartjs } from "chart.js";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 
 Chartjs.register(ChartDataLabels);
-export default function Chart({ chartData }) {
-  const ctx = document.getElementById("canvas").getContext("2d");
+const Chart: FC<{ chartData: IProps[] }> = ({ chartData }) => {
+  const ctx: HTMLElement | null = document
+    .getElementById("canvas")
+    .getContext("2d");
   const gradient = ctx.createLinearGradient(0, 0, 0, 693);
   gradient.addColorStop(0, "rgba(36, 81, 183, 0.45)");
   gradient.addColorStop(0.5, "rgba(36, 81, 183, 0.25)");
@@ -120,4 +124,6 @@ export default function Chart({ chartData }) {
       </div>
     </div>
   );
-}
+};
+
+export default Chart;

@@ -1,18 +1,11 @@
-import {FC} from "react"
-const style = {
-  display: "flex",
-  alignContent: "center",
-  marginLeft: "32px",
-  marginTop: "16px",
-  color: "#d2d1d6",
-};
+import classes from "./Error.module.css";
 
-const Error: FC<{error: string}>({ error }) => {
+const Error = ({ error }: { error: string }) => {
   return (
-    <div style={style}>
+    <div className={classes.error}>
       <p> An error occured {error} </p>
     </div>
   );
-}
+};
 
-export default Error
+export default Error;

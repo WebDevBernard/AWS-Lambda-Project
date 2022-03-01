@@ -1,3 +1,7 @@
+import { FC } from "react";
+import { IProps } from "../../store/interface";
+import { nanoid } from "nanoid";
+import classes from "./Table.module.css";
 import {
   Table as MuiTable,
   TableBody,
@@ -26,24 +30,19 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-export default function Table({ data }) {
-  const generateKey = () => {
-    return `${Math.random()}_${new Date().getTime()}`;
-  };
+const Table: FC<{ data: IProps[] }> = ({ data }) => {
   return (
     <MuiTable
       sx={{ width: 500, marginTop: 2 }}
       size="small"
       aria-label="a dense table"
     >
-      <TableHead
-        style={{ background: "linear-gradient(to right, #9963B8, #4D16E1)" }}
-      >
+      <TableHead className={classes.table__head}>
         <TableRow>
-          <StyledTableCell style={{ fontFamily: "Roboto Mono" }}>
+          <StyledTableCell className={classes.table__cell}>
             Week
           </StyledTableCell>
-          <StyledTableCell style={{ fontFamily: "Roboto Mono" }}>
+          <StyledTableCell className={classes.table__cell}>
             Affixes
           </StyledTableCell>
         </TableRow>
@@ -52,13 +51,13 @@ export default function Table({ data }) {
       <TableBody>
         {data.map((item) => (
           <StyledTableRow
-            key={generateKey(item)}
+            key={nanoid()}
             sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
           >
-            <StyledTableCell style={{ fontFamily: "Roboto Mono" }}>
+            <StyledTableCell className={classes.table__cell}>
               {item.week}
             </StyledTableCell>
-            <StyledTableCell style={{ fontFamily: "Roboto Mono" }}>
+            <StyledTableCell className={classes.table__cell}>
               {item.affix.split("-").slice(0, 3).join(", ")}
             </StyledTableCell>
           </StyledTableRow>
@@ -66,4 +65,6 @@ export default function Table({ data }) {
       </TableBody>
     </MuiTable>
   );
-}
+};
+
+export default Table;

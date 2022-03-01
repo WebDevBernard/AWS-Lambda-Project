@@ -1,5 +1,5 @@
-import { useEffect, useState, FC } from "react";
-
+import { useEffect, useState } from "react";
+import { IProps } from "../store/interface";
 /**
  
 Example of JSON Object:
@@ -15,28 +15,17 @@ Example of JSON Object:
 
  **/
 
-interface Props {
-  date: string;
-  week: number;
-  season: number;
-  affix: string;
-  expansion: string;
-  total: number;
-}
-
-const url: string = process.env.REACT_APP_API_URL!;
-
-const useWowData: FC<{expansion}: Props> = (expansionName: string, season: string) => {
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(true);
-  const [data, setData] = useState();
+const useWowData = (expansionName: string, season: number) => {
+  const [error, setError] = useState<string | null>("");
+  const [loading, setLoading] = useState<boolean>(true);
+  const [data, setData] = useState<IProps[]>();
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(url, {
+        const response = await fetch(process.env.REACT_APP_API_URL!, {
           headers: {
             "Content-Type": "application/json",
-            "x-api-key": process.env.REACT_APP_API_KEY,
+            "x-api-key": process.env.REACT_APP_API_KEY!,
           },
         });
         if (!response.ok) {
@@ -46,21 +35,23 @@ const useWowData: FC<{expansion}: Props> = (expansionName: string, season: strin
 
         // filter array for the current expansion then current season and finally sort by the week
         const filterExpansionSeason = responseData
-          .filter((item: string) => {
+          .filter((item: IProps) => {
             return item.expansion === expansionName;
           })
-          .filter((item: number) => {
+          .filter((item: IProps) => {
             return item.season === season;
           })
-          .sort((a, b) => a.week - b.week);
+          .sort((a: IProps, b: IProps) => a.week - b.week);
 
         // helper function to find week in findSchedule
-        const filterWeekByIndex = (week) => {
-          return filterExpansionSeason.findIndex((obj) => obj.week === week);
+        const filterWeekByIndex = (week: number) => {
+          return filterExpansionSeason.findIndex(
+            (obj: IProps) => obj.week === week
+          );
         };
 
         // map new key value onto a new array
-        const findSchedule = filterExpansionSeason.map((obj) => {
+        const findSchedule = filterExpansionSeason.map((obj: IProps) => {
           if (obj.week >= 13) {
             return {
               ...obj,

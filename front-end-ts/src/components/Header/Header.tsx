@@ -1,11 +1,13 @@
+import { FC } from "react";
 import classes from "./Header.module.css";
-export default function Header(
-  { season }: { season: string },
-  { expansionName }: { expansionName: string }
-) {
+
+const Header: FC<{ season: number; expansionName: string }> = ({
+  season,
+  expansionName,
+}) => {
   // https://codereview.stackexchange.com/questions/33527/find-next-occurring-friday-or-any-dayofweek
   const today = new Date();
-  function setDay(date: number, dayOfWeek: number) {
+  function setDay(date: Date, dayOfWeek: number) {
     const resultDate = new Date(date.getTime() - 8 * 1000 * 60 * 60);
     resultDate.setDate(
       date.getDate() + ((7 + dayOfWeek - date.getDay() - 1) % 7) + 1
@@ -21,7 +23,7 @@ export default function Header(
           alt="warcraft icon"
         />
         <p>
-          {expansionName.toUpperCase()} M+ S{season} Player Count
+          {expansionName.toString().toUpperCase()} M+ S{season} Player Count
         </p>
       </h1>
       <p className={classes.date}>
@@ -29,4 +31,6 @@ export default function Header(
       </p>
     </div>
   );
-}
+};
+
+export default Header;

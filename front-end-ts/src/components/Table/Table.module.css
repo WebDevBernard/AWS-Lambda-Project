@@ -1,0 +1,7 @@
+.table__head {
+  background-color: linear-gradient(to right, #9963b8, #4d16e1);
+}
+
+.table__cell {
+  font-family: "Roboto Mono";
+}
