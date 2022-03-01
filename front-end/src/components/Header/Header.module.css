@@ -18,7 +18,8 @@
   height: 24px;
   margin-right: 24px;
 }
-.header p {
+.header p,
+.header span {
   color: var(--primary-color);
   font-weight: lighter;
   font-size: 16px;
@@ -27,7 +28,7 @@
 }
 
 @media only screen and (max-width: 1024px) {
-  .date {
+  .header span {
     display: none;
   }
 }

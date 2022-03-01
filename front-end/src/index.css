@@ -1,3 +1,4 @@
+@import url("http://fonts.cdnfonts.com/css/sofia-pro");
 :root {
   --primary-color: #d2d1d6;
   --secondary-color: #d2d1d6;
@@ -7,7 +8,6 @@
 
 body {
   background-color: #1f2033;
-  margin: 0 auto;
   font-family: "Sofia Pro", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
