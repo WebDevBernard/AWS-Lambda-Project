@@ -14,16 +14,16 @@ exports.handler = (event, context, callback) => {
   const schedule = [
     "Tyrannical, Bolstering, Explosive, Encrypted",
     "Fortified, Bursting, Storming, Encrypted",
-    "Tyrannical, Bolstering, Explosive, Encrypted",
-    "Fortified, Bursting, Storming, Encrypted",
-    "Tyrannical, Bolstering, Explosive, Encrypted",
-    "Fortified, Bursting, Storming, Encrypted",
-    "Tyrannical, Bolstering, Explosive, Encrypted",
-    "Fortified, Bursting, Storming, Encrypted",
-    "Tyrannical, Bolstering, Explosive, Encrypted",
-    "Fortified, Bursting, Storming, Encrypted",
-    "Tyrannical, Bolstering, Explosive, Encrypted",
-    "Fortified, Bursting, Storming, Encrypted",
+    "Tyrannical, Placeholder?, Placeholder?, Encrypted",
+    "Fortified, Placeholder?, Placeholder?, Encrypted",
+    "Tyrannical, Placeholder?, Placeholder?, Encrypted",
+    "Fortified, Placeholder?, Placeholder?, Encrypted",
+    "Tyrannical, Placeholder?, Placeholder?, Encrypted",
+    "Fortified, Placeholder?, Placeholder?, Encrypted",
+    "Tyrannical, Placeholder?, Placeholder?, Encrypted",
+    "Fortified, Placeholder?, Placeholder?, Encrypted",
+    "Tyrannical, Placeholder?, Placeholder?, Encrypted",
+    "Fortified, Placeholder?, Placeholder?, Encrypted",
   ];
   const startDate = "March 1, 2022";
   //  REQUIRED change the starting date

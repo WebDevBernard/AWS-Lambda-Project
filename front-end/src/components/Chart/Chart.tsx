@@ -39,7 +39,7 @@ const Chart: FC<{ chartData: IProps[] }> = ({ chartData }) => {
   return (
     <div className={classes.body}>
       <div className={classes.chart}>
-        <ResponsiveContainer minWidth={768} width="100%" height={600}>
+        <ResponsiveContainer minWidth={1024} width="100%" height={600}>
           <AreaChart
             data={chartData}
             margin={{
