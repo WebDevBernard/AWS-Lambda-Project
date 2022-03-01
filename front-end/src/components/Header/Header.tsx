@@ -17,7 +17,7 @@ const Header: FC<{ season: number; expansionName: string }> = ({
 
   return (
     <div id="top" className={classes.header}>
-      <h1 className={classes.title}>
+      <h1>
         <img
           src="https://img.icons8.com/color/48/000000/world-of-warcraft.png"
           alt="warcraft icon"
@@ -26,7 +26,7 @@ const Header: FC<{ season: number; expansionName: string }> = ({
           {expansionName.toString().toUpperCase()} M+ S{season} Player Count
         </p>
       </h1>
-      <p className={classes.date}>
+      <p>
         Next update {setDay(today, 5).toISOString().slice(0, 10)} 12:00PM PST
       </p>
     </div>

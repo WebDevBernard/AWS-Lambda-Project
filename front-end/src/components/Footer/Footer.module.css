@@ -1,10 +1,8 @@
 .footer {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   margin: 1rem;
-  font-size: 1.05rem;
-  padding-top: 24px;
-  border-top: 1px solid grey;
-  text-decoration: none;
+  padding: 24px;
+  border-top: 1px solid var(--primary-color);
 }
