@@ -22,7 +22,7 @@
 
 ## Tech Stack
 
-- Front-end built with React and Chart.js
+- Front-end built with React and reCharts
 - Back-end built with AWS Lambda, DynamoDB, API Gateway
 - Table styled with Material UI
 

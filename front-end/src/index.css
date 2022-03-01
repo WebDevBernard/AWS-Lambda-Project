@@ -1,7 +1,13 @@
 body {
   background-color: #1f2033;
   margin: 0 auto;
-  font-family: "Roboto Mono";
+  font-family: "Sofia Pro", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-size: 12px;
+  text-decoration: none;
+  color: #d2d1d6;
 }
