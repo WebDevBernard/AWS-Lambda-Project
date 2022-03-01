@@ -1,5 +1,5 @@
 .table {
-  color: #d2d1d6 !important;
+  color: var(--primary-color) !important;
   font-size: 14px !important;
   white-space: nowrap;
 }
@@ -8,15 +8,15 @@
 }
 
 .table__cell {
-  color: #d2d1d6 !important;
+  color: var(--primary-color) !important;
   font-size: 16px !important;
   font-family: "Sofia Pro", sans-serif !important;
 }
 
 .table__row {
-  background: #313252;
+  background: var(--primary-bg-color);
 }
 
 .table__alt__row {
-  background: #1f2033;
+  background: var(--secondary-bg-color);
 }

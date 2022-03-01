@@ -44,7 +44,7 @@ const Chart: FC<{ chartData: IProps[] }> = ({ chartData }) => {
           margin={{
             top: 30,
             right: 30,
-            left: 30,
+            left: 60,
             bottom: 0,
           }}
         >
@@ -63,7 +63,7 @@ const Chart: FC<{ chartData: IProps[] }> = ({ chartData }) => {
             label={{
               value: "total",
               position: "top",
-              fontSize: 16,
+              fontSize: 18,
               fill: "#d2d1d6",
             }}
             className={classes.label}

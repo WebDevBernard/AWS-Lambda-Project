@@ -1,19 +1,15 @@
 .body {
   display: flex;
   justify-content: space-evenly;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .tooltip {
-  background: #26313c;
-  color: #d2d1d6;
+  font-size: 18px;
+  background: var(--primary-bg-color);
+  color: var(--primary-color);
   padding: 16px;
   box-shadow: 15px 30px 40px 5px rgba(0, 0, 0, 0.5);
-  text-align: center;
-}
-
-.label {
-  color: #d2d1d6;
 }
 
 @media only screen and (max-width: 768px) {
