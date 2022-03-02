@@ -10,7 +10,7 @@
 
 - I am a fan of World of Warcraft and this [r/wow](https://www.reddit.com/r/wow/comments/o5nocw/comment/h2ov91n/?utm_source=share&utm_medium=web2x&context=3) post inspired me to make this app. The main challenge in creating this app is that every week there is a different endpoint to call (12 total). The backend (AWS Lambda) would need to call the correct endpoint, store that data into a database (explanation below why database is needed), and connect that database to my frontend graph. And it would all need to be automated with AWS.
 
-- \*Read about how I wrote my AWS Lambda function in /back-end/write.js and my React custom hook in /front-end/src/hooks/useWoWData.tsx
+- \*Read about how I wrote my AWS Lambda function in /back-end/write.js and my React custom hook in /front-end/src/hooks/useWowData.tsx
 
 ## Long Summary (How it actually works)
 

@@ -68,7 +68,7 @@ const Chart: FC<{ chartData: IProps[] }> = ({ chartData }) => {
               label={{
                 value: "total",
                 position: "top",
-                fontSize: 18,
+                fontSize: 14,
                 fill: "#d2d1d6",
               }}
               className={classes.label}
@@ -78,7 +78,7 @@ const Chart: FC<{ chartData: IProps[] }> = ({ chartData }) => {
               axisLine={false}
               tickLine={false}
               tickFormatter={(number) => `Week ${number}`}
-              tick={{ fill: "#d2d1d6" }}
+              tick={{ fill: "#d2d1d6", fontSize: 14 }}
             />
             <YAxis dataKey="total" hide />
             <Tooltip content={<CustomToolTip />} />
