@@ -10,7 +10,8 @@
 .table__cell {
   color: var(--primary-color) !important;
   font-size: 16px !important;
-  font-family: "Nunito", sans-serif !important;
+  /* font-family: "Nunito", sans-serif !important; */
+  font-family: "Sofia Pro", sans-serif !important;
 }
 
 .table__row {
