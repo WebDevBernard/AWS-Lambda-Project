@@ -15,13 +15,12 @@ import {
 const CustomToolTip: any = ({
   active,
   payload,
-  label,
 }: {
   active: any;
   payload: any;
   label: any;
 }) => {
-  if (active) {
+  if (Array.isArray(payload) && active) {
     return (
       <div className={classes.tooltip}>
         <p>Week {payload[0].payload.week}</p>
