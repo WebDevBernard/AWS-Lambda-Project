@@ -12,13 +12,12 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const CustomToolTip: any = ({
+const CustomToolTip = ({
   active,
   payload,
 }: {
-  active: any;
-  payload: any;
-  label: any;
+  active?: boolean;
+  payload?: IProps;
 }) => {
   if (Array.isArray(payload) && active) {
     return (
@@ -30,6 +29,9 @@ const CustomToolTip: any = ({
     );
   }
   return null;
+};
+const labelFormatter = (value: number) => {
+  return numberWithCommas(value);
 };
 function numberWithCommas(x: number) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -69,6 +71,7 @@ const Chart: FC<{ chartData: IProps[] }> = ({ chartData }) => {
                 position: "top",
                 fontSize: 14,
                 fill: "#d2d1d6",
+                formatter: labelFormatter,
               }}
               className={classes.label}
             ></Area>

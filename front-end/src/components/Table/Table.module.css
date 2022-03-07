@@ -2,9 +2,13 @@
   color: var(--primary-color) !important;
   font-size: 14px !important;
   white-space: nowrap;
+  position: absolute !important;
+  top: 0px;
+  right: 0px;
 }
 .table__head {
   background: linear-gradient(to right, #9963b8, #4d16e1);
+  width: 25% !important;
 }
 
 .table__cell {
@@ -13,6 +17,13 @@
   /* font-family: "Nunito", sans-serif !important; */
   font-family: "Sofia Pro", sans-serif !important;
 }
+.table__cell__right {
+  color: var(--primary-color) !important;
+  font-size: 16px !important;
+  /* font-family: "Nunito", sans-serif !important; */
+  font-family: "Sofia Pro", sans-serif !important;
+  padding-right: 3rem !important;
+}
 
 .table__row {
   background: var(--primary-bg-color);
@@ -20,4 +31,11 @@
 
 .table__alt__row {
   background: var(--secondary-bg-color);
+}
+
+.table__button {
+  color: var(--primary-color) !important;
+  position: absolute !important;
+  top: 0;
+  right: 0;
 }
