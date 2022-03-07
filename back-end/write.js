@@ -14,16 +14,6 @@ exports.handler = (event, context, callback) => {
   const schedule = [
     "Tyrannical, Bolstering, Explosive, Encrypted",
     "Fortified, Bursting, Storming, Encrypted",
-    "Tyrannical, Placeholder?, Placeholder?, Encrypted",
-    "Fortified, Placeholder?, Placeholder?, Encrypted",
-    "Tyrannical, Placeholder?, Placeholder?, Encrypted",
-    "Fortified, Placeholder?, Placeholder?, Encrypted",
-    "Tyrannical, Placeholder?, Placeholder?, Encrypted",
-    "Fortified, Placeholder?, Placeholder?, Encrypted",
-    "Tyrannical, Placeholder?, Placeholder?, Encrypted",
-    "Fortified, Placeholder?, Placeholder?, Encrypted",
-    "Tyrannical, Placeholder?, Placeholder?, Encrypted",
-    "Fortified, Placeholder?, Placeholder?, Encrypted",
   ];
   const startDate = "March 1, 2022";
   //  REQUIRED change the starting date
@@ -57,6 +47,9 @@ exports.handler = (event, context, callback) => {
       : currentWeek - Math.floor(currentWeek / 12) * 12;
   // changes week to match 0 index array
   const foundIndex = foundWeek - 1;
+
+  // mutate original array and changes ", " to "- "
+  schedule.forEach((el, i) => (schedule[i] = el.replace(/, /g, "-")));
 
   const url = `https://raider.io/api/mythic-plus/rankings/runs?region=world&season=season-${expansion}-${season}&dungeon=all&strict=false&affixes=${schedule[foundIndex]}&page=0&limit=0&minMythicLevel=0&maxMythicLevel=0&eventId=0&faction=&realm=&period=0&recent=false`;
 
