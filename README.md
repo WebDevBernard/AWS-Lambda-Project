@@ -16,7 +16,7 @@
 
 - \*So what does this app do? It automates the API call to Raider.io using AWS Lambda / EventBridge and saves the data with extra info (see repackaged JSON below) to DynamoDB. You can read how I wrote my Node function in `/back-end/write.js` and my React custom hook in `/front-end/src/hooks/useWowData.tsx`
 
-- Example schedule:
+- Example of affix schedule:
 
 | Week | Affix(1) +2 | Affix(2) +4 | Affix(3) +7 | Seasonal Affix (10+) |
 | ---- | ----------- | ----------- | ----------- | -------------------- |
