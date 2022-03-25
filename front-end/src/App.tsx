@@ -12,7 +12,7 @@ const expansionName = "sl";
 // Change Season
 const season = 3;
 // Footer news
-const news = "Updated recently. View Github for more info.";
+const news = "Updated for Patch 9.2. View Github for more info.";
 //  <========= Required Change Ends Here: =========>
 
 function App() {
@@ -22,7 +22,11 @@ function App() {
     <>
       <Layout>
         <div>
-          <Header expansionName={expansionName} season={season} />
+          <Header
+            expansionName={expansionName}
+            season={season}
+            counterData={data}
+          />
           {data && !error && <Chart chartData={data} />}
           {loading && <Loading />}
           {error && <Error error={error} />}

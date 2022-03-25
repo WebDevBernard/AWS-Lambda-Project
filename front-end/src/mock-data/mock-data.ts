@@ -20,7 +20,7 @@ const mockNumber = (min: number, max: number) => {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min) + min);
 };
-const firstTotal = Array.from({ length: 12 }, () => mockNumber(50000, 100000));
+const firstTotal = Array.from({ length: 12 }, () => mockNumber(30000, 40000));
 const secondTotal = Array.from({ length: 12 }, () => mockNumber(10000, 20000));
 
 export const mockData = [

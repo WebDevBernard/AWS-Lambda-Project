@@ -31,9 +31,7 @@ const CustomToolTip = ({
   }
   return null;
 };
-const labelFormatter = (value: number) => {
-  return numberWithCommas(value);
-};
+
 function numberWithCommas(x: number) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
@@ -71,7 +69,7 @@ const Chart: FC<{ chartData: IProps[] }> = ({ chartData }) => {
             //   value: "total",
             //   position: "top",
             //   fontSize: 14,
-            //   fill: "#d2d1d6",
+            //   fill: "#606a99",
             //   formatter: labelFormatter,
             // }}
             className={classes.label}
@@ -79,14 +77,14 @@ const Chart: FC<{ chartData: IProps[] }> = ({ chartData }) => {
           <XAxis
             dataKey="week"
             tickFormatter={(number) => `Week ${number}`}
-            tick={{ fill: "#d2d1d6", fontSize: 12 }}
+            tick={{ fill: "#606a99", fontSize: 12 }}
           />
           <YAxis
             dataKey="total"
             tickLine={false}
             axisLine={false}
-            tickFormatter={(number) => labelFormatter(number)}
-            tick={{ fill: "#d2d1d6", fontSize: 12 }}
+            tickFormatter={(number) => numberWithCommas(number)}
+            tick={{ fill: "#606a99", fontSize: 12 }}
           />
           <Tooltip content={<CustomToolTip />} />
           <CartesianGrid opacity={0.1} horizontal={false} />
