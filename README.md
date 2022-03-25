@@ -10,9 +10,11 @@
 
 ## Learn more
 
-- I am a fan of World of Warcraft and this [r/wow](https://www.reddit.com/r/wow/comments/o5nocw/comment/h2ov91n/?utm_source=share&utm_medium=web2x&context=3) post inspired me to make this app.
+- This [r/wow](https://www.reddit.com/r/wow/comments/o5nocw/comment/h2ov91n/?utm_source=share&utm_medium=web2x&context=3) post inspired me to make this app.
 
-- If you are wondering how it works or how to make your own chart. It requires calling [Raider.io API](https://raider.io/api) once a week and logging in the data to a database. Basically, the weekly affixes are on a schedule (see table below). Every week it changes and repeats itself after 12 weeks. When you are calling [Raider.io API](https://raider.io/api), you are looking at the **total count for a set affixes**. <ins>**This includes all previous weeks that share that set of affix**</ins>. For example, if you wanted to find out the character count for week 13, you would have to know the count on week 1 as well (totalForWeek13 = week13 - week1).
+- If you are wondering how it works or how to make your own chart. It requires calling [Raider.io API](https://raider.io/api) once a week and logging in the data to a database. Basically, the weekly affixes are on a schedule (see table below). Every week it changes and then it repeats itself after 12 weeks. When you call [Raider.io API](https://raider.io/api)(see example query below) you want to scroll to the bottom and look for this key `data.rankings.ui.lastPage`. With this value, multiply it by 20 (20 because there are 20 characters per page on Raider.io rankings). This will give you a **total character count for a set affixes**. Important to understand: <ins>**This includes all previous weeks that share that set of affix**</ins>. For example, if you wanted to find out the character count for week 13, you would have to know the count on week 1 (both have the same affix). Therefore total on week 13 = week 13 - week 1.
+
+- \*So what does this app do? It automates the API call to Raider.io using AWS Lambda / EventBridge and saves the data with extra info (see repackaged JSON below) to DynamoDB. You can read how I wrote my Node function in `/back-end/write.js` and my React custom hook in `/front-end/src/hooks/useWowData.tsx`
 
 - Example schedule:
 
@@ -30,19 +32,11 @@
 | 11   | Tyrannical  | Inspiring   | Quaking     | Encrypted            |
 | 12   | Fortified   | Sanguine    | Grievous    | Encrypted            |
 
-- \*I automated the API call using AWS Lambda and EventBridge. You can read how I wrote my AWS Lambda code in `/back-end/write.js` and my React custom hook in `/front-end/src/hooks/useWowData.tsx`
+- Example query to Raider.io API:
 
-## Tech Stack
+`https://raider.io/api/mythic-plus/rankings/runs?region=world&season=season-sl-3&dungeon=all&strict=false&affixes=Fortified-Bursting-Storming-Encrypted&page=0&limit=0&minMythicLevel=0&maxMythicLevel=0&eventId=0&faction=&realm=&period=0&recent=false`
 
-- Front-end built with React and ReCharts
-- Back-end built with AWS Lambda, EventBridge, DynamoDB, API Gateway
-- Table styled with Material UI
-
-## Preview
-
-!["M+"](https://github.com/WebDevBernard/Portfolio/blob/main/public/docs/raiderio.png)
-
-### Example of repackaged JSON file:
+- Example of repackaged JSON file:
 
 ```
 {
@@ -54,3 +48,13 @@
  "total": 1037600
 }
 ```
+
+## Tech Stack
+
+- Front-end built with React and ReCharts
+- Back-end built with AWS Lambda, EventBridge, DynamoDB, API Gateway
+- Table styled with Material UI
+
+## Preview
+
+!["M+"](https://github.com/WebDevBernard/Portfolio/blob/main/public/docs/raiderio.png)
