@@ -53,7 +53,7 @@ const Header: FC<{
 
       <div className={classes.container}>
         <span className={classes.season}>
-          {expansionName.toUpperCase()} Season {season}
+          {expansionName.toUpperCase()} Season {season} (World)
         </span>
         <p className={classes.update}>
           Next update {moment(setDay(today, 5)).format("MMMM Do YYYY")} 12:00PM
