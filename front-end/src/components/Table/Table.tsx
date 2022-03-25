@@ -22,8 +22,8 @@ const Table: FC<{ tableData: IProps[] }> = ({ tableData }) => {
         <MuiTable size="small" aria-label="a dense table">
           <TableHead className={classes.table__head}>
             <TableRow>
-              <TableCell className={classes.table__cell}>Week</TableCell>
-              <TableCell className={classes.table__cell__right}>
+              <TableCell className={classes.table__heading}>Week</TableCell>
+              <TableCell className={classes.table__heading__right}>
                 Affixes
               </TableCell>
             </TableRow>
