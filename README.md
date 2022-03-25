@@ -2,20 +2,38 @@
 
 ### [View Live Demo](https://mythicplus.vercel.app/)
 
-## Quick Summary
+## Disclamer
 
-- I am a fan of World of Warcraft and this [r/wow](https://www.reddit.com/r/wow/comments/o5nocw/comment/h2ov91n/?utm_source=share&utm_medium=web2x&context=3) post inspired me to make this app. The main challenge in creating this app is that every week there is a different endpoint to call (12 total). The backend (AWS Lambda) would need a way to call the correct endpoint, store that data into a database (explanation below why database is needed), and connect that database to my frontend graph. And it would all need to be automated with AWS.
+- Updated recently for Season 3
 
-- \*Read about how I wrote my AWS Lambda function in /back-end/write.js and my React custom hook in /front-end/src/hooks/useWowData.tsx
+- This data is not 100% accurate, but it is a good estimate of player count (especially when there is no official count from Blizzard). What it does is it looks at the **total number of characters** that have completed a Mythic+ dungeon. The problem with this is many players often have multiple characters. The data can also continue to update even after the affix has ended for that week. This is why I delay the update until Friday.
 
-## Long Summary
+## Learn more
 
-- It calls [Raider.io API](https://raider.io/api) for a given set of affixes and returns a page count key / value pair. Page count represents the number of pages in Raider.io's rankings for characters who have completed a Mythic+ dungeon. Each page contains 20 characters, hence page count multiply by 20 equals the total number of characters that have completed a set of affixes. Calling the affix returns a total count for a set of affixes, not total for a given week. For example, to find out how many characters played on week 13, you would have to know the total count for all players that have played that affix. The only other time would be week 1, therefore week 13 would be the count on week 13 minus the count on week 1. You would need to have a database to record all prior weeks.
+- I am a fan of World of Warcraft and this [r/wow](https://www.reddit.com/r/wow/comments/o5nocw/comment/h2ov91n/?utm_source=share&utm_medium=web2x&context=3) post inspired me to make this app.
+
+- If you are wondering how it works or how to make your own chart. It requires calling [Raider.io API](https://raider.io/api) once a week and logging in the data to a database. Basically, the weekly affixes are on a schedule (see table below). Every week it changes and repeats itself after 12 weeks. When you are calling [Raider.io API](https://raider.io/api), you are looking at the **total count for a set affixes**. This includes all previous weeks that share that set of affix. For example, if you wanted to find out the character count for week 13, you would have to know the count on week 1 as well (totalWeek13 = week13 - week1).
+
+| Week | Affix(1) +2 | Affix(2) +4 | Affix(3) +7 | Seasonal Affix (10+) |
+| ---- | ----------- | ----------- | ----------- | -------------------- |
+| 1    | Fortified   | Bursting    | Storming    | Encrypted            |
+| 2    | Tyrannical  | Raging      | Volcanic    | Encrypted            |
+| 3    | Fortified   | Inspiring   | Grievous    | Encrypted            |
+| 4    | Tyrannical  | Spiteful    | Necrotic    | Encrypted            |
+| 5    | Fortified   | Bolstering  | Quaking     | Encrypted            |
+| 6    | Tyrannical  | Sanguine    | Storming    | Encrypted            |
+| 7    | Fortified   | Raging      | Explosive   | Encrypted            |
+| 9    | Tyrannical  | Bursting    | Volcanic    | Encrypted            |
+| 10   | Fortified   | Spiteful    | Grievous    | Encrypted            |
+| 11   | Tyrannical  | Inspiring   | Quaking     | Encrypted            |
+| 12   | Fortified   | Sanguine    | Grievous    | Encrypted            |
+
+- \*Read about how I wrote my AWS Lambda function in `/back-end/write.js` and my React custom hook in `/front-end/src/hooks/useWowData.tsx`
 
 ## Tech Stack
 
 - Front-end built with React and ReCharts
-- Back-end built with AWS Lambda, DynamoDB, API Gateway
+- Back-end built with AWS Lambda, EventBridge, DynamoDB, API Gateway
 - Table styled with Material UI
 
 ## Preview
@@ -34,9 +52,3 @@
  "total": 860060
 }
 ```
-
-## Instructions for next update:
-
-- At the start of next season, update these constants:
-  - AWS Lambda - write.js function: `expansion` `season` `schedule` `startDate`
-  - Front-end - App.js: `season`
