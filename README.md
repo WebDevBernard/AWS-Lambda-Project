@@ -2,7 +2,7 @@
 
 ### [View Live Demo](https://mythicplus.vercel.app/)
 
-## Disclamer
+## Disclaimer
 
 - Updated recently for Season 3
 
