@@ -2,6 +2,7 @@ import { FC } from "react";
 import classes from "./Header.module.css";
 import moment from "moment";
 import { IProps } from "../../store/interface";
+import * as _ from "lodash";
 
 const Header: FC<{
   season: number;
@@ -32,6 +33,14 @@ const Header: FC<{
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
+  // find highest number and lowest number
+  const min = _.minBy(counterData, function (o) {
+    return o.total;
+  });
+  const max = _.maxBy(counterData, function (o) {
+    return o.total;
+  });
+
   return (
     <div className={classes.header}>
       <div className={classes.container}>
@@ -55,43 +64,55 @@ const Header: FC<{
         Data comes from Raider.io API. Based on total number of characters who
         have completed a Mythic+ Dungeon.
       </p>
-
-      <div className={classes.counter}>
-        <h2>Change from Previous Week</h2>
-        <span>
-          {difference > 0 ? (
-            <svg
-              className={classes.positive}
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M7 11l5-5m0 0l5 5m-5-5v12"
-              />
-            </svg>
-          ) : (
-            <svg
-              className={classes.negative}
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M17 13l-5 5m0 0l-5-5m5 5V6"
-              />
-            </svg>
-          )}
-          {numberWithCommas(difference)} | {percentage}%
-        </span>
+      <div className={classes.info__container}>
+        <div className={classes.info}>
+          <h2>Most Played Week</h2>
+          <span>Week {max?.week}</span>
+          <span>{max?.affix}</span>
+        </div>
+        <div className={classes.info}>
+          <h2>Least Played Week</h2>
+          <span>Week {min?.week}</span>
+          <span>{min?.affix}</span>
+        </div>
+        <div className={classes.counter}>
+          <h2>Change from Previous Week</h2>
+          <span>
+            {difference > 0 ? (
+              <svg
+                className={classes.positive}
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M7 11l5-5m0 0l5 5m-5-5v12"
+                />
+              </svg>
+            ) : (
+              <svg
+                className={classes.negative}
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M17 13l-5 5m0 0l-5-5m5 5V6"
+                />
+              </svg>
+            )}
+            {numberWithCommas(difference)} | {percentage}%
+          </span>
+          <br />
+        </div>
       </div>
     </div>
   );
