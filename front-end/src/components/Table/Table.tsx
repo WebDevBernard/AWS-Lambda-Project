@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FC } from "react";
 import { IProps } from "../../store/interface";
+import Card from "../Card/Card";
 import { nanoid } from "nanoid";
 import classes from "./Table.module.css";
 import {
@@ -9,35 +10,24 @@ import {
   TableHead,
   TableRow,
   TableCell,
-  IconButton,
 } from "@mui/material";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
-const Table: FC<{ data: IProps[] }> = ({ data }) => {
-  const [showTable, setShowTable] = useState<boolean>(true);
+const Table: FC<{ tableData: IProps[] }> = ({ tableData }) => {
   return (
-    <div className={classes.table}>
-      <IconButton
-        onClick={() => setShowTable(!showTable)}
-        className={classes.table__button}
-      >
-        {showTable && <VisibilityIcon />}
-        {!showTable && <VisibilityOffIcon />}
-      </IconButton>
-      <MuiTable size="small" aria-label="a dense table">
-        <TableHead className={classes.table__head}>
-          <TableRow>
-            <TableCell className={classes.table__cell}>Week</TableCell>
-            <TableCell className={classes.table__cell__right}>
-              Affixes
-            </TableCell>
-          </TableRow>
-        </TableHead>
+    <Card>
+      <div className={classes.table}>
+        <MuiTable size="small" aria-label="a dense table">
+          <TableHead className={classes.table__head}>
+            <TableRow>
+              <TableCell className={classes.table__cell}>Week</TableCell>
+              <TableCell className={classes.table__cell__right}>
+                Affixes
+              </TableCell>
+            </TableRow>
+          </TableHead>
 
-        {showTable && (
           <TableBody>
-            {data.map((item, index) => (
+            {tableData.map((item, index) => (
               <TableRow
                 className={
                   index % 2 ? classes.table__row : classes.table__alt__row
@@ -54,9 +44,9 @@ const Table: FC<{ data: IProps[] }> = ({ data }) => {
               </TableRow>
             ))}
           </TableBody>
-        )}
-      </MuiTable>
-    </div>
+        </MuiTable>
+      </div>
+    </Card>
   );
 };
 

@@ -1,8 +1,39 @@
 .footer {
+  position: relative;
+  color: var(--secondary-color);
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin: 1rem;
-  padding: 24px;
-  border-top: 1px solid var(--primary-color);
+  justify-content: space-between;
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: absolute;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 6px;
+  background-color: var(--primary-bg-color);
+  font-size: 12px;
+}
+
+.left svg {
+  height: 20px;
+  width: 20px;
+}
+
+.right {
+  position: absolute;
+  right: 0;
+  display: flex;
+  gap: 16px;
+}
+
+.right a:hover {
+  text-decoration: underline;
 }

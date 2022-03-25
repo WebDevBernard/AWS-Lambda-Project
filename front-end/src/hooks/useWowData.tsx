@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { IProps } from "../store/interface";
+import { mockData } from "../mock-data/mock-data";
 /**
  
 Example of JSON Object:
@@ -18,7 +19,7 @@ Example of JSON Object:
 const useWowData = (expansionName: string, season: number) => {
   const [error, setError] = useState<string | null>("");
   const [loading, setLoading] = useState<boolean>(true);
-  const [data, setData] = useState<IProps[]>();
+  const [data, setData] = useState<IProps[]>([]);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -34,6 +35,7 @@ const useWowData = (expansionName: string, season: number) => {
         const responseData = await response.json();
 
         // filter array for the current expansion then current season and finally sort by the week
+        // const filterExpansionSeason = mockData
         const filterExpansionSeason = responseData
           .filter((item: IProps) => {
             return item.expansion === expansionName;

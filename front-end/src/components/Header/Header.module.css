@@ -1,34 +1,50 @@
 .header {
-  color: var(--primary-color);
-  background-color: #1f1b34;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  top: 0;
-  z-index: 5;
-  height: 3rem;
-  padding: 0 3%;
+  flex-direction: column;
 }
 
-.header h1 {
+.title {
+  color: var(--primary-color);
+  font-family: "Encode Sans";
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.container {
   display: flex;
   align-items: center;
+  gap: 16px;
 }
+
 .header img {
+  background-color: var(--primary-bg-color);
+  border-radius: 8px;
   height: 24px;
-  margin-right: 24px;
+  width: 24px;
 }
-.header p,
-.header span {
+
+.season {
+  background-color: #4e17e1;
+  color: var(--primary-color);
+  font-size: 12px;
+  font-weight: bold;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 8px;
+}
+
+.update {
+  color: var(--secondary-color);
+  font-weight: lighter;
+  font-size: 12px;
+}
+.description {
   color: var(--primary-color);
   font-weight: lighter;
-  font-size: 16px;
-  text-align: right;
-  text-decoration: none;
+  font-size: 12px;
 }
 
 @media only screen and (max-width: 1024px) {
-  .header span {
-    display: none;
-  }
 }

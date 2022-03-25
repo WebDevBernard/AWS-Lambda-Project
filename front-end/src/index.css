@@ -1,18 +1,20 @@
-@import url("https://fonts.cdnfonts.com/css/sofia-pro");
-/* @import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans:wght@800&family=Open+Sans&display=swap");
 :root {
-  --primary-color: #d2d1d6;
-  --secondary-color: #d2d1d6;
-  --primary-bg-color: #313252;
-  --secondary-bg-color: #1f2033;
+  --primary-color: #c3c7ee;
+  --secondary-color: #606a99;
+  --primary-bg-color: hsl(238, 24%, 19%);
+  --secondary-bg-color: #111524;
 }
 
 body {
-  background-color: #1f2033;
-  font-family: "Sofia Pro", sans-serif;
-  /* font-family: "Nunito", sans-serif; */
+  background-color: hsl(237, 24%, 16%);
+  font-family: "Open Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+p {
+  line-height: 0.4;
 }
 
 a {

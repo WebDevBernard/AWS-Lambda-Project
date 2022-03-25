@@ -1,41 +1,25 @@
 .table {
   color: var(--primary-color) !important;
-  font-size: 14px !important;
   white-space: nowrap;
-  position: absolute !important;
-  top: 0px;
-  right: 0px;
 }
 .table__head {
-  background: linear-gradient(to right, #9963b8, #4d16e1);
-  width: 25% !important;
+  background: linear-gradient(to right, #9963b8, #4d16e1) !important;
 }
 
 .table__cell {
+  font-family: "Open Sans" !important;
   color: var(--primary-color) !important;
-  font-size: 16px !important;
-  /* font-family: "Nunito", sans-serif !important; */
-  font-family: "Sofia Pro", sans-serif !important;
+  font-size: 12px !important;
 }
 .table__cell__right {
   color: var(--primary-color) !important;
-  font-size: 16px !important;
-  /* font-family: "Nunito", sans-serif !important; */
-  font-family: "Sofia Pro", sans-serif !important;
-  padding-right: 3rem !important;
+  font-size: 12px !important;
 }
 
 .table__row {
-  background: var(--primary-bg-color);
+  background: var(--primary-bg-color) !important;
 }
 
 .table__alt__row {
-  background: var(--secondary-bg-color);
-}
-
-.table__button {
-  color: var(--primary-color) !important;
-  position: absolute !important;
-  top: 0;
-  right: 0;
+  background: var(--secondary-bg-color) !important;
 }

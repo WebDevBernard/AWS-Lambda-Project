@@ -1,21 +1,13 @@
-.body {
-  position: relative;
-  overflow-y: hidden;
-}
-
-.chart {
-  display: hidden;
-}
 .tooltip {
-  font-size: 16px;
+  font-size: 12px;
   background: var(--primary-bg-color);
   color: var(--primary-color);
-  padding: 16px;
+  padding: 8px;
   box-shadow: 15px 30px 40px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  border: 1px solid var(--primary-color);
 }
 
-@media only screen and (max-width: 768px) {
-  .body {
-    grid-template-columns: 1fr min-content;
-  }
+.body {
+  flex-shrink: 1;
 }

@@ -1,5 +1,6 @@
 import { FC } from "react";
 import classes from "./Header.module.css";
+import moment from "moment";
 
 const Header: FC<{ season: number; expansionName: string }> = ({
   season,
@@ -16,19 +17,28 @@ const Header: FC<{ season: number; expansionName: string }> = ({
   }
 
   return (
-    <div id="top" className={classes.header}>
-      <h1>
+    <div className={classes.header}>
+      <div className={classes.container}>
         <img
           src="https://img.icons8.com/color/48/000000/world-of-warcraft.png"
           alt="warcraft icon"
         />
-        <p>
-          {expansionName.toString().toUpperCase()} M+ S{season} Player Count
+        <p className={classes.title}>WoW Mythic+ Player Count</p>
+      </div>
+
+      <div className={classes.container}>
+        <span className={classes.season}>
+          {expansionName.toUpperCase()} Season {season}
+        </span>
+        <p className={classes.update}>
+          Next update {moment(setDay(today, 5)).format("MMMM Do YYYY")} 12:00PM
+          PST
         </p>
-      </h1>
-      <span>
-        Next update {setDay(today, 5).toISOString().slice(0, 10)} 12:00PM PST
-      </span>
+      </div>
+      <p className={classes.description}>
+        Data comes from Raider.io API. Based on total number of characters who
+        have completed a Mythic+ Dungeon.
+      </p>
     </div>
   );
 };
