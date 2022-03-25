@@ -1,6 +1,6 @@
 import { IProps } from "../../store/interface";
 import { FC } from "react";
-
+import moment from "moment";
 import Card from "../Card/Card";
 import classes from "./Chart.module.css";
 import {
@@ -23,7 +23,14 @@ const CustomToolTip = ({
   if (Array.isArray(payload) && active) {
     return (
       <div className={classes.tooltip}>
-        <p>Week {payload[0].payload.week}</p>
+        <p>
+          Week {payload[0].payload.week} |{"  "}
+          {moment(
+            new Date().setDate(
+              new Date(payload[0].payload.date.slice(0, 10)).getDate() - 9
+            )
+          ).format("MMMM Do")}
+        </p>
         <p style={{ fontFamily: "Encode Sans" }}>
           {numberWithCommas(payload[0].payload.total)}
         </p>

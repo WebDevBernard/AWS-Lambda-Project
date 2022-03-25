@@ -1,5 +1,5 @@
 import Tooltip from "@mui/material/Tooltip";
-import { makeStyles } from "@mui/styles";
+
 import moment from "moment";
 import { FC } from "react";
 import { IProps } from "../../store/interface";
@@ -14,17 +14,8 @@ import {
   TableRow,
   TableCell,
 } from "@mui/material";
-const useStyles = makeStyles(() => ({
-  tooltip: {
-    backgroundColor: "black",
-    color: "#c3c7ee",
-    fontFamily: "Open Sans",
-    fontSize: 12,
-  },
-}));
 
 const Table: FC<{ tableData: IProps[] }> = ({ tableData }) => {
-  const muiClass = useStyles();
   return (
     <Card>
       <div className={classes.table}>
@@ -41,12 +32,13 @@ const Table: FC<{ tableData: IProps[] }> = ({ tableData }) => {
           <TableBody>
             {tableData.map((item, index) => (
               <Tooltip
-                classes={{ tooltip: muiClass.tooltip }}
+                key={nanoid()}
                 title={moment(
                   new Date().setDate(
                     new Date(item.date.slice(0, 10)).getDate() - 9
                   )
-                ).format("MMMM Do YYYY")}
+                ).format("MMMM Do")}
+                arrow
                 placement="left"
               >
                 <TableRow
