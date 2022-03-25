@@ -68,12 +68,12 @@ const Header: FC<{
         <div className={classes.info}>
           <h2>Most Played Week</h2>
           <span>Week {max?.week}</span>
-          <span>{max?.affix}</span>
+          <span>{max?.affix.split("-").slice(0, 3).join(", ")}</span>
         </div>
         <div className={classes.info}>
           <h2>Least Played Week</h2>
           <span>Week {min?.week}</span>
-          <span>{min?.affix}</span>
+          <span>{min?.affix.split("-").slice(0, 3).join(", ")}</span>
         </div>
         <div className={classes.counter}>
           <h2>Change from Previous Week</h2>

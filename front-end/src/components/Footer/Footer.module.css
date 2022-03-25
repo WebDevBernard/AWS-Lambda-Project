@@ -41,11 +41,13 @@
 @media only screen and (max-width: 768px) {
   .footer {
     flex-direction: column;
+    margin-top: 0px;
+    margin-bottom: 0px;
   }
   .left {
     display: none;
   }
   .right {
-    position: relative;
+    display: none;
   }
 }
