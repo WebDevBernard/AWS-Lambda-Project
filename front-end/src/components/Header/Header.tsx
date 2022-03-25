@@ -111,7 +111,6 @@ const Header: FC<{
             )}
             {numberWithCommas(difference)} | {percentage}%
           </span>
-          <br />
         </div>
       </div>
     </div>

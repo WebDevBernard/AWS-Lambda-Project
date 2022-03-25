@@ -117,4 +117,5 @@
   color: var(--primary-color);
   font-weight: lighter;
   text-align: center;
+  margin-bottom: 20px;
 }
