@@ -35,7 +35,7 @@ const useWowData = (expansionName: string, season: number) => {
         const responseData = await response.json();
 
         // filter array for the current expansion then current season and finally sort by the week
-        // const filterExpansionSeason = mockData
+        // const filterExpansionSeason = mockData;
         const filterExpansionSeason = responseData
           .filter((item: IProps) => {
             return item.expansion === expansionName;

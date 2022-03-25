@@ -24,8 +24,10 @@ const CustomToolTip = ({
     return (
       <div className={classes.tooltip}>
         <p>Week {payload[0].payload.week}</p>
-        <p>{numberWithCommas(payload[0].payload.total)}</p>
-        <p>{payload[0].payload.affix}</p>
+        <p style={{ fontFamily: "Encode Sans" }}>
+          {numberWithCommas(payload[0].payload.total)}
+        </p>
+        <p>{payload[0].payload.affix.split("-").join(", ")}</p>
       </div>
     );
   }

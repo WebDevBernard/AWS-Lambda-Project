@@ -121,6 +121,9 @@
 }
 
 @media only screen and (max-width: 768px) {
+  .counter span {
+    align-items: flex-start;
+  }
   .counter svg {
     height: 36px;
     width: 36px;
