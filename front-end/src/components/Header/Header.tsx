@@ -5,10 +5,9 @@ import { IProps } from "../../store/interface";
 import * as _ from "lodash";
 
 const Header: FC<{
-  season: number;
-  expansionName: string;
+  expansionTag: string;
   counterData: IProps[];
-}> = ({ season, expansionName, counterData }) => {
+}> = ({ expansionTag, counterData }) => {
   // https://codereview.stackexchange.com/questions/33527/find-next-occurring-friday-or-any-dayofweek
   const today = new Date();
   function setDay(date: Date, dayOfWeek: number) {
@@ -52,9 +51,7 @@ const Header: FC<{
       </div>
 
       <div className={classes.container}>
-        <span className={classes.season}>
-          {expansionName.toUpperCase()} Season {season} (World)
-        </span>
+        <span className={classes.season}>{expansionTag}</span>
         <p className={classes.update}>
           Next update {moment(setDay(today, 5)).format("MMMM Do YYYY")} 12:00PM
           PST
