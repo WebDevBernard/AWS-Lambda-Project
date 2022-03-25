@@ -6,12 +6,12 @@ import { mockData } from "../mock-data/mock-data";
 Example of JSON Object:
 
 {
- "date": "2022-03-11T13:55:52PST",
- "week": 12,
+ "date": "2022-03-18T12:00:30PST",
+ "week": 2,
  "season": 3,
- "affix": "Tyrannical, Bolstering, Explosive, Encrypted",
+ "affix": "Fortified-Bursting-Storming-Encrypted",
  "expansion": "sl",
- "total": 860060
+ "total": 1037600
 }
 
  **/
