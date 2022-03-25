@@ -2,12 +2,13 @@
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  width: 1024px;
+
   gap: 16px;
 }
 
 @media only screen and (max-width: 768px) {
   .layout {
+    width: auto;
     display: flex;
     flex-direction: column;
   }

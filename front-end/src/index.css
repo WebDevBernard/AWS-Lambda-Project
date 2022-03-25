@@ -22,3 +22,9 @@ a {
   text-decoration: none;
   color: var(--primary-color);
 }
+
+@media only screen and (max-width: 768px) {
+  p {
+    line-height: 1;
+  }
+}

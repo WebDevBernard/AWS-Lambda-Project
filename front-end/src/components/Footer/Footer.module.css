@@ -37,3 +37,15 @@
 .right a:hover {
   text-decoration: underline;
 }
+
+@media only screen and (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+  }
+  .left {
+    display: none;
+  }
+  .right {
+    position: relative;
+  }
+}
