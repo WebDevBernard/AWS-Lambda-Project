@@ -6,13 +6,15 @@
 
 - Updated recently for Season 3
 
-- This data is not 100% accurate, but is a good estimate of player count (especially when there is no official count from Blizzard). What it does is it looks at the **total number of characters**that have completed a Mythic+ dungeon. The problem with this is many players often have multiple characters. The data can also continue to update even after the affix has ended for that week. This is why I delay the update until Friday.
+- This data is not 100% accurate, but is a good estimate of player count (especially when there is no official count from Blizzard). What it does is it looks at the **total number of characters** that have completed a Mythic+ dungeon. The problem with this is many players often have multiple characters. The data can also continue to update even after the affix has ended for that week. This is why I delay the update until Friday.
 
 ## Learn more
 
 - I am a fan of World of Warcraft and this [r/wow](https://www.reddit.com/r/wow/comments/o5nocw/comment/h2ov91n/?utm_source=share&utm_medium=web2x&context=3) post inspired me to make this app.
 
 - If you are wondering how it works or how to make your own chart. It requires calling [Raider.io API](https://raider.io/api) once a week and logging in the data to a database. Basically, the weekly affixes are on a schedule (see table below). Every week it changes and repeats itself after 12 weeks. When you are calling [Raider.io API](https://raider.io/api), you are looking at the **total count for a set affixes**. <ins>**This includes all previous weeks that share that set of affix**</ins>. For example, if you wanted to find out the character count for week 13, you would have to know the count on week 1 as well (totalForWeek13 = week13 - week1).
+
+- Example schedule:
 
 | Week | Affix(1) +2 | Affix(2) +4 | Affix(3) +7 | Seasonal Affix (10+) |
 | ---- | ----------- | ----------- | ----------- | -------------------- |
