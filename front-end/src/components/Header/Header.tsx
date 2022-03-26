@@ -11,8 +11,14 @@ const Header: FC<{
   view: boolean;
 }> = ({ expansionTag, counterData, handleChange, view }) => {
   // calculates date 1 week from today
+  // https://codereview.stackexchange.com/questions/33527/find-next-occurring-friday-or-any-dayofweek
+  const today = new Date();
   function setDay() {
-    return new Date().setDate(new Date(Date.now()).getDate() + 7);
+    const resultDate = new Date(today.getTime() - 8 * 1000 * 60 * 60);
+    resultDate.setDate(
+      today.getDate() + ((7 + 5 - today.getDay() - 1) % 7) + 1
+    );
+    return resultDate;
   }
 
   // calculates difference of current week and previous week. Returns 0 for the first week
