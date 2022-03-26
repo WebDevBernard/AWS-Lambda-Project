@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Chart from "./components/Chart/Chart";
 import Loading from "./components/Loading/Loading";
 import Layout from "./components/Layout/Layout";
@@ -6,6 +7,7 @@ import Error from "./components/Error/Error";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import useWowData from "./hooks/useWowData";
+import BarChart from "./components/Chart/BarChart";
 //  <========= Required Change Starts Here: =========>
 // Must be initials lowercase
 const expansionName = "sl";
@@ -19,20 +21,31 @@ const news = "Updated for Patch 9.2. View Github for more info.";
 
 function App() {
   const { data, loading, error } = useWowData(expansionName, season);
+  const [toggleChart, setToggleChart] = useState<boolean>(false);
 
+  const handleChange = () => {
+    setToggleChart(!toggleChart);
+  };
   return (
-    <Layout>
-      <div>
-        <Header expansionTag={expansionTag} counterData={data} />
-        {data && !error && <Chart chartData={data} />}
-        {loading && <Loading />}
-        {error && <Error error={error} />}
-        <Footer news={news} />
-      </div>
-      <div>
+    <>
+      <Layout>
+        <div>
+          <Header
+            expansionTag={expansionTag}
+            counterData={data}
+            handleChange={handleChange}
+            view={toggleChart}
+          />
+          {toggleChart && data && !error && <BarChart chartData={data} />}
+          {!toggleChart && data && !error && <Chart chartData={data} />}
+          {loading && <Loading />}
+          {error && <Error error={error} />}
+          <Footer news={news} />
+        </div>
+
         <Table tableData={data} />
-      </div>
-    </Layout>
+      </Layout>
+    </>
   );
 }
 

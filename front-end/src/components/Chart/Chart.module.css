@@ -7,3 +7,18 @@
   border-radius: 8px;
   border: 1px solid var(--primary-color);
 }
+
+.chart {
+  position: absolute;
+  height: 100%;
+  min-height: 600px;
+}
+
+.chart__item {
+  display: flex;
+  border: 1px solid var(--primary-color);
+  gap: 16px;
+  font-family: "Open Sans" !important;
+  color: var(--primary-color) !important;
+  font-size: 12px !important;
+}

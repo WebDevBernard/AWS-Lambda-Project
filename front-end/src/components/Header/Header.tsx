@@ -7,16 +7,14 @@ import * as _ from "lodash";
 const Header: FC<{
   expansionTag: string;
   counterData: IProps[];
-}> = ({ expansionTag, counterData }) => {
-  // https://codereview.stackexchange.com/questions/33527/find-next-occurring-friday-or-any-dayofweek
-  const today = new Date();
-  function setDay(date: Date, dayOfWeek: number) {
-    const resultDate = new Date(date.getTime() - 8 * 1000 * 60 * 60);
-    resultDate.setDate(
-      date.getDate() + ((7 + dayOfWeek - date.getDay() - 1) % 7) + 1
-    );
-    return resultDate;
+  handleChange: () => void;
+  view: boolean;
+}> = ({ expansionTag, counterData, handleChange, view }) => {
+  // calculates date 1 week from today
+  function setDay() {
+    return new Date().setDate(new Date(Date.now()).getDate() + 7);
   }
+
   // calculates difference of current week and previous week. Returns 0 for the first week
   const difference =
     counterData.length > 1
@@ -28,11 +26,12 @@ const Header: FC<{
 
   const percentage = Math.round((difference / secondLast) * 100);
 
+  // add commas to numbers
   function numberWithCommas(x: number) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
-  // find highest number and lowest number
+  // lodash find highest number and lowest weeks
   const min = _.minBy(counterData, function (o) {
     return o.total;
   });
@@ -42,6 +41,20 @@ const Header: FC<{
 
   return (
     <div className={classes.header}>
+      <div className={classes.button}>
+        <p
+          className={!view ? classes.button__select : classes.button__unselect}
+          onClick={handleChange}
+        >
+          Player Count
+        </p>
+        <p
+          className={view ? classes.button__select : classes.button__unselect}
+          onClick={handleChange}
+        >
+          Affixes Ranking
+        </p>
+      </div>
       <div className={classes.container}>
         <img
           src="https://img.icons8.com/color/48/000000/world-of-warcraft.png"
@@ -49,12 +62,10 @@ const Header: FC<{
         />
         <p className={classes.title}>WoW Mythic+ Player Count</p>
       </div>
-
       <div className={classes.container}>
         <span className={classes.season}>{expansionTag}</span>
         <p className={classes.update}>
-          Next update {moment(setDay(today, 5)).format("MMMM Do YYYY")} 12:00PM
-          PST
+          Next update {moment(setDay()).format("MMMM Do YYYY")} 12:00PM PST
         </p>
       </div>
       <p className={classes.description}>

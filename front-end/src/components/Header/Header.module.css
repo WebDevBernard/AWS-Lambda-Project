@@ -34,7 +34,7 @@
   padding-bottom: 2px;
   padding-left: 8px;
   padding-right: 8px;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 .update {
@@ -119,6 +119,29 @@
   font-weight: lighter;
   text-align: center;
   margin-bottom: 20px;
+}
+
+.button {
+  right: 0;
+  position: absolute;
+  outline: none;
+  font-size: 12px;
+  color: var(--primary-color);
+  cursor: pointer;
+  display: flex;
+  gap: 8px;
+}
+
+.button__unselect {
+  color: var(--secondary-color);
+}
+.button__select {
+  text-decoration: underline;
+}
+
+.button svg {
+  height: 20px;
+  width: 20px;
 }
 
 @media only screen and (max-width: 1440px) {
