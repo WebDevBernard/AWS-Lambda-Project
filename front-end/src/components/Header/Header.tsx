@@ -165,7 +165,7 @@ const Header: FC<{
           <span>
             <p>
               Since this chart is based on character count, it should only be
-              relied as an estimate on total number of players.
+              relied on as an estimate of total number of players.
             </p>
           </span>
         )}

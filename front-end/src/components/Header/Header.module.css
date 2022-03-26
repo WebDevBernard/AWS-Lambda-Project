@@ -128,7 +128,7 @@
 }
 
 .disclaimer {
-  width: fit-content;
+  width: 500px;
   border-radius: 8px;
   background-color: var(--secondary-bg-color);
   padding-right: 12px;
@@ -158,6 +158,9 @@
   color: var(--primary-color);
   height: 24px;
   width: 24px;
+}
+.disclaimer p {
+  line-height: 1;
 }
 
 .button {
@@ -226,6 +229,9 @@
   }
   .total {
     font-size: 14px;
+  }
+  .disclaimer {
+    width: fit-content;
   }
   .disclaimer svg {
     height: 30px;
