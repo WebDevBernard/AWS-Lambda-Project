@@ -13,7 +13,7 @@ const expansionName = "sl";
 // Change Season
 const season = 3;
 // Header expansion tag
-const expansionTag = "Shadowlands Season 3 World Count";
+const expansionTag = "Shadowlands Season 3";
 // Footer news
 const news = "Updated for Patch 9.2. View Github for more info.";
 //  <========= Required Change Ends Here: =========>
