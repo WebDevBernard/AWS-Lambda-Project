@@ -15,7 +15,10 @@ import {
   TableCell,
 } from "@mui/material";
 
-const Table: FC<{ tableData: IProps[] }> = ({ tableData }) => {
+const Table: FC<{ tableData: IProps[]; startDate: string }> = ({
+  tableData,
+  startDate,
+}) => {
   return (
     <Card>
       <div className={classes.table}>
@@ -34,9 +37,7 @@ const Table: FC<{ tableData: IProps[] }> = ({ tableData }) => {
               <Tooltip
                 key={nanoid()}
                 title={moment(
-                  new Date().setDate(
-                    new Date(item.date.slice(0, 10)).getDate() - 9
-                  )
+                  new Date().setDate(new Date(startDate).getDate() + index * 7)
                 ).format("MMMM Do")}
                 arrow
                 placement="left"

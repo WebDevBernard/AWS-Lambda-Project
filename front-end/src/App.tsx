@@ -12,14 +12,17 @@ import ChartTable from "./components/Chart/ChartTable";
 const expansionName = "sl";
 // Change Season
 const season = 3;
+// start Date (this only effects the tooltip dates)
+const startDate = "March 1, 2022";
 // Header expansion tag
 const expansionTag = "Shadowlands Season 3";
 // Footer news
 const news = "Updated for Patch 9.2. View Github for more info.";
+
 //  <========= Required Change Ends Here: =========>
 
 function App() {
-  const { data, loading, error } = useWowData(expansionName, season);
+  const { data, error } = useWowData(expansionName, season);
   const [toggleChart, setToggleChart] = useState<boolean>(false);
 
   const handleChange = () => {
@@ -36,12 +39,14 @@ function App() {
             view={toggleChart}
           />
           {toggleChart && data && !error && <ChartTable chartData={data} />}
-          {!toggleChart && data && !error && <Chart chartData={data} />}
+          {!toggleChart && data && !error && (
+            <Chart startDate={startDate} chartData={data} />
+          )}
           {error && <Error error={error} />}
           <Footer news={news} />
         </div>
 
-        <Table tableData={data} />
+        <Table startDate={startDate} tableData={data} />
       </Layout>
     </>
   );

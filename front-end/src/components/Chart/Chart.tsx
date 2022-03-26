@@ -16,9 +16,11 @@ import {
 const CustomToolTip = ({
   active,
   payload,
+  startDate,
 }: {
   active?: boolean;
   payload?: IProps;
+  startDate: string;
 }) => {
   if (Array.isArray(payload) && active) {
     return (
@@ -27,7 +29,8 @@ const CustomToolTip = ({
           Week {payload[0].payload.week} |{"  "}
           {moment(
             new Date().setDate(
-              new Date(payload[0].payload.date.slice(0, 10)).getDate() - 9
+              new Date(startDate).getDate() +
+                1 * (payload[0].payload.week - 1) * 7
             )
           ).format("MMMM Do")}
         </p>
@@ -44,7 +47,10 @@ const CustomToolTip = ({
 function numberWithCommas(x: number) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
-const Chart: FC<{ chartData: IProps[] }> = ({ chartData }) => {
+const Chart: FC<{ chartData: IProps[]; startDate: string }> = ({
+  chartData,
+  startDate,
+}) => {
   return (
     <Card>
       <ResponsiveContainer height="100%" maxHeight={600} aspect={2}>
@@ -90,7 +96,7 @@ const Chart: FC<{ chartData: IProps[] }> = ({ chartData }) => {
             tickFormatter={(number) => numberWithCommas(number)}
             tick={{ fill: "#606a99", fontSize: 12 }}
           />
-          <Tooltip content={<CustomToolTip />} />
+          <Tooltip content={<CustomToolTip startDate={startDate} />} />
           <CartesianGrid opacity={0.1} horizontal={false} />
         </AreaChart>
       </ResponsiveContainer>
