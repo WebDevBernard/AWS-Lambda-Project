@@ -61,8 +61,6 @@
   padding-left: 12px;
   padding-bottom: 6px;
   display: flex;
-  justify-content: space-between;
-
   flex-direction: column;
 }
 
@@ -202,6 +200,19 @@
 
   .info {
     flex: 50%;
+  }
+  .info h2 {
+    font-size: 10px;
+  }
+  .info span {
+    font-size: 12px;
+  }
+
+  .counter h2 {
+    font-size: 10px;
+  }
+  .counter span {
+    font-size: 12px;
   }
   .counter {
     flex: 50%;
