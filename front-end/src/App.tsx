@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Chart from "./components/Chart/Chart";
-import Loading from "./components/Loading/Loading";
 import Layout from "./components/Layout/Layout";
 import Table from "./components/Table/Table";
 import Error from "./components/Error/Error";
@@ -38,7 +37,6 @@ function App() {
           />
           {toggleChart && data && !error && <ChartTable chartData={data} />}
           {!toggleChart && data && !error && <Chart chartData={data} />}
-          {loading && <Loading />}
           {error && <Error error={error} />}
           <Footer news={news} />
         </div>
