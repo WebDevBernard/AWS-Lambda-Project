@@ -8,17 +8,48 @@
   border: 1px solid var(--primary-color);
 }
 
-.chart {
-  position: absolute;
+.table {
+  width: 100%;
   height: 100%;
-  min-height: 600px;
+  border-spacing: 0;
 }
 
-.chart__item {
-  display: flex;
-  border: 1px solid var(--primary-color);
-  gap: 16px;
-  font-family: "Open Sans" !important;
-  color: var(--primary-color) !important;
-  font-size: 12px !important;
+.table__head {
+  display: table-header-group;
+  background: linear-gradient(to right, #652b86, #2a0590) !important;
+  font-family: "Encode Sans";
+  color: var(--primary-color);
+  font-size: 14px;
+}
+
+.table__head th {
+  padding: 10px;
+}
+.table__body {
+  display: table-row-group;
+  text-align: center;
+}
+
+.table__body td {
+  padding: 10px;
+  font-family: "Open Sans";
+  color: var(--primary-color);
+  font-size: 15px;
+}
+
+.table__item {
+  background-color: var(--primary-bg-color);
+}
+
+.table__item__alt {
+  background-color: var(--secondary-bg-color);
+}
+
+@media only screen and (max-width: 768px) {
+  .table__head {
+    font-size: 8px;
+  }
+  .table__body td {
+    font-size: 8px;
+  }
 }

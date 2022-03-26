@@ -1,6 +1,6 @@
 .table {
   color: var(--primary-color) !important;
-  white-space: nowrap;
+  white-space: nowrap !important;
 }
 .table__head {
   background: linear-gradient(to right, #652b86, #2a0590) !important;

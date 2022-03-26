@@ -21,7 +21,7 @@ const Table: FC<{ tableData: IProps[] }> = ({ tableData }) => {
       <div className={classes.table}>
         <MuiTable size="small" aria-label="a dense table">
           <TableHead className={classes.table__head}>
-            <TableRow>
+            <TableRow sx={{ "td, th": { border: 0 } }}>
               <TableCell className={classes.table__heading}>Week</TableCell>
               <TableCell className={classes.table__heading__right}>
                 Affixes
@@ -46,7 +46,7 @@ const Table: FC<{ tableData: IProps[] }> = ({ tableData }) => {
                     index % 2 ? classes.table__row : classes.table__alt__row
                   }
                   key={nanoid()}
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  sx={{ "td, th": { border: 0 } }}
                 >
                   <TableCell className={classes.table__cell}>
                     {item.week}
