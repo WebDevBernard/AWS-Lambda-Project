@@ -77,7 +77,7 @@ const Header: FC<{
         </p>
       </div>
       <p className={classes.description}>
-        The data comes from Raider.io API. It is counting all characters who
+        The data comes from Raider.io API. It is a count of all characters who
         have completed a Mythic+ Dungeon.
       </p>
       <div className={classes.info__container}>
