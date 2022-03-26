@@ -69,8 +69,8 @@ const Header: FC<{
         </p>
       </div>
       <p className={classes.description}>
-        Data comes from Raider.io API. Based on total (World Count) number of
-        characters who have completed a Mythic+ Dungeon.
+        Data comes from Raider.io API. It is a total world count of characters
+        who have completed a Mythic+ Dungeon.
       </p>
       <div className={classes.info__container}>
         <div className={classes.info}>
@@ -152,7 +152,7 @@ const Header: FC<{
           <span>
             <p>
               Since this chart is based on character count, and players can have
-              multiple characters, it should only be used as estimate.
+              multiple characters, it should only be used as an estimate.
             </p>
           </span>
         )}
