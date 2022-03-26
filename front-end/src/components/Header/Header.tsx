@@ -24,6 +24,8 @@ const Header: FC<{
   const secondLast =
     counterData.length > 1 ? counterData.slice(-2, -1)[0].total : 1;
 
+  const lastTotal = counterData.length > 1 ? counterData.slice(-1)[0].total : 0;
+
   const percentage = Math.round((difference / secondLast) * 100);
 
   // add commas to numbers
@@ -69,22 +71,30 @@ const Header: FC<{
         </p>
       </div>
       <p className={classes.description}>
-        Data comes from Raider.io API. It is a total world count of characters
-        who have completed a Mythic+ Dungeon.
+        The data comes from Raider.io API. It is a total (world) count of all
+        characters who have completed a Mythic+ Dungeon.
       </p>
       <div className={classes.info__container}>
         <div className={classes.info}>
           <h2>Most Played Week</h2>
-          <span>Week {max?.week}</span>
+          <span>Week {max?.week || 0}</span>
+          <span>{numberWithCommas(max?.total || 0)}</span>
+          <h2>Affixes</h2>
           <span>{max?.affix.split("-").slice(0, 3).join(", ")}</span>
         </div>
         <div className={classes.info}>
           <h2>Least Played Week</h2>
-          <span>Week {min?.week}</span>
+
+          <span>Week {min?.week || 0}</span>
+          <span>{numberWithCommas(min?.total || 0)}</span>
+          <h2>Affixes</h2>
           <span>{min?.affix.split("-").slice(0, 3).join(", ")}</span>
         </div>
         <div className={classes.counter}>
-          <h2>Change from Previous Week</h2>
+          <h2>Total This Week</h2>
+
+          <p className={classes.total}>{numberWithCommas(lastTotal)}</p>
+          <h2>Change From Previous Week</h2>
           <span>
             {difference > 0 ? (
               <svg

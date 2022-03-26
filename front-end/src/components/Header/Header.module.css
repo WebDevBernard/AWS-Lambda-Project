@@ -54,6 +54,7 @@
   gap: 8px;
 }
 .info {
+  max-width: 170px;
   border-radius: 8px;
   background-color: var(--secondary-bg-color);
   padding-right: 12px;
@@ -85,15 +86,13 @@
   padding-bottom: 6px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .counter h2 {
   color: var(--secondary-color);
   font-family: "Encode Sans";
-  font-weight: bold;
   font-size: 12px;
+  text-align: center;
 }
 .counter svg {
   height: 24px;
@@ -108,17 +107,23 @@
   color: red;
 }
 
-.counter span {
-  margin-right: 8px;
+.total {
   font-family: "Encode Sans";
   font-size: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--primary-color);
-  font-weight: lighter;
+}
+
+.counter span {
+  font-family: "Encode Sans";
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
   text-align: center;
-  margin-bottom: 20px;
 }
 
 .disclaimer {
@@ -192,16 +197,17 @@
   .button p {
     line-height: 0;
   }
-  .counter span {
-    align-items: flex-start;
+  .counter {
+    flex: 100%;
   }
+
   .counter svg {
-    height: 36px;
-    width: 36px;
+    height: 30px;
+    width: 30px;
   }
 
   .disclaimer svg {
-    height: 36px;
-    width: 36px;
+    height: 30px;
+    width: 30px;
   }
 }

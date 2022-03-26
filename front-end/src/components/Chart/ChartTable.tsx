@@ -7,10 +7,14 @@ import Card from "../Card/Card";
 
 const ChartTable: FC<{ chartData: IProps[] }> = ({ chartData }) => {
   // lodash to find all affixes that have the same value and add their total
-  const lodashSort = _.map(_.groupBy(chartData, "affix"), (o, idx) => {
-    return { affix: idx, total: _.sumBy(o, "total") };
+  const lodashSort = _.map(_.groupBy(chartData, "affix"), (o, affix) => {
+    return {
+      affix,
+      week: _.map(o, "week"),
+      total: _.sumBy(o, "total"),
+    };
   });
-
+  console.log(lodashSort);
   const lodashTotal = _.sumBy(chartData, "total");
   const percentage = (item: number) => Math.round((item / lodashTotal) * 100);
   // reverse sorts the array with highest as 0th array
@@ -28,10 +32,11 @@ const ChartTable: FC<{ chartData: IProps[] }> = ({ chartData }) => {
       <table className={classes.table}>
         <thead className={classes.table__head}>
           <tr>
+            <th>Week(s)</th>
             <th>Affix 1 (2+)</th>
             <th>Affix 2 (4+)</th>
             <th>Affix 3 (7+)</th>
-            <th>Seasonal Affix (10+)</th>
+            {/* <th>Seasonal Affix (10+)</th> */}
             <th>Total</th>
             <th>Overall</th>
           </tr>
@@ -45,10 +50,11 @@ const ChartTable: FC<{ chartData: IProps[] }> = ({ chartData }) => {
                 }
                 key={nanoid()}
               >
+                <td>{JSON.stringify(item.week)}</td>
                 <td>{splitArray(item.affix)[0]}</td>
                 <td>{splitArray(item.affix)[1]}</td>
                 <td>{splitArray(item.affix)[2]}</td>
-                <td>{splitArray(item.affix)[3]}</td>
+                {/* <td>{splitArray(item.affix)[3]}</td> */}
                 <td>{numberWithCommas(item.total)}</td>
                 <td>{percentage(item.total)}%</td>
               </tr>
