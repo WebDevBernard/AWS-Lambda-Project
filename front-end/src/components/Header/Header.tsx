@@ -77,8 +77,8 @@ const Header: FC<{
         </p>
       </div>
       <p className={classes.description}>
-        The data comes from Raider.io API. It is a total (world) count of all
-        characters who have completed a Mythic+ Dungeon.
+        The data comes from Raider.io API. It is counting the total (world)
+        number of all characters who have completed a Mythic+ Dungeon.
       </p>
       <div className={classes.info__container}>
         <div className={classes.info}>
@@ -156,9 +156,6 @@ const Header: FC<{
           <span>
             <p>
               This table is the sum of all weeks with the same set of affixes.
-            </p>
-
-            <p>
               Rankings maybe higher simply because there are more players at the
               start of a season.
             </p>
@@ -167,8 +164,8 @@ const Header: FC<{
         {!view && (
           <span>
             <p>
-              Since this chart is based on character count, and players can have
-              multiple characters, it should only be used as an estimate.
+              Since this chart is based on character count, it should only be
+              relied as an estimate on total number of players.
             </p>
           </span>
         )}
