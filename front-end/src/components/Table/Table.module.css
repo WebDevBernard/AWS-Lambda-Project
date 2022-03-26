@@ -30,3 +30,9 @@
 .table__alt__row {
   background: var(--secondary-bg-color) !important;
 }
+
+.tooltip {
+  font-family: "Open Sans";
+  color: var(--primary-color);
+  font-size: 12px;
+}

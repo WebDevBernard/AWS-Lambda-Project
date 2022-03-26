@@ -1,18 +1,18 @@
 .footer {
-  position: relative;
+  width: 968px;
+  margin: 0 auto;
   color: var(--secondary-color);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 24px;
-  margin-bottom: 12px;
+  margin-top: 12px;
 }
 
 .left {
   display: flex;
   align-items: center;
   gap: 8px;
-  position: absolute;
+
   padding-top: 4px;
   padding-bottom: 4px;
   padding-left: 8px;
@@ -28,7 +28,6 @@
 }
 
 .right {
-  position: absolute;
   right: 0;
   display: flex;
   gap: 16px;
@@ -38,16 +37,45 @@
   text-decoration: underline;
 }
 
+.table_footer {
+  margin: 0 auto;
+  color: var(--secondary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12px;
+}
+.right_table {
+  right: 0;
+  display: none;
+  gap: 16px;
+}
+
+.right_table a {
+  font-size: 8px;
+}
+
+.right_table a:hover {
+  text-decoration: underline;
+}
 @media only screen and (max-width: 768px) {
   .footer {
-    flex-direction: column;
-    margin-top: 0px;
-    margin-bottom: 0px;
+    width: auto;
   }
+
   .left {
-    display: none;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 6px;
+    font-size: 8px;
   }
   .right {
     display: none;
+  }
+
+  .right_table {
+    display: flex;
   }
 }

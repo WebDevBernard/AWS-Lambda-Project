@@ -36,9 +36,15 @@ const Table: FC<{ tableData: IProps[]; startDate: string }> = ({
             {tableData.map((item, index) => (
               <Tooltip
                 key={nanoid()}
-                title={moment(
-                  new Date().setDate(new Date(startDate).getDate() + index * 7)
-                ).format("MMMM Do")}
+                title={
+                  <p className={classes.tooltip}>
+                    {moment(
+                      new Date().setDate(
+                        new Date(startDate).getDate() + index * 7
+                      )
+                    ).format("MMMM Do")}
+                  </p>
+                }
                 arrow
                 placement="left"
               >

@@ -7,6 +7,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import useWowData from "./hooks/useWowData";
 import ChartTable from "./components/Chart/ChartTable";
+import TableFooter from "./components/Footer/TableFooter";
 //  <========= Required Change Starts Here: =========>
 // Must be initials lowercase
 const expansionName = "sl";
@@ -45,8 +46,10 @@ function App() {
           {error && <Error error={error} />}
           <Footer news={news} />
         </div>
-
-        <Table startDate={startDate} tableData={data} />
+        <div>
+          <Table startDate={startDate} tableData={data} />
+          <TableFooter />
+        </div>
       </Layout>
     </>
   );
