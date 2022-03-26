@@ -61,6 +61,8 @@
   padding-left: 12px;
   padding-bottom: 6px;
   display: flex;
+  justify-content: space-between;
+
   flex-direction: column;
 }
 
@@ -197,8 +199,12 @@
   .button p {
     line-height: 0;
   }
+
+  .info {
+    flex: 50%;
+  }
   .counter {
-    flex: 100%;
+    flex: 50%;
   }
 
   .counter svg {

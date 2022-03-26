@@ -4,8 +4,6 @@
 
 ## Disclaimer
 
-- Updated recently for Season 3
-
 - This data is not 100% accurate, but is a good estimate of player count (especially when there is no official count from Blizzard). What it does is it looks at the **total number of characters** that have completed a Mythic+ dungeon. The problem with this is many players often have multiple characters. The data can also continue to update even after the affix has ended for that week. This is why I delay the update until Friday.
 
 ## Learn more
