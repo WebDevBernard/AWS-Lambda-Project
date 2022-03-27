@@ -4,7 +4,7 @@
 
 ## Disclaimer
 
-- This data is an estimate of character count. It uses data from Raider.io API in lieu of an official count from Blizzard. What it does is it looks at the **total number of characters** that have completed a Mythic+ dungeon. This [r/wow](https://www.reddit.com/r/wow/comments/o5nocw/comment/h2ov91n/?utm_source=share&utm_medium=web2x&context=3) post inspired me to make this app.
+- This data is an estimate of weekly Mythic+ runs based on character count. It uses data from Raider.io API in lieu of an official count from Blizzard. What it does is it looks at the **total number of characters** that have completed a Mythic+ dungeon. This [r/wow](https://www.reddit.com/r/wow/comments/o5nocw/comment/h2ov91n/?utm_source=share&utm_medium=web2x&context=3) post inspired me to make this app.
 
 ## Learn more
 

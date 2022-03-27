@@ -33,7 +33,7 @@ const Header: FC<{
           src="https://img.icons8.com/color/48/000000/world-of-warcraft.png"
           alt="warcraft icon"
         />
-        <p className={classes.title}>WoW Mythic+ Character Count</p>
+        <p className={classes.title}>WoW Mythic+ Run Count</p>
       </div>
       <div className={classes.container}>
         <span className={classes.season}>{expansionTag}</span>
