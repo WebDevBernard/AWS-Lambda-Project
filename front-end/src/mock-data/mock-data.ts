@@ -26,6 +26,7 @@ const secondTotal = Array.from({ length: 12 }, () =>
 );
 
 const thirdTotal = Array.from({ length: 12 }, () => mockNumber(10000, 20000));
+
 export const mockData = [
   {
     date: "2022-03-11T13:55:52PST",

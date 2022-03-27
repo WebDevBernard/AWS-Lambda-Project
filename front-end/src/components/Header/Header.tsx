@@ -40,8 +40,7 @@ const Header: FC<{
         <p className={classes.update}>Next update {updateDate()} 12:00PM PST</p>
       </div>
       <p className={classes.description}>
-        The data comes from Raider.io API. It is a count of all characters who
-        have completed a Mythic+ Dungeon.
+        Updated every Friday. Data comes from Raider.io API.
       </p>
       <div className={classes.info__container}>
         <InfoWidget counterData={counterData} />
@@ -74,8 +73,9 @@ const Header: FC<{
         {!view && (
           <span>
             <p>
-              Since this chart is based on character count, it should only be
-              relied on as an estimate of total number of players.
+              This chart is a count of all characters who have completed a
+              Mythic+ dungeon. Since players can have multiple characters, it is
+              only an estimate of total player count.
             </p>
           </span>
         )}
