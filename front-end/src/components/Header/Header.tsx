@@ -1,9 +1,7 @@
 import { FC } from "react";
 import { updateDate } from "../../utils/date";
-import { numberWithCommas } from "../../utils/format";
 import classes from "./Header.module.css";
 import { IProps } from "../../store/interface";
-
 import * as _ from "lodash";
 import InfoWidget from "./InfoWidget";
 import CounterWidget from "./CounterWidget";
