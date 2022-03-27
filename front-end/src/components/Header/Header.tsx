@@ -19,7 +19,7 @@ const Header: FC<{
           className={!view ? classes.button__select : classes.button__unselect}
           onClick={handleChange}
         >
-          Player Count
+          Character Count
         </p>
         <p
           className={view ? classes.button__select : classes.button__unselect}
@@ -33,7 +33,7 @@ const Header: FC<{
           src="https://img.icons8.com/color/48/000000/world-of-warcraft.png"
           alt="warcraft icon"
         />
-        <p className={classes.title}>WoW Mythic+ Player Count</p>
+        <p className={classes.title}>WoW Mythic+ Character Count</p>
       </div>
       <div className={classes.container}>
         <span className={classes.season}>{expansionTag}</span>
@@ -73,9 +73,8 @@ const Header: FC<{
         {!view && (
           <span>
             <p>
-              This chart is a count of all characters who have completed a
-              Mythic+ dungeon. Since players can have multiple characters, it is
-              only an estimate of total player count.
+              This chart is a weekly count of characters who have completed a
+              Mythic+ dungeon.
             </p>
           </span>
         )}

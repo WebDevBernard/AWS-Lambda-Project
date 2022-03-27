@@ -4,11 +4,9 @@
 
 ## Disclaimer
 
-- This data is only an estimate of player count. It uses data from Raider.io API in lieu of an official count from Blizzard. What it does is it looks at the **total number of characters** that have completed a Mythic+ dungeon. The problem with this is many players often have multiple characters. The data can also continue to update even after the affix has ended for that week. This is why I delay the update until Friday.
+- This data is an estimate of character count. It uses data from Raider.io API in lieu of an official count from Blizzard. What it does is it looks at the **total number of characters** that have completed a Mythic+ dungeon. This [r/wow](https://www.reddit.com/r/wow/comments/o5nocw/comment/h2ov91n/?utm_source=share&utm_medium=web2x&context=3) post inspired me to make this app.
 
 ## Learn more
-
-- This [r/wow](https://www.reddit.com/r/wow/comments/o5nocw/comment/h2ov91n/?utm_source=share&utm_medium=web2x&context=3) post inspired me to make this app.
 
 - If you are wondering how it works or how to make your own chart. It requires calling [Raider.io API](https://raider.io/api) once a week and logging in the data to a database. Basically, the weekly affixes are on a schedule (see table below). It changes every week and repeats itself after 12 weeks. When you call Raider.io API (see example query below) you want to scroll to the bottom and look for this key `data.rankings.ui.lastPage`. With this value, multiply it by 20 (20 because there are 20 characters per page on Raider.io rankings). This will give you a **total character count for a set affixes**. Important to understand: <ins>**This includes all previous weeks that share that set of affix**</ins>. For example, if you wanted to find out the character count for week 13, you would the count recorded on week 1 (both have the same set of affixes). Therefore total on week 13 = week 13 - week 1.
 
