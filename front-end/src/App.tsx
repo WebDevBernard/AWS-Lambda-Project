@@ -18,7 +18,8 @@ export const startDate = "March 1, 2022";
 // Header expansion tag
 const expansionTag = "Shadowlands Season 3";
 // Footer news
-const news = "Updated for Patch 9.2. View Github for more info.";
+const news =
+  "If this chart is not showing the current season, just message me on Reddit so I can update the affix schedule.";
 
 //  <========= Required Change Ends Here: =========>
 

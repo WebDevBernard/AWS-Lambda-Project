@@ -7,17 +7,25 @@ const TableFooter = () => {
         <a
           target="_blank"
           rel="noreferrer"
+          href="https://www.reddit.com/user/nextjsdev"
+        >
+          Reddit
+        </a>
+
+        <a
+          target="_blank"
+          rel="noreferrer"
           href="https://github.com/WebDevBernard/MythicPlus-PlayerCount"
         >
-          View Github
+          Github
         </a>
-        |
+
         <a
           target="_blank"
           rel="noreferrer"
           href="https://icons8.com/icon/SmZQEPEk3iZP/world-of-warcraft"
         >
-          World of Warcraft icon by Icons8
+          WoW icon by Icons8
         </a>
       </div>
     </div>
