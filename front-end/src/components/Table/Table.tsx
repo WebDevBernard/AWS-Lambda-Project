@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Tooltip from "@mui/material/Tooltip";
 import { affixDate } from "../../utils/date";
 import { FC } from "react";
@@ -16,6 +17,14 @@ import {
 } from "@mui/material";
 
 const Table: FC<{ tableData: IProps[] }> = ({ tableData }) => {
+  const [matches, setMatches] = useState(
+    window.matchMedia("(min-width: 768px)").matches
+  );
+  useEffect(() => {
+    window
+      .matchMedia("(min-width: 768px)")
+      .addEventListener("change", (e) => setMatches(e.matches));
+  }, []);
   return (
     <Card>
       <div className={classes.table}>
@@ -35,7 +44,7 @@ const Table: FC<{ tableData: IProps[] }> = ({ tableData }) => {
                 key={nanoid()}
                 title={<p className={classes.tooltip}>{affixDate(index)}</p>}
                 arrow
-                placement="left"
+                placement={!matches ? "bottom-start" : "left"}
               >
                 <TableRow
                   className={
