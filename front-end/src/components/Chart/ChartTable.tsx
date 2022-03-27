@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { numberWithCommas } from "../../utils/format";
 import { IProps } from "../../store/interface";
 import * as _ from "lodash";
 import { nanoid } from "nanoid";
@@ -14,19 +15,13 @@ const ChartTable: FC<{ chartData: IProps[] }> = ({ chartData }) => {
       total: _.sumBy(o, "total"),
     };
   });
-  console.log(lodashSort);
   const lodashTotal = _.sumBy(chartData, "total");
   const percentage = (item: number) => Math.round((item / lodashTotal) * 100);
   // reverse sorts the array with highest as 0th array
   const sortedArray = lodashSort.sort((a, b) => b.total - a.total);
-
   // split each array item
-  const splitArray = (input: string) => input.split("-");
+  const splitArray = (input: string) => input.split(",");
 
-  // add commas to numbers
-  function numberWithCommas(x: number) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
   return (
     <Card>
       <table className={classes.table}>

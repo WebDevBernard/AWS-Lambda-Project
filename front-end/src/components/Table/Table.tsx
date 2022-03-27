@@ -1,8 +1,8 @@
 import Tooltip from "@mui/material/Tooltip";
-
-import moment from "moment";
+import { affixDate } from "../../utils/date";
 import { FC } from "react";
 import { IProps } from "../../store/interface";
+import { threeAffix } from "../../utils/format";
 import Card from "../Card/Card";
 import { nanoid } from "nanoid";
 import classes from "./Table.module.css";
@@ -15,10 +15,7 @@ import {
   TableCell,
 } from "@mui/material";
 
-const Table: FC<{ tableData: IProps[]; startDate: string }> = ({
-  tableData,
-  startDate,
-}) => {
+const Table: FC<{ tableData: IProps[] }> = ({ tableData }) => {
   return (
     <Card>
       <div className={classes.table}>
@@ -36,15 +33,7 @@ const Table: FC<{ tableData: IProps[]; startDate: string }> = ({
             {tableData.map((item, index) => (
               <Tooltip
                 key={nanoid()}
-                title={
-                  <p className={classes.tooltip}>
-                    {moment(
-                      new Date().setDate(
-                        new Date(startDate).getDate() + index * 7
-                      )
-                    ).format("MMMM Do")}
-                  </p>
-                }
+                title={<p className={classes.tooltip}>{affixDate(index)}</p>}
                 arrow
                 placement="left"
               >
@@ -60,7 +49,7 @@ const Table: FC<{ tableData: IProps[]; startDate: string }> = ({
                   </TableCell>
 
                   <TableCell className={classes.table__cell}>
-                    {item.affix.split("-").slice(0, 3).join(", ")}
+                    {threeAffix(item.affix)}
                   </TableCell>
                 </TableRow>
               </Tooltip>

@@ -58,10 +58,10 @@ exports.handler = (event, context, callback) => {
   // changes week to match 0 index array
   const foundIndex = foundWeek - 1;
 
-  // mutate original array and changes ", " to "- "
-  schedule.forEach((el, i) => (schedule[i] = el.replace(/, /g, "-")));
+  // new array and changes ", " to "- "
+  const scheduleWithDash = schedule.map((el, i) => el.split(", ").join("-"));
 
-  const url = `https://raider.io/api/mythic-plus/rankings/runs?region=world&season=season-${expansion}-${season}&dungeon=all&strict=false&affixes=${schedule[foundIndex]}&page=0&limit=0&minMythicLevel=0&maxMythicLevel=0&eventId=0&faction=&realm=&period=0&recent=false`;
+  const url = `https://raider.io/api/mythic-plus/rankings/runs?region=world&season=season-${expansion}-${season}&dungeon=all&strict=false&affixes=${scheduleWithDash[foundIndex]}&page=0&limit=0&minMythicLevel=0&maxMythicLevel=0&eventId=0&faction=&realm=&period=0&recent=false`;
 
   // async fetch data and multiply by pageCount
   const fetchData = async () => {

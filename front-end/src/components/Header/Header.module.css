@@ -27,6 +27,7 @@
 }
 
 .season {
+  white-space: nowrap;
   background-color: #4e17e1;
   color: var(--primary-color);
   font-size: 12px;
@@ -101,11 +102,11 @@
 }
 
 .positive {
-  color: green;
+  color: chartreuse;
 }
 
 .negative {
-  color: red;
+  color: crimson;
 }
 
 .total {
@@ -166,10 +167,11 @@
 .button {
   user-select: none;
   right: 0;
+  bottom: 0;
   position: absolute;
   outline: none;
   font-size: 12px;
-  color: #fff;
+  color: chartreuse;
   cursor: pointer;
   display: flex;
   gap: 8px;
@@ -195,6 +197,7 @@
 
 @media only screen and (max-width: 768px) {
   .button {
+    top: 0;
     flex-direction: column;
     gap: 0;
   }

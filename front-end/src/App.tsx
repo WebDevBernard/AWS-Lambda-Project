@@ -14,7 +14,7 @@ const expansionName = "sl";
 // Change Season
 const season = 3;
 // start Date (this only effects the tooltip dates)
-const startDate = "March 1, 2022";
+export const startDate = "March 1, 2022";
 // Header expansion tag
 const expansionTag = "Shadowlands Season 3";
 // Footer news
@@ -40,14 +40,12 @@ function App() {
             view={toggleChart}
           />
           {toggleChart && data && !error && <ChartTable chartData={data} />}
-          {!toggleChart && data && !error && (
-            <Chart startDate={startDate} chartData={data} />
-          )}
+          {!toggleChart && data && !error && <Chart chartData={data} />}
           {error && <Error error={error} />}
           <Footer news={news} />
         </div>
         <div>
-          <Table startDate={startDate} tableData={data} />
+          <Table tableData={data} />
           <TableFooter />
         </div>
       </Layout>

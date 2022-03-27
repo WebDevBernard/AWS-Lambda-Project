@@ -13,8 +13,6 @@ const schedule = [
   "Tyrannical, Bolstering, Explosive, Encrypted",
 ];
 
-schedule.forEach((el, i) => (schedule[i] = el.replace(/, /g, "-")));
-
 const mockNumber = (min: number, max: number) => {
   min = Math.ceil(min);
   max = Math.floor(max);

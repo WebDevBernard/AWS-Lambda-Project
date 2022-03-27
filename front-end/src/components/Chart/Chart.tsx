@@ -1,6 +1,7 @@
+import { numberWithCommas } from "../../utils/format";
 import { IProps } from "../../store/interface";
 import { FC } from "react";
-import moment from "moment";
+import { affixDate } from "../../utils/date";
 import Card from "../Card/Card";
 import classes from "./Chart.module.css";
 import {
@@ -16,41 +17,28 @@ import {
 const CustomToolTip = ({
   active,
   payload,
-  startDate,
 }: {
   active?: boolean;
   payload?: IProps;
-  startDate: string;
 }) => {
   if (Array.isArray(payload) && active) {
     return (
       <div className={classes.tooltip}>
         <p>
           Week {payload[0].payload.week} |{"  "}
-          {moment(
-            new Date().setDate(
-              new Date(startDate).getDate() +
-                1 * (payload[0].payload.week - 1) * 7
-            )
-          ).format("MMMM Do")}
+          {affixDate(payload[0].payload.week - 1)}
         </p>
         <p style={{ fontFamily: "Encode Sans" }}>
           {numberWithCommas(payload[0].payload.total)}
         </p>
-        <p>{payload[0].payload.affix.split("-").join(", ")}</p>
+        <p>{payload[0].payload.affix}</p>
       </div>
     );
   }
   return null;
 };
 
-function numberWithCommas(x: number) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-const Chart: FC<{ chartData: IProps[]; startDate: string }> = ({
-  chartData,
-  startDate,
-}) => {
+const Chart: FC<{ chartData: IProps[] }> = ({ chartData }) => {
   return (
     <Card>
       <ResponsiveContainer height="100%" maxHeight={600} aspect={2}>
@@ -59,7 +47,6 @@ const Chart: FC<{ chartData: IProps[]; startDate: string }> = ({
           margin={{
             top: 30,
             right: 30,
-
             bottom: 0,
           }}
         >
@@ -96,7 +83,7 @@ const Chart: FC<{ chartData: IProps[]; startDate: string }> = ({
             tickFormatter={(number) => numberWithCommas(number)}
             tick={{ fill: "#606a99", fontSize: 12 }}
           />
-          <Tooltip content={<CustomToolTip startDate={startDate} />} />
+          <Tooltip content={<CustomToolTip />} />
           <CartesianGrid opacity={0.1} horizontal={false} />
         </AreaChart>
       </ResponsiveContainer>
