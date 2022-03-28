@@ -4,7 +4,7 @@
 
 ## Disclaimer
 
-- This data is an estimate of weekly Mythic+ runs based on character count. It uses data from Raider.io API in lieu of an official count from Blizzard. What it does is it looks at the **total number of characters** that have completed a Mythic+ dungeon. This [r/wow](https://www.reddit.com/r/wow/comments/o5nocw/comment/h2ov91n/?utm_source=share&utm_medium=web2x&context=3) post inspired me to make this app.
+- This data is an estimate of weekly Mythic+ runs based on character count. It uses data from Raider.io API in lieu of an official count from Blizzard. This [r/wow](https://www.reddit.com/r/wow/comments/o5nocw/comment/h2ov91n/?utm_source=share&utm_medium=web2x&context=3) post inspired me to make this app. You're welcome to fork this and try this on your own. You'll need to setup a backend on AWS first and have your own API key.
 
 ## Learn more
 
@@ -54,3 +54,20 @@
 ## Preview
 
 !["M+"](https://github.com/WebDevBernard/Portfolio/blob/main/public/docs/raiderio.png)
+
+## Installation
+
+Back-end (AWS)
+
+- make sure to update Required Changes in `back-end/write.js`
+- copy and paste `back-end/write.js` and `back-end/read.js` into a AWS Lambda function. Need to also upload a lambda layer with all your node modules
+- setup EventBridge that calls the write function with this cron job `0 20 ? * 6 *`
+- setup API gateway that calls `back-end/read.js`
+- copy and paste the API gateway `x-api-key` to an env file for `front-end`
+
+Front-end
+
+- `cd front-end/`
+- `npm install`
+- make sure to update Required Changes in `front-end/App.tsx`
+- `npm start`
