@@ -63,7 +63,7 @@ Back-end (AWS)
 - copy and paste `back-end/write.js` and `back-end/read.js` into a AWS Lambda function. Need to also upload a lambda layer with all your node modules
 - setup DynamoDB table named `wow` with `date` as key
 - setup EventBridge that calls the write function with this cron job `0 20 ? * 6 *`
-- setup API gateway that calls `back-end/read.js`
+- setup API gateway that calls the read function
 - copy and paste the API gateway `api-url` and `x-api-key` to an env file into these variables `REACT_APP_API_URL` and `REACT_APP_API_URL` inside your `front-end` folder
 
 Front-end
