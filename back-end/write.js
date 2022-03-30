@@ -13,8 +13,8 @@ exports.handler = (event, context, callback) => {
   // REQUIRED  change affixes with this array
   const schedule = [
     "Fortified, Bursting, Storming,	Encrypted",
-    "Tyrannical, Raging,	Volcanic,	Encrypted",
-    "Fortified, Inspiring,	Grievous,	Encrypted",
+    "Tyrannical, Raging, Volcanic, Encrypted",
+    "Fortified, Inspiring, Grievous, Encrypted",
     "Tyrannical, Spiteful, Necrotic, Encrypted",
     "Fortified, Bolstering, Quaking, Encrypted",
     "Tyrannical, Sanguine, Storming, Encrypted",
