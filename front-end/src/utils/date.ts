@@ -12,7 +12,11 @@ export function updateDate() {
 // get the affix date 7 days from the start date entered in app
 
 export const affixDate = (index: number) => {
-  return moment(
-    new Date().setDate(new Date(startDate).getDate() + index * 7)
-  ).format("MMMM Do");
+  const today = new Date(startDate);
+  const nextWeek = new Date(
+    today.getFullYear(),
+    today.getMonth(),
+    today.getDate() + 7 * index
+  );
+  return moment(nextWeek).format("MMMM DD");
 };
