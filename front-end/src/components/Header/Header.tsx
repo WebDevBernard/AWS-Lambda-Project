@@ -39,9 +39,7 @@ const Header: FC<{
         <span className={classes.season}>{expansionTag}</span>
         <p className={classes.update}>Next update {updateDate()} 12:00PM PST</p>
       </div>
-      <p className={classes.description}>
-        Updated every Friday. Data comes from Raider.io API.
-      </p>
+      <p className={classes.description}>Data comes from Raider.io API.</p>
       <div className={classes.info__container}>
         <InfoWidget counterData={counterData} />
         <CounterWidget counterData={counterData} />

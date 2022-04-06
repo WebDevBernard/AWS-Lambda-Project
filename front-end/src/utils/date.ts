@@ -18,5 +18,5 @@ export const affixDate = (index: number) => {
     today.getMonth(),
     today.getDate() + 7 * index
   );
-  return moment(nextWeek).format("MMMM DD");
+  return moment(nextWeek).format("MMMM Do");
 };

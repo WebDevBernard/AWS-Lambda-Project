@@ -31,26 +31,24 @@ function App() {
     setToggleChart(!toggleChart);
   };
   return (
-    <>
-      <Layout>
-        <div>
-          <Header
-            expansionTag={expansionTag}
-            counterData={data}
-            handleChange={handleChange}
-            view={toggleChart}
-          />
-          {toggleChart && data && !error && <ChartTable chartData={data} />}
-          {!toggleChart && data && !error && <Chart chartData={data} />}
-          {error && <Error error={error} />}
-          <Footer news={news} />
-        </div>
-        <div>
-          <Table tableData={data} />
-          <TableFooter />
-        </div>
-      </Layout>
-    </>
+    <Layout>
+      <div>
+        <Header
+          expansionTag={expansionTag}
+          counterData={data}
+          handleChange={handleChange}
+          view={toggleChart}
+        />
+        {toggleChart && data && !error && <ChartTable chartData={data} />}
+        {!toggleChart && data && !error && <Chart chartData={data} />}
+        {error && <Error error={error} />}
+        <Footer news={news} />
+      </div>
+      <div>
+        <Table tableData={data} />
+        <TableFooter />
+      </div>
+    </Layout>
   );
 }
 

@@ -5,6 +5,7 @@
   align-items: center;
   justify-content: space-between;
   margin-top: 12px;
+  gap: 16px;
 }
 
 .left {
