@@ -18,7 +18,7 @@ export const startDate = "March 1, 2022";
 // Header expansion tag
 const expansionTag = "Shadowlands Season 3";
 // Footer news
-const news = "Mythic Plus Schedule based on Mythicpl.us";
+const news = "Schedule from Mythicpl.us";
 
 //  <========= Required Change Ends Here: =========>
 
