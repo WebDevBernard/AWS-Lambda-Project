@@ -29,10 +29,6 @@ const Header: FC<{
         </p>
       </div>
       <div className={classes.container}>
-        <img
-          src="https://img.icons8.com/color/48/000000/world-of-warcraft.png"
-          alt="warcraft icon"
-        />
         <p className={classes.title}>WoW Mythic+ Run Count</p>
       </div>
       <div className={classes.container}>

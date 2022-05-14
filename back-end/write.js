@@ -13,7 +13,7 @@ exports.handler = (event, context, callback) => {
   // REQUIRED  change affixes with this array
   const schedule = [
     "Tyrannical, Bolstering, Explosive, Encrypted",
-    "Fortified, Bursting, Storming,	Encrypted",
+    "Fortified, Bursting, Storming, Encrypted",
     "Tyrannical, Raging, Volcanic, Encrypted",
     "Fortified, Inspiring, Grievous, Encrypted",
     "Tyrannical, Spiteful, Necrotic, Encrypted",
@@ -21,9 +21,9 @@ exports.handler = (event, context, callback) => {
     "Tyrannical, Sanguine, Storming, Encrypted",
     "Fortified, Raging, Explosive, Encrypted",
     "Tyrannical, Bursting, Volcanic, Encrypted",
-    "Fortified, Spiteful, Grievous, Encrypted",
+    "Fortified, Spiteful, Necrotic, Encrypted",
     "Tyrannical, Inspiring, Quaking, Encrypted",
-    "Fortified, Sanguine, Grievous, Encrypted",
+    "Fortified, Sanguine, Grievous, Encrypted"
   ];
   const startDate = "March 1, 2022";
   //  REQUIRED change the starting date
