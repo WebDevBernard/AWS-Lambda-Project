@@ -14,7 +14,7 @@ const Header: FC<{
 }> = ({ expansionTag, counterData, handleChange, view }) => {
   return (
     <div className={classes.header}>
-      <div className={classes.button}>
+      {/* <div className={classes.button}>
         <p
           className={!view ? classes.button__select : classes.button__unselect}
           onClick={handleChange}
@@ -27,7 +27,7 @@ const Header: FC<{
         >
           Affixes Ranking
         </p>
-      </div>
+      </div> */}
       <div className={classes.container}>
         <p className={classes.title}>WoW Mythic+ Run Count</p>
       </div>

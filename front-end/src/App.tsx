@@ -12,11 +12,11 @@ import TableFooter from "./components/Footer/TableFooter";
 // Must be initials lowercase
 const expansionName = "sl";
 // Change Season
-const season = 3;
+const season = 4;
 // start Date (this only effects the tooltip dates)
-export const startDate = "March 1, 2022";
+export const startDate = "August 2, 2022";
 // Header expansion tag
-const expansionTag = "Shadowlands Season 3";
+const expansionTag = "Shadowlands Season 4";
 // Footer news
 const news = "View the source code on Github";
 

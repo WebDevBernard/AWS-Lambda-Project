@@ -9,23 +9,23 @@ exports.handler = (event, context, callback) => {
   // REQUIRED change the expansion with this variable
   const expansion = "sl";
   // REQUIRED change season with this variable
-  const season = "3";
+  const season = "4";
   // REQUIRED  change affixes with this array
   const schedule = [
-    "Tyrannical, Bolstering, Explosive, Encrypted",
-    "Fortified, Bursting, Storming, Encrypted",
-    "Tyrannical, Raging, Volcanic, Encrypted",
-    "Fortified, Inspiring, Grievous, Encrypted",
-    "Tyrannical, Spiteful, Necrotic, Encrypted",
-    "Fortified, Bolstering, Quaking, Encrypted",
-    "Tyrannical, Sanguine, Storming, Encrypted",
-    "Fortified, Raging, Explosive, Encrypted",
-    "Tyrannical, Bursting, Volcanic, Encrypted",
-    "Fortified, Spiteful, Necrotic, Encrypted",
-    "Tyrannical, Inspiring, Quaking, Encrypted",
-    "Fortified, Sanguine, Grievous, Encrypted"
+    "Tyrannical, Inspiring, Quaking, Shrouded",
+    "Fortified, Sanguine, Grievous, Shrouded",
+    "Tyrannical, Bolstering, Explosive, Shrouded",
+    "Fortified, Bursting, Storming, Shrouded",
+    "Tyrannical, Raging, Volcanic, Shrouded",
+    "Fortified, Inspiring, Grievous, Shrouded",
+    "Tyrannical, Spiteful, Necrotic, Shrouded",
+    "Fortified, Bolstering, Quaking, Shrouded",
+    "Tyrannical, Sanguine, Storming, Shrouded",
+    "Fortified, Raging, Explosive, Shrouded",
+    "Tyrannical, Bursting, Volcanic, Shrouded",
+    "Fortified, Spiteful, Necrotic, Shrouded",
   ];
-  const startDate = "March 1, 2022";
+  const startDate = "August 2, 2022";
   //  REQUIRED change the starting date
   // <========= END OF REQUIRED CHANGES =========>
 
