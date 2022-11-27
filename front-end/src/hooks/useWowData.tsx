@@ -32,18 +32,8 @@ const useWowData = (expansionName: string, season: number) => {
         if (!response.ok) {
           throw new Error(`Response Status: ${response.status}`);
         }
-        const responseData = await response.json();
-
-        // Mock data taken from actual readings in shadowlands season 3
-
-        // const filterExpansionSeason = mockData
-        //   .filter((item: IProps) => {
-        //     return item.expansion === "sl";
-        //   })
-        //   .filter((item: IProps) => {
-        //     return item.season === 3;
-        //   })
-        //   .sort((a: IProps, b: IProps) => a.week - b.week);
+        // const responseData = await response.json();
+        const responseData = mockData;
 
         // filter array for the current expansion then current season and finally sort by the week
         const filterExpansionSeason = responseData
@@ -83,6 +73,7 @@ const useWowData = (expansionName: string, season: number) => {
         setLoading(false);
       }
     };
+
     fetchData();
   }, [expansionName, season]);
   return {

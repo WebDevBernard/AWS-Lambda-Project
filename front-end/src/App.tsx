@@ -18,7 +18,7 @@ export const startDate = "August 2, 2022";
 // Header expansion tag
 const expansionTag = "Shadowlands Season 4";
 // Footer news
-const news = "View the source code on Github";
+const news = "This project is no longer maintained as I'm working on Version 2";
 
 //  <========= Required Change Ends Here: =========>
 
