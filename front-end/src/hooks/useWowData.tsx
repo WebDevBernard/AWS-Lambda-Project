@@ -30,8 +30,9 @@ const useWowData = (expansionName: string, season: number) => {
           },
         });
         if (!response.ok) {
-          throw new Error(`Response Status: ${response.status}`);
+          throw response;
         }
+
         // const responseData = await response.json();
         const responseData = mockData;
 
