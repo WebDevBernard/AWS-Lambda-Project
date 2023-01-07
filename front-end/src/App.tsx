@@ -10,15 +10,15 @@ import ChartTable from "./components/Chart/ChartTable";
 import TableFooter from "./components/Footer/TableFooter";
 //  <========= Required Change Starts Here: =========>
 // Must be initials lowercase
-const expansionName = "sl";
+const expansionName = "df";
 // Change Season
-const season = 4;
+const season = 1;
 // start Date (this only effects the tooltip dates)
-export const startDate = "August 2, 2022";
+export const startDate = "December 12, 2022";
 // Header expansion tag
-const expansionTag = "Shadowlands Season 4";
+const expansionTag = "Dragonflight Season 1";
 // Footer news
-const news = "This project is no longer maintained as I'm working on Version 2";
+const news = "Data taken from Raider.io Leaderboards";
 
 //  <========= Required Change Ends Here: =========>
 

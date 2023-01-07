@@ -23,17 +23,16 @@ const useWowData = (expansionName: string, season: number) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // const response = await fetch(process.env.REACT_APP_API_URL!, {
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //     "x-api-key": process.env.REACT_APP_API_KEY!,
-        //   },
-        // });
-        // if (!response.ok) {
-        //   throw response;
-        // }
-        // const responseData = await response.json();
-        const responseData = mockData;
+        const response = await fetch(process.env.REACT_APP_API_URL!, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        if (!response.ok) {
+          throw response;
+        }
+        const responseData = await response.json();
+        // const responseData = mockData;
 
         // filter array for the current expansion then current season and finally sort by the week
         const filterExpansionSeason = responseData
