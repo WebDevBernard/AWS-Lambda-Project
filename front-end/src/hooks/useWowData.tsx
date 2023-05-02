@@ -53,12 +53,12 @@ const useWowData = (expansionName: string, season: number) => {
 
         // map new key value onto a new array
         const findSchedule = filterExpansionSeason.map((obj: IProps) => {
-          if (obj.week >= obj.week.length() + 1) {
+          if (obj.week >= obj.week.length + 1) {
             return {
               ...obj,
               total:
                 filterExpansionSeason[filterWeekByIndex(obj.week)].total -
-                filterExpansionSeason[filterWeekByIndex(obj.week - obj.week.lenght())].total,
+                filterExpansionSeason[filterWeekByIndex(obj.week - obj.week.length)].total,
             };
           } else {
             return { ...obj };
