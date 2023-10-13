@@ -36,8 +36,8 @@ const Header: FC<{
         {/* <p className={classes.update}>Next update {updateDate()} 12:00PM PST</p> */}
         <p className={classes.update}>
           This project is no longer maintained. You can see how the backend
-          worked via Github. I originally I had it setup using AWS DynamoDB and
-          a CRON job via Eventbridge.
+          worked via Github. I originally had it setup using AWS DynamoDB and a
+          CRON job via Eventbridge.
         </p>
       </div>
       <p className={classes.description}>Data comes from Raider.io API.</p>
